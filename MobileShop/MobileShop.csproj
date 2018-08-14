@@ -200,26 +200,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Mobile.cs">
-      <DependentUpon>MobileShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MobileShopDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MobileShopDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MobileShopDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MobileShopDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MobileShopDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MobileShopDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -236,27 +219,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="MobileShopDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MobileShopDB.edmx</DependentUpon>
-      <LastGenOutput>MobileShopDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="MobileShopDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MobileShopDB.edmx</DependentUpon>
-      <LastGenOutput>MobileShopDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="MobileShopDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MobileShopDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="MobileShopDB.edmx.diagram">
-      <DependentUpon>MobileShopDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -306,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Mobile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -327,6 +294,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{f605f8ab-9c41-4411-bbac-f6a4674c7d52}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{1ab55664-30a5-4f5b-ae53-a982b50382ff}</Project>
       <Name>Services</Name>

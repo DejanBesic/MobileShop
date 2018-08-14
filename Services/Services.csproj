@@ -43,5 +43,19 @@
     <Compile Include="MobileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IServices\IServices.csproj">
+      <Project>{56bf0ede-678b-4ab0-a9f1-379acba99f59}</Project>
+      <Name>IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{F605F8AB-9C41-4411-BBAC-F6A4674C7D52}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositories\Repositories.csproj">
+      <Project>{9e18dc3c-b63a-4ba1-b6b2-a86ad16e4dea}</Project>
+      <Name>Repositories</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

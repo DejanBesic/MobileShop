@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IServices
 {
-    public interface IService : IDisposable
+    public interface IService
     {
     }
 }
