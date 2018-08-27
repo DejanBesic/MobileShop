@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MobileShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Additional">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdditionalDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__Addition__32AB8735" FromRole="Additional" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Administrator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RootAdmin" Type="Boolean" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__Blocke__3864608B" FromRole="Administrator" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Battery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Capacity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__BatteryI__30C33EC3" FromRole="Battery" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Camera">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BackCamera" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="BackCameraChar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FrontCamera" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FrontCameraChar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Video" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__CameraId__2CF2ADDF" FromRole="Camera" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="MobileId" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Cart__CustomerId__40058253" FromRole="Cart" ToRole="Customer" />
+    <NavigationProperty Name="Mobile" Relationship="Self.FK__Cart__MobileId__3F115E1A" FromRole="Cart" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Characteristic">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SIM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DualSIM" Type="Boolean" />
+    <Property Name="Dimensions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneWeight" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__Characte__31B762FC" FromRole="Characteristics" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Communication">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DataTransfer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Network2G" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Network3G" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Network4G" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="USB" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="WiFi" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Bluetooth" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="NFC" Type="Boolean" />
+    <Property Name="GPS" Type="Boolean" />
+    <Property Name="PhoneMessages" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__Communic__2FCF1A8A" FromRole="Communication" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Blocked" Type="Boolean" />
+    <Property Name="Activated" Type="Boolean" />
+    <Property Name="BlockedBy" Type="Int32" />
+    <NavigationProperty Name="Administrator" Relationship="Self.FK__Customer__Blocke__3864608B" FromRole="Customer" ToRole="Administrator" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__CustomerId__40058253" FromRole="Customer" ToRole="Cart" />
+    <NavigationProperty Name="Shoppings" Relationship="Self.FK__Shopping__Custom__3C34F16F" FromRole="Customer" ToRole="Shopping" />
+  </EntityType>
+  <EntityType Name="Memory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Intern" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Extern" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__MemoryId__2DE6D218" FromRole="Memory" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Mobile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="About" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="PlatformId" Type="Int32" />
+    <Property Name="ScreenId" Type="Int32" />
+    <Property Name="CameraId" Type="Int32" />
+    <Property Name="MemoryId" Type="Int32" />
+    <Property Name="SoundId" Type="Int32" />
+    <Property Name="CommunicationId" Type="Int32" />
+    <Property Name="BatteryId" Type="Int32" />
+    <Property Name="CharacteristicsId" Type="Int32" />
+    <Property Name="AdditionalId" Type="Int32" />
+    <Property Name="PackageContentId" Type="Int32" />
+    <NavigationProperty Name="Additional" Relationship="Self.FK__Mobile__Addition__32AB8735" FromRole="Mobile" ToRole="Additional" />
+    <NavigationProperty Name="Battery" Relationship="Self.FK__Mobile__BatteryI__30C33EC3" FromRole="Mobile" ToRole="Battery" />
+    <NavigationProperty Name="Camera" Relationship="Self.FK__Mobile__CameraId__2CF2ADDF" FromRole="Mobile" ToRole="Camera" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__MobileId__3F115E1A" FromRole="Mobile" ToRole="Cart" />
+    <NavigationProperty Name="Characteristic" Relationship="Self.FK__Mobile__Characte__31B762FC" FromRole="Mobile" ToRole="Characteristics" />
+    <NavigationProperty Name="Communication" Relationship="Self.FK__Mobile__Communic__2FCF1A8A" FromRole="Mobile" ToRole="Communication" />
+    <NavigationProperty Name="Memory" Relationship="Self.FK__Mobile__MemoryId__2DE6D218" FromRole="Mobile" ToRole="Memory" />
+    <NavigationProperty Name="PackageContent" Relationship="Self.FK__Mobile__PackageC__339FAB6E" FromRole="Mobile" ToRole="PackageContent" />
+    <NavigationProperty Name="PhonePlatform" Relationship="Self.FK__Mobile__Platform__2B0A656D" FromRole="Mobile" ToRole="PhonePlatform" />
+    <NavigationProperty Name="Screen" Relationship="Self.FK__Mobile__ScreenId__2BFE89A6" FromRole="Mobile" ToRole="Screen" />
+    <NavigationProperty Name="Sound" Relationship="Self.FK__Mobile__SoundId__2EDAF651" FromRole="Mobile" ToRole="Sound" />
+    <NavigationProperty Name="Shoppings" Relationship="Self.FK__Shopping__Mobile__3B40CD36" FromRole="Mobile" ToRole="Shopping" />
+  </EntityType>
+  <EntityType Name="PackageContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__PackageC__339FAB6E" FromRole="PackageContent" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="PhonePlatform">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Processor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="RAM" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__Platform__2B0A656D" FromRole="PhonePlatform" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Screen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Size" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Resolution" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ScreenType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Touch" Type="Boolean" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__ScreenId__2BFE89A6" FromRole="Screen" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Shopping">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="MobileId" Type="Int32" />
+    <Property Name="ShoppingNumber" Type="Int32" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Shopping__Custom__3C34F16F" FromRole="Shopping" ToRole="Customer" />
+    <NavigationProperty Name="Mobile" Relationship="Self.FK__Shopping__Mobile__3B40CD36" FromRole="Shopping" ToRole="Mobile" />
+  </EntityType>
+  <EntityType Name="Sound">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FMRadio" Type="Boolean" />
+    <Property Name="Port35mm" Type="Boolean" />
+    <Property Name="HDVoice" Type="Boolean" />
+    <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__SoundId__2EDAF651" FromRole="Sound" ToRole="Mobile" />
+  </EntityType>
+  <Association Name="FK__Mobile__Addition__32AB8735">
+    <End Role="Additional" Type="Self.Additional" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Additional">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="AdditionalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Customer__Blocke__3864608B">
+    <End Role="Administrator" Type="Self.Administrator" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Administrator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="BlockedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__BatteryI__30C33EC3">
+    <End Role="Battery" Type="Self.Battery" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Battery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="BatteryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__CameraId__2CF2ADDF">
+    <End Role="Camera" Type="Self.Camera" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Camera">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="CameraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__CustomerId__40058253">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cart__MobileId__3F115E1A">
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mobile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="MobileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__Characte__31B762FC">
+    <End Role="Characteristics" Type="Self.Characteristic" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Characteristics">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="CharacteristicsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__Communic__2FCF1A8A">
+    <End Role="Communication" Type="Self.Communication" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Communication">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="CommunicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Shopping__Custom__3C34F16F">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shopping">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__MemoryId__2DE6D218">
+    <End Role="Memory" Type="Self.Memory" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Memory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="MemoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__PackageC__339FAB6E">
+    <End Role="PackageContent" Type="Self.PackageContent" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PackageContent">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="PackageContentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__Platform__2B0A656D">
+    <End Role="PhonePlatform" Type="Self.PhonePlatform" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhonePlatform">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="PlatformId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__ScreenId__2BFE89A6">
+    <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Screen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="ScreenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Mobile__SoundId__2EDAF651">
+    <End Role="Sound" Type="Self.Sound" Multiplicity="0..1" />
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sound">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mobile">
+        <PropertyRef Name="SoundId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Shopping__Mobile__3B40CD36">
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
+    <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mobile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shopping">
+        <PropertyRef Name="MobileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MobileShopEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Additionals" EntityType="Self.Additional" />
+    <EntitySet Name="Administrators" EntityType="Self.Administrator" />
+    <EntitySet Name="Batteries" EntityType="Self.Battery" />
+    <EntitySet Name="Cameras" EntityType="Self.Camera" />
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="Characteristics" EntityType="Self.Characteristic" />
+    <EntitySet Name="Communications" EntityType="Self.Communication" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Memories" EntityType="Self.Memory" />
+    <EntitySet Name="Mobiles" EntityType="Self.Mobile" />
+    <EntitySet Name="PackageContents" EntityType="Self.PackageContent" />
+    <EntitySet Name="PhonePlatforms" EntityType="Self.PhonePlatform" />
+    <EntitySet Name="Screens" EntityType="Self.Screen" />
+    <EntitySet Name="Shoppings" EntityType="Self.Shopping" />
+    <EntitySet Name="Sounds" EntityType="Self.Sound" />
+    <AssociationSet Name="FK__Mobile__Addition__32AB8735" Association="Self.FK__Mobile__Addition__32AB8735">
+      <End Role="Additional" EntitySet="Additionals" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Customer__Blocke__3864608B" Association="Self.FK__Customer__Blocke__3864608B">
+      <End Role="Administrator" EntitySet="Administrators" />
+      <End Role="Customer" EntitySet="Customers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__BatteryI__30C33EC3" Association="Self.FK__Mobile__BatteryI__30C33EC3">
+      <End Role="Battery" EntitySet="Batteries" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__CameraId__2CF2ADDF" Association="Self.FK__Mobile__CameraId__2CF2ADDF">
+      <End Role="Camera" EntitySet="Cameras" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__CustomerId__40058253" Association="Self.FK__Cart__CustomerId__40058253">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cart__MobileId__3F115E1A" Association="Self.FK__Cart__MobileId__3F115E1A">
+      <End Role="Mobile" EntitySet="Mobiles" />
+      <End Role="Cart" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__Characte__31B762FC" Association="Self.FK__Mobile__Characte__31B762FC">
+      <End Role="Characteristics" EntitySet="Characteristics" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__Communic__2FCF1A8A" Association="Self.FK__Mobile__Communic__2FCF1A8A">
+      <End Role="Communication" EntitySet="Communications" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Shopping__Custom__3C34F16F" Association="Self.FK__Shopping__Custom__3C34F16F">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Shopping" EntitySet="Shoppings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__MemoryId__2DE6D218" Association="Self.FK__Mobile__MemoryId__2DE6D218">
+      <End Role="Memory" EntitySet="Memories" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__PackageC__339FAB6E" Association="Self.FK__Mobile__PackageC__339FAB6E">
+      <End Role="PackageContent" EntitySet="PackageContents" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__Platform__2B0A656D" Association="Self.FK__Mobile__Platform__2B0A656D">
+      <End Role="PhonePlatform" EntitySet="PhonePlatforms" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__ScreenId__2BFE89A6" Association="Self.FK__Mobile__ScreenId__2BFE89A6">
+      <End Role="Screen" EntitySet="Screens" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Mobile__SoundId__2EDAF651" Association="Self.FK__Mobile__SoundId__2EDAF651">
+      <End Role="Sound" EntitySet="Sounds" />
+      <End Role="Mobile" EntitySet="Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Shopping__Mobile__3B40CD36" Association="Self.FK__Shopping__Mobile__3B40CD36">
+      <End Role="Mobile" EntitySet="Mobiles" />
+      <End Role="Shopping" EntitySet="Shoppings" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

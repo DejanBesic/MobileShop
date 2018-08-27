@@ -1,0 +1,16 @@
+E:\Diplomski\MobileShop\Repository\bin\Debug\Repository.dll.config
+E:\Diplomski\MobileShop\Repository\bin\Debug\Repository.dll
+E:\Diplomski\MobileShop\Repository\bin\Debug\Repository.pdb
+E:\Diplomski\MobileShop\Repository\bin\Debug\EntityFramework.dll
+E:\Diplomski\MobileShop\Repository\bin\Debug\EntityFramework.SqlServer.dll
+E:\Diplomski\MobileShop\Repository\bin\Debug\EntityFramework.xml
+E:\Diplomski\MobileShop\Repository\bin\Debug\EntityFramework.SqlServer.xml
+E:\Diplomski\MobileShop\Repository\obj\Debug\Repository.csprojAssemblyReference.cache
+E:\Diplomski\MobileShop\Repository\obj\Debug\Repository.csproj.CoreCompileInputs.cache
+E:\Diplomski\MobileShop\Repository\obj\Debug\Repository.csproj.CopyComplete
+E:\Diplomski\MobileShop\Repository\obj\Debug\Repository.dll
+E:\Diplomski\MobileShop\Repository\obj\Debug\Repository.pdb
+E:\Diplomski\MobileShop\Repository\bin\Debug\IRepository.dll
+E:\Diplomski\MobileShop\Repository\bin\Debug\Models.dll
+E:\Diplomski\MobileShop\Repository\bin\Debug\IRepository.pdb
+E:\Diplomski\MobileShop\Repository\bin\Debug\Models.pdb

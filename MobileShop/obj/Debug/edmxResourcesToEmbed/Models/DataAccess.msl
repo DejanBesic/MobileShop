@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MobileShopModelStoreContainer" CdmEntityContainer="MobileShopEntities">
+    <EntitySetMapping Name="Additionals">
+      <EntityTypeMapping TypeName="MobileShopModel.Additional">
+        <MappingFragment StoreEntitySet="Additional">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AdditionalDescription" ColumnName="AdditionalDescription" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administrators">
+      <EntityTypeMapping TypeName="MobileShopModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RootAdmin" ColumnName="RootAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Batteries">
+      <EntityTypeMapping TypeName="MobileShopModel.Battery">
+        <MappingFragment StoreEntitySet="Battery">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cameras">
+      <EntityTypeMapping TypeName="MobileShopModel.Camera">
+        <MappingFragment StoreEntitySet="Camera">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BackCamera" ColumnName="BackCamera" />
+          <ScalarProperty Name="BackCameraChar" ColumnName="BackCameraChar" />
+          <ScalarProperty Name="FrontCamera" ColumnName="FrontCamera" />
+          <ScalarProperty Name="FrontCameraChar" ColumnName="FrontCameraChar" />
+          <ScalarProperty Name="Video" ColumnName="Video" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="MobileShopModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Characteristics">
+      <EntityTypeMapping TypeName="MobileShopModel.Characteristic">
+        <MappingFragment StoreEntitySet="Characteristics">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SIM" ColumnName="SIM" />
+          <ScalarProperty Name="DualSIM" ColumnName="DualSIM" />
+          <ScalarProperty Name="Dimensions" ColumnName="Dimensions" />
+          <ScalarProperty Name="PhoneWeight" ColumnName="PhoneWeight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Communications">
+      <EntityTypeMapping TypeName="MobileShopModel.Communication">
+        <MappingFragment StoreEntitySet="Communication">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DataTransfer" ColumnName="DataTransfer" />
+          <ScalarProperty Name="Network2G" ColumnName="Network2G" />
+          <ScalarProperty Name="Network3G" ColumnName="Network3G" />
+          <ScalarProperty Name="Network4G" ColumnName="Network4G" />
+          <ScalarProperty Name="USB" ColumnName="USB" />
+          <ScalarProperty Name="WiFi" ColumnName="WiFi" />
+          <ScalarProperty Name="Bluetooth" ColumnName="Bluetooth" />
+          <ScalarProperty Name="NFC" ColumnName="NFC" />
+          <ScalarProperty Name="GPS" ColumnName="GPS" />
+          <ScalarProperty Name="PhoneMessages" ColumnName="PhoneMessages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="MobileShopModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CustomerPassword" ColumnName="CustomerPassword" />
+          <ScalarProperty Name="Blocked" ColumnName="Blocked" />
+          <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="BlockedBy" ColumnName="BlockedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Memories">
+      <EntityTypeMapping TypeName="MobileShopModel.Memory">
+        <MappingFragment StoreEntitySet="Memory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Intern" ColumnName="Intern" />
+          <ScalarProperty Name="Extern" ColumnName="Extern" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mobiles">
+      <EntityTypeMapping TypeName="MobileShopModel.Mobile">
+        <MappingFragment StoreEntitySet="Mobile">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PlatformId" ColumnName="PlatformId" />
+          <ScalarProperty Name="ScreenId" ColumnName="ScreenId" />
+          <ScalarProperty Name="CameraId" ColumnName="CameraId" />
+          <ScalarProperty Name="MemoryId" ColumnName="MemoryId" />
+          <ScalarProperty Name="SoundId" ColumnName="SoundId" />
+          <ScalarProperty Name="CommunicationId" ColumnName="CommunicationId" />
+          <ScalarProperty Name="BatteryId" ColumnName="BatteryId" />
+          <ScalarProperty Name="CharacteristicsId" ColumnName="CharacteristicsId" />
+          <ScalarProperty Name="AdditionalId" ColumnName="AdditionalId" />
+          <ScalarProperty Name="PackageContentId" ColumnName="PackageContentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PackageContents">
+      <EntityTypeMapping TypeName="MobileShopModel.PackageContent">
+        <MappingFragment StoreEntitySet="PackageContent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhonePlatforms">
+      <EntityTypeMapping TypeName="MobileShopModel.PhonePlatform">
+        <MappingFragment StoreEntitySet="PhonePlatform">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="Processor" ColumnName="Processor" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Screens">
+      <EntityTypeMapping TypeName="MobileShopModel.Screen">
+        <MappingFragment StoreEntitySet="Screen">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="ScreenType" ColumnName="ScreenType" />
+          <ScalarProperty Name="Touch" ColumnName="Touch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shoppings">
+      <EntityTypeMapping TypeName="MobileShopModel.Shopping">
+        <MappingFragment StoreEntitySet="Shopping">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+          <ScalarProperty Name="ShoppingNumber" ColumnName="ShoppingNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sounds">
+      <EntityTypeMapping TypeName="MobileShopModel.Sound">
+        <MappingFragment StoreEntitySet="Sound">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FMRadio" ColumnName="FMRadio" />
+          <ScalarProperty Name="Port35mm" ColumnName="Port35mm" />
+          <ScalarProperty Name="HDVoice" ColumnName="HDVoice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
