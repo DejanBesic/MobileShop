@@ -32,5 +32,10 @@ namespace Services
         {
             return additionalRepository.Delete(id);
         }
+
+        public AdditionalM Edit(AdditionalM additional)
+        {
+            return additionalRepository.Edit(additional);
+        }
     }
 }

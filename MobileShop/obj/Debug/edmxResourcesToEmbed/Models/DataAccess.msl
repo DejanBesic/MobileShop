@@ -9,17 +9,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Administrators">
-      <EntityTypeMapping TypeName="MobileShopModel.Administrator">
-        <MappingFragment StoreEntitySet="Administrator">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="RootAdmin" ColumnName="RootAdmin" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Batteries">
       <EntityTypeMapping TypeName="MobileShopModel.Battery">
         <MappingFragment StoreEntitySet="Battery">
@@ -89,6 +78,7 @@
           <ScalarProperty Name="CustomerPassword" ColumnName="CustomerPassword" />
           <ScalarProperty Name="Blocked" ColumnName="Blocked" />
           <ScalarProperty Name="Activated" ColumnName="Activated" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
           <ScalarProperty Name="BlockedBy" ColumnName="BlockedBy" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -134,7 +124,6 @@
         <MappingFragment StoreEntitySet="PhonePlatform">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="OS" ColumnName="OS" />
-          <ScalarProperty Name="Processor" ColumnName="Processor" />
           <ScalarProperty Name="RAM" ColumnName="RAM" />
         </MappingFragment>
       </EntityTypeMapping>

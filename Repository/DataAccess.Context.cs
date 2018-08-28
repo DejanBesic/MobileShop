@@ -26,7 +26,6 @@ namespace Repository
         }
     
         public virtual DbSet<Additional> Additionals { get; set; }
-        public virtual DbSet<Administrator> Administrators { get; set; }
         public virtual DbSet<Battery> Batteries { get; set; }
         public virtual DbSet<Camera> Cameras { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }

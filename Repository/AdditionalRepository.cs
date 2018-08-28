@@ -47,6 +47,7 @@ namespace Repository
             };
             Context.Additionals.Add(additionalDb);
             Context.SaveChanges();
+            additional.Id = additionalDb.Id;
             return additional;
         }
 
@@ -62,6 +63,19 @@ namespace Repository
             Context.SaveChanges();
 
             return new AdditionalM(additionalDb.Id, additionalDb.AdditionalDescription);
+        }
+
+        public AdditionalM Edit(AdditionalM additional)
+        {
+            var found = Context.Additionals.SingleOrDefault(x => x.Id == additional.Id);
+            if (found == null)
+            {
+                return null;
+            }
+            found.AdditionalDescription = additional.Description;
+            Context.SaveChanges();
+
+            return additional;
         }
     }
 }

@@ -4,3 +4,9 @@ E:\Diplomski\MobileShop\Models\obj\Debug\Models.csprojAssemblyReference.cache
 E:\Diplomski\MobileShop\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
 E:\Diplomski\MobileShop\Models\obj\Debug\Models.dll
 E:\Diplomski\MobileShop\Models\obj\Debug\Models.pdb
+E:\Diplomskiii\MobileShop\Models\bin\Debug\Models.dll
+E:\Diplomskiii\MobileShop\Models\bin\Debug\Models.pdb
+E:\Diplomskiii\MobileShop\Models\obj\Debug\Models.csprojAssemblyReference.cache
+E:\Diplomskiii\MobileShop\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+E:\Diplomskiii\MobileShop\Models\obj\Debug\Models.dll
+E:\Diplomskiii\MobileShop\Models\obj\Debug\Models.pdb

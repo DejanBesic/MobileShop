@@ -52,9 +52,7 @@
     <Compile Include="Additional.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Administrator.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
+    <Compile Include="AdditionalRepository.cs" />
     <Compile Include="Battery.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -67,7 +65,6 @@
     <Compile Include="Characteristic.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="AdditionalRepository.cs" />
     <Compile Include="Communication.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -113,29 +110,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="DataAccess.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataAccess.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="DataAccess.edmx.diagram">
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DataAccess.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DataAccess.Context.cs</LastGenOutput>
-      <DependentUpon>DataAccess.edmx</DependentUpon>
-    </Content>
-    <Content Include="DataAccess.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataAccess.edmx</DependentUpon>
-      <LastGenOutput>DataAccess.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -149,6 +132,18 @@
       <Project>{4ed3b83b-10a9-48b6-aacb-f84554a455f5}</Project>
       <Name>Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataAccess.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataAccess.edmx</DependentUpon>
+      <LastGenOutput>DataAccess.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataAccess.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataAccess.edmx</DependentUpon>
+      <LastGenOutput>DataAccess.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

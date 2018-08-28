@@ -22,7 +22,6 @@ namespace MobileShop.Models
     
         public int Id { get; set; }
         public string OS { get; set; }
-        public string Processor { get; set; }
         public string RAM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

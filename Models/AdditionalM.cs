@@ -8,7 +8,7 @@ namespace Models
 {
     public class AdditionalM
     {
-        public int Id { get; }
+        public int Id { get; set;  }
 
         public string Description { get; set; }
 

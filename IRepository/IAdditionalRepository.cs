@@ -13,5 +13,6 @@ namespace IRepository
         AdditionalM FindById(int id);
         AdditionalM Save(AdditionalM additional);
         AdditionalM Delete(int id);
+        AdditionalM Edit(AdditionalM additional);
     }
 }

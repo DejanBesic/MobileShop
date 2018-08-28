@@ -19,6 +19,7 @@ namespace MobileShop.Controllers
         }
 
         // GET: Additionals/All
+        [Authorize]
         public JsonResult All()
         {
             return Json(additionalService.FindAll(), JsonRequestBehavior.AllowGet);
@@ -41,8 +42,20 @@ namespace MobileShop.Controllers
 
             return Json(additionalService.Save(additional), JsonRequestBehavior.AllowGet);
         }
+        // PUT: Additionals/Edit
+        [HttpPut]
+        public JsonResult Edit(AdditionalM additional)
+        {
+            if(!ModelState.IsValid)
+            {
+                return null;
+            }
 
-        // GET: Additionals/Delete/{id}
+            return Json(additionalService.Edit(additional), JsonRequestBehavior.AllowGet);
+        }
+
+        // DELETE: Additionals/Delete/{id}
+        [HttpDelete]
         public JsonResult Delete(int id)
         {
             return Json(additionalService.Delete(id), JsonRequestBehavior.AllowGet);
