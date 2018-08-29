@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Services;
 using Models;
+using MobileShop.JWT;
 
 namespace MobileShop.Controllers
 {
@@ -19,7 +20,7 @@ namespace MobileShop.Controllers
         }
 
         // GET: Additionals/All
-        [Authorize]
+        [JwtAuthorize]
         public JsonResult All()
         {
             return Json(additionalService.FindAll(), JsonRequestBehavior.AllowGet);

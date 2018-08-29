@@ -71,6 +71,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DataAccess.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

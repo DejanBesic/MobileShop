@@ -447,3 +447,17 @@ E:\Diplomskiii\MobileShop\MobileShop\bin\System.Memory.xml
 E:\Diplomskiii\MobileShop\MobileShop\bin\System.Numerics.Vectors.xml
 E:\Diplomskiii\MobileShop\MobileShop\bin\System.Runtime.CompilerServices.Unsafe.xml
 E:\Diplomskiii\MobileShop\MobileShop\bin\System.Text.Encodings.Web.xml
+E:\Diplomskiii\MobileShop\MobileShop\bin\JWT.dll
+E:\Diplomskiii\MobileShop\MobileShop\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Common.dll
+E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Interfaces.dll
+E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Text.dll
+E:\Diplomskiii\MobileShop\MobileShop\bin\JWT.xml
+E:\Diplomskiii\MobileShop\MobileShop\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+E:\Diplomskiii\MobileShop\MobileShop\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\Diplomskiii\MobileShop\MobileShop\bin\Microsoft.IdentityModel.Logging.pdb
+E:\Diplomskiii\MobileShop\MobileShop\bin\Microsoft.IdentityModel.Tokens.pdb
+E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Common.xml
+E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Interfaces.xml
+E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Text.xml
+E:\Diplomskiii\MobileShop\MobileShop\bin\System.IdentityModel.Tokens.Jwt.pdb

@@ -17,7 +17,6 @@ DROP TABLE IF EXISTS Communication;
 
 CREATE TABLE Customer (
 	Id int PRIMARY KEY IDENTITY,
-	Username varchar(255),
 	FirstName varchar(255),
 	LastName varchar(255),
 	CustomerAddress varchar(255),
