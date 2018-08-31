@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="d00093fb6cfa481ebf21cae8b028be28" Name="Diagram1">
+      <Diagram DiagramId="4acd9785a7c74f4794923e03c67ac49f" Name="Diagram1">
         <EntityTypeShape EntityType="MobileShopModel.Additional" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Battery" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Camera" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Cart" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Characteristic" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Communication" Width="1.5" PointX="0.75" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileShopModel.Customer" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileShopModel.Customer" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Memory" Width="1.5" PointX="0.75" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Mobile" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.PackageContent" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
@@ -19,21 +19,20 @@
         <EntityTypeShape EntityType="MobileShopModel.Screen" Width="1.5" PointX="0.75" PointY="27.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Shopping" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Sound" Width="1.5" PointX="0.75" PointY="30" IsExpanded="true" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Addition__3DE82FB7" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__BatteryI__3FD07829" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__CameraId__3A179ED3" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Cart__CustomerId__43A1090D" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Cart__MobileId__44952D46" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Characte__40C49C62" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Communic__3CF40B7E" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Customer__Blocke__22401542" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shopping__Custom__4865BE2A" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__MemoryId__3B0BC30C" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__PackageC__3EDC53F0" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Platform__382F5661" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__ScreenId__39237A9A" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__SoundId__3BFFE745" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shopping__Mobile__477199F1" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Addition__1881A0DE" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__BatteryI__1A69E950" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__CameraId__14B10FFA" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Cart__CustomerId__1E3A7A34" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Cart__MobileId__1F2E9E6D" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Characte__1B5E0D89" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Communic__178D7CA5" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shopping__Custom__22FF2F51" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__MemoryId__15A53433" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__PackageC__1975C517" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Platform__12C8C788" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__ScreenId__13BCEBC1" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__SoundId__1699586C" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shopping__Mobile__220B0B18" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

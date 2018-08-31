@@ -461,3 +461,4 @@ E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Common.xml
 E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Interfaces.xml
 E:\Diplomskiii\MobileShop\MobileShop\bin\ServiceStack.Text.xml
 E:\Diplomskiii\MobileShop\MobileShop\bin\System.IdentityModel.Tokens.Jwt.pdb
+E:\Diplomskiii\MobileShop\MobileShop\bin\Services.dll.config

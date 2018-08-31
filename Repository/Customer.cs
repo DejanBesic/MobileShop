@@ -18,12 +18,10 @@ namespace Repository
         public Customer()
         {
             this.Carts = new HashSet<Cart>();
-            this.Customer1 = new HashSet<Customer>();
             this.Shoppings = new HashSet<Shopping>();
         }
     
         public int Id { get; set; }
-        public string Username { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CustomerAddress { get; set; }
@@ -32,13 +30,9 @@ namespace Repository
         public Nullable<bool> Blocked { get; set; }
         public Nullable<bool> Activated { get; set; }
         public Nullable<bool> IsAdmin { get; set; }
-        public Nullable<int> BlockedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Customer> Customer1 { get; set; }
-        public virtual Customer Customer2 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shopping> Shoppings { get; set; }
     }

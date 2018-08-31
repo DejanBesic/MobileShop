@@ -31,7 +31,6 @@ namespace Repository
                 Address = customerDb.CustomerAddress,
                 Blocked = customerDb.Blocked ?? false,
                 Activated = customerDb.Activated ?? false,
-                BlockedBy = customerDb.BlockedBy ?? -1,
                 IsAdmin = customerDb.IsAdmin ?? false,
             }; 
         }
@@ -56,7 +55,6 @@ namespace Repository
                 found.CustomerPassword = customer.Password;
             }
             found.IsAdmin = customer.IsAdmin;
-            found.BlockedBy = customer.BlockedBy;
             found.Blocked = customer.Blocked;
             found.Activated = customer.Activated;
             Context.SaveChanges();
@@ -78,7 +76,6 @@ namespace Repository
                     Address = c.CustomerAddress,
                     Blocked = c.Blocked ?? false,
                     Activated = c.Activated ?? false,
-                    BlockedBy = c.BlockedBy ?? -1,
                     IsAdmin = c.IsAdmin ?? false,
                 });
             }
@@ -99,7 +96,6 @@ namespace Repository
                 Address = customerDb.CustomerAddress,
                 Blocked = customerDb.Blocked ?? false,
                 Activated = customerDb.Activated ?? false,
-                BlockedBy = customerDb.BlockedBy ?? -1,
                 IsAdmin = customerDb.IsAdmin ?? false,
                 Password = customerDb.CustomerPassword,
             };
@@ -118,7 +114,6 @@ namespace Repository
                 Address = customerDb.CustomerAddress,
                 Blocked = customerDb.Blocked ?? false,
                 Activated = customerDb.Activated ?? false,
-                BlockedBy = customerDb.BlockedBy ?? -1,
                 IsAdmin = customerDb.IsAdmin ?? false,
             };
         }
@@ -133,7 +128,6 @@ namespace Repository
                 CustomerAddress = customer.Address,
                 Blocked = customer.Blocked,
                 Activated = customer.Activated,
-                BlockedBy = customer.BlockedBy,
                 IsAdmin = customer.IsAdmin,
                 CustomerPassword = customer.Password,
             };

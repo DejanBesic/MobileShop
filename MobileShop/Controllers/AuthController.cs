@@ -47,9 +47,28 @@ namespace MobileShop.Controllers
         }
 
         [HttpPost]
-        public void Register()
+        public ActionResult Register(RegisterDTO register)
         {
+            var customer = customerService.FindByEmail(register.Email);
 
+            if ( customer != null || register.Password != register.ConfirmPassword)
+            {
+                return new HttpStatusCodeResult(400);
+            }
+
+            customerService.Save(new CustomerM()
+            {
+                FirstName = register.FirstName,
+                LastName = register.LastName,
+                Address = register.Address,
+                Email = register.Email,
+                Password = register.Password,
+                Blocked = false,
+                Activated = false,
+                IsAdmin = false,
+            });
+
+            return new HttpStatusCodeResult(200);
         }
     }
 }

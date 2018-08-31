@@ -41,8 +41,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAdditionalService.cs" />
+    <Compile Include="IAuthService.cs" />
+    <Compile Include="IBatteryService.cs" />
+    <Compile Include="ICameraService.cs" />
+    <Compile Include="ICharacteristicsService.cs" />
+    <Compile Include="ICommunicationService.cs" />
     <Compile Include="ICustomerService.cs" />
+    <Compile Include="IMemoryService.cs" />
+    <Compile Include="IPackageContentService.cs" />
+    <Compile Include="IPhonePlatformService.cs" />
+    <Compile Include="IScreenService.cs" />
     <Compile Include="IService.cs" />
+    <Compile Include="ISoundService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

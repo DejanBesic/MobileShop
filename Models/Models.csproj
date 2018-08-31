@@ -41,8 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdditionalM.cs" />
+    <Compile Include="BatteryM.cs" />
+    <Compile Include="CameraM.cs" />
+    <Compile Include="CharacteristicsM.cs" />
+    <Compile Include="CommunicationM.cs" />
     <Compile Include="CustomerM.cs" />
+    <Compile Include="MemoryM.cs" />
+    <Compile Include="PackageContentM.cs" />
+    <Compile Include="PhonePlatformM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenM.cs" />
+    <Compile Include="SoundM.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

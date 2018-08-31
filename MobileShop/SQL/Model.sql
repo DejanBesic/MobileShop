@@ -17,6 +17,7 @@ DROP TABLE IF EXISTS Communication;
 
 CREATE TABLE Customer (
 	Id int PRIMARY KEY IDENTITY,
+	Username varchar(255),
 	FirstName varchar(255),
 	LastName varchar(255),
 	CustomerAddress varchar(255),
@@ -143,4 +144,22 @@ CREATE TABLE Shopping (
 	ShoppingNumber int,
 	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
 	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
+);
+
+CREATE TABLE Shop (
+	Id int PRIMARY KEY IDENTITY,
+	ShopName varchar(255),
+	ContactPhone varchar(255),
+	ContactMobilePhone varchar(255),
+	ContactAddress varchar(255),
+	HirePayment bit,
+	OpenTime varchar(255),
+);
+
+CREATE TABLE Shop_Mobiles(
+	Id int PRIMARY KEY IDENTITY,
+	ShopId int,
+	MobileId int,
+	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
+	FOREIGN KEY (ShopId) REFERENCES Shop(Id),
 );

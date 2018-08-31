@@ -26,14 +26,12 @@ namespace Models
 
         public bool IsAdmin { get; set; }
 
-        public int BlockedBy { get; set; }
-
         public CustomerM()
         {
 
         }
 
-        public CustomerM(int id, string firstName, string lastName, string address, string email, bool? blocked, bool? activated, bool? isAdmin, int? blockedBy)
+        public CustomerM(int id, string firstName, string lastName, string address, string email, bool? blocked, bool? activated, bool? isAdmin)
         {
             Id = id;
             FirstName = firstName;
@@ -43,7 +41,6 @@ namespace Models
             Blocked = blocked ?? false;
             activated = activated ?? false;
             IsAdmin = isAdmin ?? false;
-            BlockedBy = blockedBy ?? -1;
         }
 
     }

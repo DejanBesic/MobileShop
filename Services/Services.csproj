@@ -43,6 +43,7 @@
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -55,8 +56,17 @@
   <ItemGroup>
     <Compile Include="AdditionalService.cs" />
     <Compile Include="AuthService.cs" />
+    <Compile Include="BatteryService.cs" />
+    <Compile Include="CameraService.cs" />
+    <Compile Include="CharacteristicsService.cs" />
+    <Compile Include="CommunicationService.cs" />
     <Compile Include="CustomerService.cs" />
+    <Compile Include="MemoryService.cs" />
+    <Compile Include="PackageContentService.cs" />
+    <Compile Include="PhonePlatfromService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenService.cs" />
+    <Compile Include="SoundService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IServices\IServices.csproj">

@@ -409,6 +409,7 @@
     <Compile Include="Models\PhonePlatform.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegisterDTO.cs" />
     <Compile Include="Models\Screen.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>

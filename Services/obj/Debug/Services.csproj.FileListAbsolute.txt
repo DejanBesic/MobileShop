@@ -34,3 +34,14 @@ E:\Diplomskiii\MobileShop\Services\obj\Debug\Services.csproj.CoreCompileInputs.c
 E:\Diplomskiii\MobileShop\Services\obj\Debug\Services.csproj.CopyComplete
 E:\Diplomskiii\MobileShop\Services\obj\Debug\Services.dll
 E:\Diplomskiii\MobileShop\Services\obj\Debug\Services.pdb
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Services.dll.config
+E:\Diplomskiii\MobileShop\Services\bin\Debug\JWT.dll
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Microsoft.IdentityModel.Logging.dll
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Microsoft.IdentityModel.Tokens.dll
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Newtonsoft.Json.dll
+E:\Diplomskiii\MobileShop\Services\bin\Debug\JWT.xml
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Microsoft.IdentityModel.Logging.pdb
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Microsoft.IdentityModel.Logging.xml
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Microsoft.IdentityModel.Tokens.pdb
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Microsoft.IdentityModel.Tokens.xml
+E:\Diplomskiii\MobileShop\Services\bin\Debug\Newtonsoft.Json.xml
