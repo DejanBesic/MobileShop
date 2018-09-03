@@ -14,11 +14,19 @@ namespace MobileShop.Models
     
     public partial class Cart
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Cart()
+        {
+            this.Shoppings = new HashSet<Shopping>();
+        }
+    
         public int Id { get; set; }
         public Nullable<int> CustomerId { get; set; }
-        public Nullable<int> MobileId { get; set; }
+        public Nullable<int> ShopMobileId { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Mobile Mobile { get; set; }
+        public virtual Shop_Mobiles Shop_Mobiles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Shopping> Shoppings { get; set; }
     }
 }

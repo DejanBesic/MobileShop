@@ -37,6 +37,8 @@ namespace MobileShop.Models
         public virtual DbSet<PackageContent> PackageContents { get; set; }
         public virtual DbSet<PhonePlatform> PhonePlatforms { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
+        public virtual DbSet<Shop> Shops { get; set; }
+        public virtual DbSet<Shop_Mobiles> Shop_Mobiles { get; set; }
         public virtual DbSet<Shopping> Shoppings { get; set; }
         public virtual DbSet<Sound> Sounds { get; set; }
     }

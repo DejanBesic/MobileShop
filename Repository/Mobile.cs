@@ -17,8 +17,7 @@ namespace Repository
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Mobile()
         {
-            this.Carts = new HashSet<Cart>();
-            this.Shoppings = new HashSet<Shopping>();
+            this.Shop_Mobiles = new HashSet<Shop_Mobiles>();
         }
     
         public int Id { get; set; }
@@ -38,8 +37,6 @@ namespace Repository
         public virtual Additional Additional { get; set; }
         public virtual Battery Battery { get; set; }
         public virtual Camera Camera { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
         public virtual Characteristic Characteristic { get; set; }
         public virtual Communication Communication { get; set; }
         public virtual Memory Memory { get; set; }
@@ -48,6 +45,6 @@ namespace Repository
         public virtual Screen Screen { get; set; }
         public virtual Sound Sound { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Shopping> Shoppings { get; set; }
+        public virtual ICollection<Shop_Mobiles> Shop_Mobiles { get; set; }
     }
 }

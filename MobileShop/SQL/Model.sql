@@ -1,5 +1,7 @@
 DROP TABLE IF EXISTS Shopping;
 DROP TABLE IF EXISTS Cart;
+DROP TABLE IF EXISTS Shop_Mobiles;
+DROP TABLE IF EXISTS Shop;
 DROP TABLE IF EXISTS Customer;
 DROP TABLE IF EXISTS Administrator;
 DROP TABLE IF EXISTS Mobile;
@@ -26,8 +28,6 @@ CREATE TABLE Customer (
 	Blocked bit,
 	Activated bit,
 	IsAdmin bit,
-	BlockedBy int,
-	FOREIGN KEY (BlockedBy) REFERENCES Customer(Id)
 );
 
 CREATE TABLE Additional (
@@ -129,22 +129,6 @@ CREATE TABLE Mobile (
 	FOREIGN KEY (CharacteristicsId) REFERENCES Characteristics(Id),
 );
 
-CREATE TABLE Cart (
-	Id int PRIMARY KEY IDENTITY,
-	CustomerId int,
-	MobileId int,
-	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
-	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
-);
-
-CREATE TABLE Shopping (
-	Id int PRIMARY KEY IDENTITY,
-	CustomerId int,
-	MobileId int,
-	ShoppingNumber int,
-	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
-	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
-);
 
 CREATE TABLE Shop (
 	Id int PRIMARY KEY IDENTITY,
@@ -160,6 +144,24 @@ CREATE TABLE Shop_Mobiles(
 	Id int PRIMARY KEY IDENTITY,
 	ShopId int,
 	MobileId int,
+	MobilesLeft int,
 	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
 	FOREIGN KEY (ShopId) REFERENCES Shop(Id),
+);
+
+CREATE TABLE Cart (
+	Id int PRIMARY KEY IDENTITY,
+	CustomerId int,
+	ShopMobileId int,
+	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
+	FOREIGN KEY (ShopMobileId) REFERENCES Shop_Mobiles(Id),
+);
+
+CREATE TABLE Shopping (
+	Id int PRIMARY KEY IDENTITY,
+	CustomerId int,
+	CartId int,
+	ShoppingNumber int,
+	FOREIGN KEY (CartId) REFERENCES Cart(Id),
+	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
 );

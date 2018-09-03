@@ -43,13 +43,18 @@
     <Compile Include="IAdditionalRepository.cs" />
     <Compile Include="IBatteryRepository.cs" />
     <Compile Include="ICameraRepository.cs" />
+    <Compile Include="ICartRepository.cs" />
     <Compile Include="ICharacteristicsRepository.cs" />
     <Compile Include="ICommunicationRepository.cs" />
     <Compile Include="ICustomerRepository.cs" />
     <Compile Include="IMemoryRepository.cs" />
+    <Compile Include="IMobileRepository.cs" />
+    <Compile Include="IShopMobilesRepository.cs" />
     <Compile Include="IPackageContentRepository.cs" />
     <Compile Include="IPhonePlatformRepository.cs" />
     <Compile Include="IScreenRepository.cs" />
+    <Compile Include="IShoppingRepository.cs" />
+    <Compile Include="IShopRepository.cs" />
     <Compile Include="ISoundRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

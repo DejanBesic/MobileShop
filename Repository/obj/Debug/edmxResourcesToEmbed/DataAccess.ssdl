@@ -31,7 +31,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
-    <Property Name="MobileId" Type="int" />
+    <Property Name="ShopMobileId" Type="int" />
   </EntityType>
   <EntityType Name="Characteristics">
     <Key>
@@ -64,6 +64,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="255" />
     <Property Name="FirstName" Type="varchar" MaxLength="255" />
     <Property Name="LastName" Type="varchar" MaxLength="255" />
     <Property Name="CustomerAddress" Type="varchar" MaxLength="255" />
@@ -124,13 +125,34 @@
     <Property Name="ScreenType" Type="varchar" MaxLength="255" />
     <Property Name="Touch" Type="bit" />
   </EntityType>
+  <EntityType Name="Shop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShopName" Type="varchar" MaxLength="255" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="255" />
+    <Property Name="ContactMobilePhone" Type="varchar" MaxLength="255" />
+    <Property Name="ContactAddress" Type="varchar" MaxLength="255" />
+    <Property Name="HirePayment" Type="bit" />
+    <Property Name="OpenTime" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Shop_Mobiles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ShopId" Type="int" />
+    <Property Name="MobileId" Type="int" />
+    <Property Name="MobilesLeft" Type="int" />
+  </EntityType>
   <EntityType Name="Shopping">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
-    <Property Name="MobileId" Type="int" />
+    <Property Name="CartId" Type="int" />
     <Property Name="ShoppingNumber" Type="int" />
   </EntityType>
   <EntityType Name="Sound">
@@ -142,7 +164,7 @@
     <Property Name="Port35mm" Type="bit" />
     <Property Name="HDVoice" Type="bit" />
   </EntityType>
-  <Association Name="FK__Cart__CustomerId__1E3A7A34">
+  <Association Name="FK__Cart__CustomerId__4668671F">
     <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
     <ReferentialConstraint>
@@ -154,19 +176,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Cart__MobileId__1F2E9E6D">
-    <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
+  <Association Name="FK__Cart__ShopMobile__475C8B58">
+    <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="0..1" />
     <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Mobile">
+      <Principal Role="Shop_Mobiles">
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Cart">
-        <PropertyRef Name="MobileId" />
+        <PropertyRef Name="ShopMobileId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__Addition__1881A0DE">
+  <Association Name="FK__Mobile__Addition__3AF6B473">
     <End Role="Additional" Type="Self.Additional" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -178,7 +200,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__BatteryI__1A69E950">
+  <Association Name="FK__Mobile__BatteryI__3CDEFCE5">
     <End Role="Battery" Type="Self.Battery" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -190,7 +212,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__CameraId__14B10FFA">
+  <Association Name="FK__Mobile__CameraId__3726238F">
     <End Role="Camera" Type="Self.Camera" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -202,7 +224,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__Characte__1B5E0D89">
+  <Association Name="FK__Mobile__Characte__3DD3211E">
     <End Role="Characteristics" Type="Self.Characteristics" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -214,7 +236,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__Communic__178D7CA5">
+  <Association Name="FK__Mobile__Communic__3A02903A">
     <End Role="Communication" Type="Self.Communication" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -226,7 +248,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__MemoryId__15A53433">
+  <Association Name="FK__Mobile__MemoryId__381A47C8">
     <End Role="Memory" Type="Self.Memory" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -238,7 +260,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__PackageC__1975C517">
+  <Association Name="FK__Mobile__PackageC__3BEAD8AC">
     <End Role="PackageContent" Type="Self.PackageContent" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -250,7 +272,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__Platform__12C8C788">
+  <Association Name="FK__Mobile__Platform__353DDB1D">
     <End Role="PhonePlatform" Type="Self.PhonePlatform" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -262,7 +284,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__ScreenId__13BCEBC1">
+  <Association Name="FK__Mobile__ScreenId__3631FF56">
     <End Role="Screen" Type="Self.Screen" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -274,7 +296,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Mobile__SoundId__1699586C">
+  <Association Name="FK__Mobile__SoundId__390E6C01">
     <End Role="Sound" Type="Self.Sound" Multiplicity="0..1" />
     <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
     <ReferentialConstraint>
@@ -286,7 +308,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Shopping__Custom__22FF2F51">
+  <Association Name="FK__Shop_Mobi__Mobil__4297D63B">
+    <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
+    <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mobile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shop_Mobiles">
+        <PropertyRef Name="MobileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Shop_Mobi__ShopI__438BFA74">
+    <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
+    <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shop">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shop_Mobiles">
+        <PropertyRef Name="ShopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Shopping__CartId__4A38F803">
+    <End Role="Cart" Type="Self.Cart" Multiplicity="0..1" />
+    <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cart">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shopping">
+        <PropertyRef Name="CartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Shopping__Custom__4B2D1C3C">
     <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
     <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
     <ReferentialConstraint>
@@ -295,18 +353,6 @@
       </Principal>
       <Dependent Role="Shopping">
         <PropertyRef Name="CustomerId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Shopping__Mobile__220B0B18">
-    <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
-    <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Mobile">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Shopping">
-        <PropertyRef Name="MobileId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -323,62 +369,72 @@
     <EntitySet Name="PackageContent" EntityType="Self.PackageContent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhonePlatform" EntityType="Self.PhonePlatform" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Screen" EntityType="Self.Screen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shop_Mobiles" EntityType="Self.Shop_Mobiles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Shopping" EntityType="Self.Shopping" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sound" EntityType="Self.Sound" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Cart__CustomerId__1E3A7A34" Association="Self.FK__Cart__CustomerId__1E3A7A34">
+    <AssociationSet Name="FK__Cart__CustomerId__4668671F" Association="Self.FK__Cart__CustomerId__4668671F">
       <End Role="Customer" EntitySet="Customer" />
       <End Role="Cart" EntitySet="Cart" />
     </AssociationSet>
-    <AssociationSet Name="FK__Cart__MobileId__1F2E9E6D" Association="Self.FK__Cart__MobileId__1F2E9E6D">
-      <End Role="Mobile" EntitySet="Mobile" />
+    <AssociationSet Name="FK__Cart__ShopMobile__475C8B58" Association="Self.FK__Cart__ShopMobile__475C8B58">
+      <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
       <End Role="Cart" EntitySet="Cart" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__Addition__1881A0DE" Association="Self.FK__Mobile__Addition__1881A0DE">
+    <AssociationSet Name="FK__Mobile__Addition__3AF6B473" Association="Self.FK__Mobile__Addition__3AF6B473">
       <End Role="Additional" EntitySet="Additional" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__BatteryI__1A69E950" Association="Self.FK__Mobile__BatteryI__1A69E950">
+    <AssociationSet Name="FK__Mobile__BatteryI__3CDEFCE5" Association="Self.FK__Mobile__BatteryI__3CDEFCE5">
       <End Role="Battery" EntitySet="Battery" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__CameraId__14B10FFA" Association="Self.FK__Mobile__CameraId__14B10FFA">
+    <AssociationSet Name="FK__Mobile__CameraId__3726238F" Association="Self.FK__Mobile__CameraId__3726238F">
       <End Role="Camera" EntitySet="Camera" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__Characte__1B5E0D89" Association="Self.FK__Mobile__Characte__1B5E0D89">
+    <AssociationSet Name="FK__Mobile__Characte__3DD3211E" Association="Self.FK__Mobile__Characte__3DD3211E">
       <End Role="Characteristics" EntitySet="Characteristics" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__Communic__178D7CA5" Association="Self.FK__Mobile__Communic__178D7CA5">
+    <AssociationSet Name="FK__Mobile__Communic__3A02903A" Association="Self.FK__Mobile__Communic__3A02903A">
       <End Role="Communication" EntitySet="Communication" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__MemoryId__15A53433" Association="Self.FK__Mobile__MemoryId__15A53433">
+    <AssociationSet Name="FK__Mobile__MemoryId__381A47C8" Association="Self.FK__Mobile__MemoryId__381A47C8">
       <End Role="Memory" EntitySet="Memory" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__PackageC__1975C517" Association="Self.FK__Mobile__PackageC__1975C517">
+    <AssociationSet Name="FK__Mobile__PackageC__3BEAD8AC" Association="Self.FK__Mobile__PackageC__3BEAD8AC">
       <End Role="PackageContent" EntitySet="PackageContent" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__Platform__12C8C788" Association="Self.FK__Mobile__Platform__12C8C788">
+    <AssociationSet Name="FK__Mobile__Platform__353DDB1D" Association="Self.FK__Mobile__Platform__353DDB1D">
       <End Role="PhonePlatform" EntitySet="PhonePlatform" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__ScreenId__13BCEBC1" Association="Self.FK__Mobile__ScreenId__13BCEBC1">
+    <AssociationSet Name="FK__Mobile__ScreenId__3631FF56" Association="Self.FK__Mobile__ScreenId__3631FF56">
       <End Role="Screen" EntitySet="Screen" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Mobile__SoundId__1699586C" Association="Self.FK__Mobile__SoundId__1699586C">
+    <AssociationSet Name="FK__Mobile__SoundId__390E6C01" Association="Self.FK__Mobile__SoundId__390E6C01">
       <End Role="Sound" EntitySet="Sound" />
       <End Role="Mobile" EntitySet="Mobile" />
     </AssociationSet>
-    <AssociationSet Name="FK__Shopping__Custom__22FF2F51" Association="Self.FK__Shopping__Custom__22FF2F51">
-      <End Role="Customer" EntitySet="Customer" />
+    <AssociationSet Name="FK__Shop_Mobi__Mobil__4297D63B" Association="Self.FK__Shop_Mobi__Mobil__4297D63B">
+      <End Role="Mobile" EntitySet="Mobile" />
+      <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Shop_Mobi__ShopI__438BFA74" Association="Self.FK__Shop_Mobi__ShopI__438BFA74">
+      <End Role="Shop" EntitySet="Shop" />
+      <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Shopping__CartId__4A38F803" Association="Self.FK__Shopping__CartId__4A38F803">
+      <End Role="Cart" EntitySet="Cart" />
       <End Role="Shopping" EntitySet="Shopping" />
     </AssociationSet>
-    <AssociationSet Name="FK__Shopping__Mobile__220B0B18" Association="Self.FK__Shopping__Mobile__220B0B18">
-      <End Role="Mobile" EntitySet="Mobile" />
+    <AssociationSet Name="FK__Shopping__Custom__4B2D1C3C" Association="Self.FK__Shopping__Custom__4B2D1C3C">
+      <End Role="Customer" EntitySet="Customer" />
       <End Role="Shopping" EntitySet="Shopping" />
     </AssociationSet>
   </EntityContainer>

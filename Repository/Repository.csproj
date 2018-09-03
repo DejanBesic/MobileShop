@@ -64,6 +64,7 @@
     <Compile Include="Cart.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="CartRepository.cs" />
     <Compile Include="Characteristic.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -91,6 +92,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Compile>
+    <Compile Include="ShopMobilesRepository.cs" />
+    <Compile Include="ShoppingRepository.cs" />
     <Compile Include="Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -98,6 +101,7 @@
     <Compile Include="Mobile.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="MobileRepository.cs" />
     <Compile Include="PackageContent.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -111,7 +115,14 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="ScreenRepository.cs" />
+    <Compile Include="Shop.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
     <Compile Include="Shopping.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ShopRepository.cs" />
+    <Compile Include="Shop_Mobiles.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Sound.cs">

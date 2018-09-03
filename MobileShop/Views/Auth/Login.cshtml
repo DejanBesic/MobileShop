@@ -1,0 +1,49 @@
+﻿@model MobileShop.Models.LoginDTO
+@{
+    ViewBag.Title = "View";
+}
+
+@Styles.Render("~/Content/Login/Login.css")
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+<div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-5">
+        <h2 align="center">Login</h2>
+        @using (Html.BeginForm("Login", "Auth", FormMethod.Post, new { @class = "form-login", role = "form" }))
+        {
+            <span class="fontawesome-user"></span>
+            @Html.TextBoxFor(m => m.Email, new { @class = "input", id = "Email", placeholder = "Email" })
+
+            <span class="fontawesome-lock"></span>
+            @Html.PasswordFor(m => m.Password, new { @class = "input", id = "Password", placeholder = "Password" })
+
+            <div class="form-group">
+                <div class="col-md-7">
+                    <p>
+                        @Html.ActionLink("Register as a new user", "Register")
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <input type="submit" value="Log in" class="btn btn-default" />
+                </div>
+            </div>
+
+        }
+    </div>
+    </div>
+    <div class="row">
+    <div id="login">
+        <form name='form-login'>
+            <span class="fontawesome-user"></span>
+            <input type="text" id="user" placeholder="Username">
+
+            <span class="fontawesome-lock"></span>
+            <input type="password" id"pass" placeholder="Password">
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    </div>
+

@@ -18,8 +18,13 @@ namespace MobileShop.Controllers
 
         private readonly AuthService authService = new AuthService();
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         [HttpPost]
-        public JsonResult Login(LoginDTO login)
+        public ActionResult Login(LoginDTO login)
         {
             CustomerM customer = customerService.FindByEmail(login.Email);
             if (customer == null || !authService.Authenticate(login.Email, login.Password))
@@ -35,7 +40,8 @@ namespace MobileShop.Controllers
             cookie.Expires.AddMonths(1);
 
             httpContext.Response.Cookies.Add(cookie);
-            return Json(tokenString, JsonRequestBehavior.AllowGet);
+            // return Json(tokenString, JsonRequestBehavior.AllowGet);
+            return View();
         }
 
         [HttpGet]

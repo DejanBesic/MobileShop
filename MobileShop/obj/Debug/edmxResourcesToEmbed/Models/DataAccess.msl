@@ -34,7 +34,7 @@
         <MappingFragment StoreEntitySet="Cart">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+          <ScalarProperty Name="ShopMobileId" ColumnName="ShopMobileId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -70,6 +70,7 @@
       <EntityTypeMapping TypeName="MobileShopModel.Customer">
         <MappingFragment StoreEntitySet="Customer">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
@@ -137,12 +138,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Shops">
+      <EntityTypeMapping TypeName="MobileShopModel.Shop">
+        <MappingFragment StoreEntitySet="Shop">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShopName" ColumnName="ShopName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactMobilePhone" ColumnName="ContactMobilePhone" />
+          <ScalarProperty Name="ContactAddress" ColumnName="ContactAddress" />
+          <ScalarProperty Name="HirePayment" ColumnName="HirePayment" />
+          <ScalarProperty Name="OpenTime" ColumnName="OpenTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shop_Mobiles">
+      <EntityTypeMapping TypeName="MobileShopModel.Shop_Mobiles">
+        <MappingFragment StoreEntitySet="Shop_Mobiles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
+          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+          <ScalarProperty Name="MobilesLeft" ColumnName="MobilesLeft" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Shoppings">
       <EntityTypeMapping TypeName="MobileShopModel.Shopping">
         <MappingFragment StoreEntitySet="Shopping">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="MobileId" ColumnName="MobileId" />
+          <ScalarProperty Name="CartId" ColumnName="CartId" />
           <ScalarProperty Name="ShoppingNumber" ColumnName="ShoppingNumber" />
         </MappingFragment>
       </EntityTypeMapping>
