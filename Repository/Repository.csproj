@@ -92,35 +92,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Compile>
-    <Compile Include="ShopMobilesRepository.cs" />
-    <Compile Include="ShoppingRepository.cs" />
     <Compile Include="Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="MemoryRepository.cs" />
     <Compile Include="Mobile.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="MobileRepository.cs" />
     <Compile Include="PackageContent.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="PackageContentRepository.cs" />
     <Compile Include="PhonePlatform.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="PhonePlatformRepository.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Screen.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="ScreenRepository.cs" />
     <Compile Include="Shop.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="ShopMobilesRepository.cs" />
     <Compile Include="Shopping.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="ShoppingRepository.cs" />
+    <Compile Include="MemoryRepository.cs" />
+    <Compile Include="MobileRepository.cs" />
+    <Compile Include="PackageContentRepository.cs" />
+    <Compile Include="PhonePlatformRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScreenRepository.cs" />
     <Compile Include="ShopRepository.cs" />
     <Compile Include="Shop_Mobiles.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
