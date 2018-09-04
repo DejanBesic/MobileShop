@@ -19,7 +19,6 @@ DROP TABLE IF EXISTS Communication;
 
 CREATE TABLE Customer (
 	Id int PRIMARY KEY IDENTITY,
-	Username varchar(255),
 	FirstName varchar(255),
 	LastName varchar(255),
 	CustomerAddress varchar(255),
@@ -28,6 +27,8 @@ CREATE TABLE Customer (
 	Blocked bit,
 	Activated bit,
 	IsAdmin bit,
+	ShopAdminId int,
+	FOREIGN KEY (ShopAdminId) REFERENCES Shop(Id)
 );
 
 CREATE TABLE Additional (
@@ -86,6 +87,7 @@ CREATE TABLE PhonePlatform (
 	Id int  PRIMARY KEY IDENTITY,
 	OS varchar(255),
 	RAM varchar(255),
+	Proccessor varchar(255),
 );
 
 CREATE TABLE Screen (

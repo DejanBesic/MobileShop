@@ -87,6 +87,11 @@ namespace Repository
         {
             Customer customerDb = Context.Customers.SingleOrDefault(x => x.Email == email);
 
+            if(customerDb == null)
+            {
+                return null;
+            }
+
             return new CustomerM()
             {
                 Id = customerDb.Id,
@@ -104,6 +109,11 @@ namespace Repository
         public CustomerM FindById(int id)
         {
             Customer customerDb = Context.Customers.SingleOrDefault(x => x.Id == id);
+
+            if (customerDb == null)
+            {
+                return null;
+            }
 
             return new CustomerM()
             {

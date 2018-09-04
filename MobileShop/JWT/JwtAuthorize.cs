@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -16,7 +14,7 @@ namespace MobileShop.JWT
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var tokenCookie = httpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Current.User.Identity.Name;
 
             try
             {
@@ -26,8 +24,7 @@ namespace MobileShop.JWT
                 IBase64UrlEncoder urlEncoder = new JwtBase64UrlEncoder();
                 IJwtDecoder decoder = new JwtDecoder(serializer, validator, urlEncoder);
 
-                var json = decoder.Decode(tokenCookie.Value, new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["JwtSecret"])).ToString(), verify: true);
-                Console.WriteLine(json);
+                var json = decoder.Decode(token, new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["JwtSecret"])).ToString(), verify: true);
             }
             catch (TokenExpiredException)
             {

@@ -1,14 +1,9 @@
-﻿using JWT.Algorithms;
-using JWT.Builder;
-using Microsoft.IdentityModel.Tokens;
-using MobileShop.Models;
+﻿using MobileShop.Models;
 using Models;
 using Services;
-using System;
-using System.Configuration;
-using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MobileShop.Controllers
 {
@@ -32,24 +27,23 @@ namespace MobileShop.Controllers
                 return Json("Wrong email address or password.", JsonRequestBehavior.AllowGet);
             }
 
-            var tokenString = authService.GenerateJWT(customer);
+            var token = authService.GenerateJWT(customer);
 
-            var httpContext = HttpContext.ApplicationInstance as MvcApplication;
-            var asd = Request.Cookies["JwtToken"];
-            HttpCookie cookie = new HttpCookie("JwtToken", tokenString);
-            cookie.Expires.AddMonths(1);
+            FormsAuthentication.SetAuthCookie(token, true);
 
-            httpContext.Response.Cookies.Add(cookie);
-            // return Json(tokenString, JsonRequestBehavior.AllowGet);
-            return View();
+            return Redirect("/Home");
         }
 
         [HttpGet]
-        public void Logout()
+        public ActionResult Logout()
         {
-            var asd = Request.Cookies["JwtToken"];
-            var httpContext = HttpContext.ApplicationInstance as MvcApplication;
-            HttpContext.Response.SetCookie(new HttpCookie("JwtToken", ""));
+            FormsAuthentication.SignOut();
+            return Redirect("/Auth/Login");
+        }
+
+        public ActionResult Register()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -57,12 +51,12 @@ namespace MobileShop.Controllers
         {
             var customer = customerService.FindByEmail(register.Email);
 
-            if ( customer != null || register.Password != register.ConfirmPassword)
+            if (customer != null || register.Password != register.ConfirmPassword)
             {
                 return new HttpStatusCodeResult(400);
             }
 
-            customerService.Save(new CustomerM()
+            CustomerM newCustomer = new CustomerM()
             {
                 FirstName = register.FirstName,
                 LastName = register.LastName,
@@ -72,9 +66,14 @@ namespace MobileShop.Controllers
                 Blocked = false,
                 Activated = false,
                 IsAdmin = false,
-            });
+            };
 
-            return new HttpStatusCodeResult(200);
+            customerService.Save(newCustomer);
+
+            var token = authService.GenerateJWT(newCustomer);
+            FormsAuthentication.SetAuthCookie(token, true);
+
+            return Redirect("/Home");
         }
     }
 }

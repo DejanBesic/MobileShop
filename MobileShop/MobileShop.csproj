@@ -394,8 +394,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTO\DropDowns.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\LoginDTO.cs" />
+    <Compile Include="Models\DTO\LoginDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
@@ -409,7 +410,7 @@
     <Compile Include="Models\PhonePlatform.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RegisterDTO.cs" />
+    <Compile Include="Models\DTO\RegisterDTO.cs" />
     <Compile Include="Models\Screen.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -433,7 +434,10 @@
     <Content Include="Content\Bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
     <Content Include="Content\Bootstrap\bootstrap.min.css" />
+    <Content Include="Content\Login\Android1.png" />
     <Content Include="Content\Login\Login.css" />
+    <Content Include="Content\Login\nightsky.jpg" />
+    <Content Include="Content\Register\Register.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -492,6 +496,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
