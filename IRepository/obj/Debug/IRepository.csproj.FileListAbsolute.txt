@@ -7,6 +7,14 @@ E:\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.csproj.CoreCompileInpu
 E:\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.csproj.CopyComplete
 E:\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.dll
 E:\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.pdb
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\IRepository.dll
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\IRepository.pdb
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\Models.dll
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\Models.pdb
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.csprojResolveAssemblyReference.cache
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.csproj.CoreCompileInputs.cache
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.dll
+C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.pdb
 E:\Diplomskiii\MobileShop\IRepository\bin\Debug\IRepository.dll
 E:\Diplomskiii\MobileShop\IRepository\bin\Debug\IRepository.pdb
 E:\Diplomskiii\MobileShop\IRepository\bin\Debug\Models.dll
@@ -16,11 +24,3 @@ E:\Diplomskiii\MobileShop\IRepository\obj\Debug\IRepository.csproj.CoreCompileIn
 E:\Diplomskiii\MobileShop\IRepository\obj\Debug\IRepository.csproj.CopyComplete
 E:\Diplomskiii\MobileShop\IRepository\obj\Debug\IRepository.dll
 E:\Diplomskiii\MobileShop\IRepository\obj\Debug\IRepository.pdb
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\IRepository.dll
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\IRepository.pdb
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\Models.dll
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\bin\Debug\Models.pdb
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.csprojResolveAssemblyReference.cache
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.csproj.CoreCompileInputs.cache
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.dll
-C:\Users\Deki\Desktop\Diplomski\MobileShop\IRepository\obj\Debug\IRepository.pdb

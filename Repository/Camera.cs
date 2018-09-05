@@ -18,16 +18,18 @@ namespace Repository
         public Camera()
         {
             this.Mobiles = new HashSet<Mobile>();
+            this.Mobiles1 = new HashSet<Mobile>();
         }
     
         public int Id { get; set; }
-        public string BackCamera { get; set; }
-        public string BackCameraChar { get; set; }
-        public string FrontCamera { get; set; }
-        public string FrontCameraChar { get; set; }
-        public string Video { get; set; }
+        public Nullable<int> MpId { get; set; }
+        public Nullable<int> CharacteristicsId { get; set; }
     
+        public virtual CameraCharacteristic CameraCharacteristic { get; set; }
+        public virtual CameraMP CameraMP { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mobile> Mobiles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mobile> Mobiles1 { get; set; }
     }
 }

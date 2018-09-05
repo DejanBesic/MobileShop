@@ -10,15 +10,9 @@ namespace Models
     {
         public int Id { get; set; }
 
-        public string BackCamera { get; set; }
+        public int Characteristics { get; set; }
 
-        public string BackCameraChar { get; set; }
-
-        public string FrontCamera { get; set; }
-
-        public string FrontCameraChar { get; set; }
-
-        public string Video { get; set; }
+        public int MP { get; set; }
 
         public CameraM()
         {

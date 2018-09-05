@@ -17,6 +17,7 @@ namespace Repository
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Shop()
         {
+            this.Customers = new HashSet<Customer>();
             this.Shop_Mobiles = new HashSet<Shop_Mobiles>();
         }
     
@@ -28,6 +29,8 @@ namespace Repository
         public Nullable<bool> HirePayment { get; set; }
         public string OpenTime { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Customer> Customers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop_Mobiles> Shop_Mobiles { get; set; }
     }

@@ -30,9 +30,11 @@ namespace MobileShop.Models
         public Nullable<bool> Blocked { get; set; }
         public Nullable<bool> Activated { get; set; }
         public Nullable<bool> IsAdmin { get; set; }
+        public Nullable<int> ShopAdminId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }
+        public virtual Shop Shop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shopping> Shoppings { get; set; }
     }

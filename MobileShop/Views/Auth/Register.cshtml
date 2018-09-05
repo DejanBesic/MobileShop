@@ -9,11 +9,12 @@
 }
 
 <div class="col-sm-4"></div>
-<div class="login col-sm-4" style="text-align: center;">
+<div class="login col-sm-4" style="text-align: center;  padding-left: 70px; padding-right: 70px; ">
     <div style="margin: 50px"></div>
+    <h2 style="color: beige;">Registration</h2>
     @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @class = "login-form" }))
     {
-        <h3 style="color: aliceblue;">Registration</h3>
+
         <div>
             @Html.TextBoxFor(m => m.FirstName, new { @class = "form-input", id = "FirstName", placeholder = "First Name" })
         </div>

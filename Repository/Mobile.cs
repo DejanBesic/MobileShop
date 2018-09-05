@@ -23,27 +23,37 @@ namespace Repository
         public int Id { get; set; }
         public string About { get; set; }
         public Nullable<double> Price { get; set; }
-        public Nullable<int> PlatformId { get; set; }
         public Nullable<int> ScreenId { get; set; }
-        public Nullable<int> CameraId { get; set; }
-        public Nullable<int> MemoryId { get; set; }
         public Nullable<int> SoundId { get; set; }
         public Nullable<int> CommunicationId { get; set; }
         public Nullable<int> BatteryId { get; set; }
         public Nullable<int> CharacteristicsId { get; set; }
         public Nullable<int> AdditionalId { get; set; }
         public Nullable<int> PackageContentId { get; set; }
+        public Nullable<int> FrontCameraId { get; set; }
+        public Nullable<int> BackCameraId { get; set; }
+        public Nullable<int> VideoId { get; set; }
+        public Nullable<int> InternMemoryId { get; set; }
+        public Nullable<int> ExternMemoryId { get; set; }
+        public Nullable<int> ProccessorId { get; set; }
+        public Nullable<int> RamId { get; set; }
+        public Nullable<int> OsId { get; set; }
     
         public virtual Additional Additional { get; set; }
         public virtual Battery Battery { get; set; }
         public virtual Camera Camera { get; set; }
+        public virtual Camera Camera1 { get; set; }
         public virtual Characteristic Characteristic { get; set; }
         public virtual Communication Communication { get; set; }
         public virtual Memory Memory { get; set; }
+        public virtual Memory Memory1 { get; set; }
+        public virtual OperativeSystem OperativeSystem { get; set; }
         public virtual PackageContent PackageContent { get; set; }
-        public virtual PhonePlatform PhonePlatform { get; set; }
+        public virtual Proccessor Proccessor { get; set; }
+        public virtual RAM RAM { get; set; }
         public virtual Screen Screen { get; set; }
         public virtual Sound Sound { get; set; }
+        public virtual Video Video { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop_Mobiles> Shop_Mobiles { get; set; }
     }

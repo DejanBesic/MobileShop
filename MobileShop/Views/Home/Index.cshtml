@@ -1,9 +1,205 @@
-﻿@model MobileShop.Models.DTO.DropDowns
+﻿@using MobileShop.Models.DTO
+@model DropDowns
 
-<ul>
-    @foreach (var s in Model.Sounds)
-    {
-        <li>@s.Id</li>
-    }
-</ul>
+@Styles.Render("~/Content/Home/Filter.css")
 
+
+@{
+    var Additionals = Model.Additionals;
+    var Batteries = Model.Batteries;
+    var Cameras = Model.Cameras;
+    var Communications = Model.Communications;
+    var Characteristics = Model.Characteristics;
+    var PhonePlatforms = Model.PhonePlatforms;
+    var PackageContents = Model.PackageContents;
+    var Screens = Model.Screens;
+    var Sounds = Model.Sounds;
+    var Memories = Model.Memories;
+    var Shops = Model.Shops;
+}
+
+@{
+    var internMemory = new List<SelectListItem>();
+    internMemory.Add(new SelectListItem { Text = "8 GB", Value = "1" });
+    internMemory.Add(new SelectListItem { Text = "16 GB", Value = "2" });
+    internMemory.Add(new SelectListItem { Text = "32 GB", Value = "3" });
+    internMemory.Add(new SelectListItem { Text = "64 GB", Value = "4" });
+
+    var externMemory = new List<SelectListItem>();
+    externMemory.Add(new SelectListItem { Text = "8 GB", Value = "1" });
+    externMemory.Add(new SelectListItem { Text = "16 GB", Value = "2" });
+    externMemory.Add(new SelectListItem { Text = "32 GB", Value = "3" });
+    externMemory.Add(new SelectListItem { Text = "64 GB", Value = "4" });
+    externMemory.Add(new SelectListItem { Text = "128 GB", Value = "5" });
+    externMemory.Add(new SelectListItem { Text = "256 GB", Value = "6" });
+    externMemory.Add(new SelectListItem { Text = "1 TB", Value = "7" });
+}
+
+@{
+    var screenSize = new List<SelectListItem>();
+    screenSize.Add(new SelectListItem { Text = "2.5\"", Value = "1" });
+    screenSize.Add(new SelectListItem { Text = "3.1\"", Value = "2" });
+    screenSize.Add(new SelectListItem { Text = "3.2\"", Value = "3" });
+    screenSize.Add(new SelectListItem { Text = "3.5\"", Value = "4" });
+    screenSize.Add(new SelectListItem { Text = "3.7\"", Value = "5" });
+    screenSize.Add(new SelectListItem { Text = "3.8\"", Value = "6" });
+    screenSize.Add(new SelectListItem { Text = "4.0\"", Value = "7" });
+
+    screenSize.Add(new SelectListItem { Text = "4.2\"", Value = "8" });
+    screenSize.Add(new SelectListItem { Text = "4.3\"", Value = "9" });
+    screenSize.Add(new SelectListItem { Text = "4.5\"", Value = "10" });
+    screenSize.Add(new SelectListItem { Text = "4.6\"", Value = "11" });
+    screenSize.Add(new SelectListItem { Text = "4.7\"", Value = "12" });
+    screenSize.Add(new SelectListItem { Text = "4.8\"", Value = "13" });
+    screenSize.Add(new SelectListItem { Text = "5.0\"", Value = "7" });
+
+    screenSize.Add(new SelectListItem { Text = "5.1\"", Value = "1" });
+    screenSize.Add(new SelectListItem { Text = "5.2\"", Value = "2" });
+    screenSize.Add(new SelectListItem { Text = "5.3\"", Value = "3" });
+    screenSize.Add(new SelectListItem { Text = "5.4\"", Value = "4" });
+    screenSize.Add(new SelectListItem { Text = "5.5\"", Value = "5" });
+    screenSize.Add(new SelectListItem { Text = "5.7\"", Value = "6" });
+    screenSize.Add(new SelectListItem { Text = "5.8\"", Value = "7" });
+    screenSize.Add(new SelectListItem { Text = "6.0\"", Value = "7" });
+
+    screenSize.Add(new SelectListItem { Text = "6.2\"", Value = "1" });
+    screenSize.Add(new SelectListItem { Text = "5.9\"", Value = "2" });
+    screenSize.Add(new SelectListItem { Text = "7.0\"", Value = "3" });
+    screenSize.Add(new SelectListItem { Text = "7.7\"", Value = "4" });
+    screenSize.Add(new SelectListItem { Text = "7.9\"", Value = "5" });
+    screenSize.Add(new SelectListItem { Text = "8.0\"", Value = "6" });
+    screenSize.Add(new SelectListItem { Text = "8.9\"", Value = "7" });
+    screenSize.Add(new SelectListItem { Text = "9.0\"", Value = "7" });
+}
+
+@{ 
+    var OS = new List<SelectListItem>();
+    screenSize.Add(new SelectListItem { Text = "Android", Value = "1" });
+    screenSize.Add(new SelectListItem { Text = "Windows", Value = "2" });
+    screenSize.Add(new SelectListItem { Text = "iOS", Value = "3" });
+    screenSize.Add(new SelectListItem { Text = "Other", Value = "4" });
+}
+
+@* EXTERN MEMORY *@
+<div class="row" style="margin: 15px;">
+    <div style="width: 12%">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#externMemory" aria-expanded="false" aria-controls="externMemory" style="width: 100%">Extern memory</button>
+        <div class="collapse multi-collapse" id="externMemory">
+            <div class="card card-body">
+                <ul>
+                    @foreach (var memory in externMemory)
+                    {
+                        <li>
+                            <label class="check">
+                                @memory.Text
+                                @Html.CheckBox(memory.Value, false)
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* INTERN MEMORY *@
+<div class="row" style="margin: 15px;">
+    <div style="width: 12%">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#internMemory" aria-expanded="false" aria-controls="internMemory" style="width: 100%">Intern memory</button>
+        <div class="collapse multi-collapse" id="internMemory">
+            <div class="card card-body">
+                <ul>
+                    @foreach (var memory in internMemory)
+                    {
+                        <li>
+                            <label class="check">
+                                @memory.Text
+                                @Html.CheckBox(memory.Value, false)
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* SHOPS *@
+<div class="row" style="margin: 15px;">
+    <div style="width: 12%">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shops" aria-expanded="false" aria-controls="shops" style="width: 100%">Shops</button>
+        <div class="collapse multi-collapse" id="shops">
+            <div class="card card-body">
+                <ul>
+                    @foreach (var shop in Shops)
+                    {
+                        <li>
+                            <label class="check">
+                                @shop.ShopName
+                                @Html.CheckBox(shop.Id.ToString(), false)
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* SCREEN SIZE *@
+<div class="row" style="margin: 15px;">
+    <div style="width: 12%">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#screenSize" aria-expanded="false" aria-controls="screenSize" style="width: 100%">Screen size</button>
+        <div class="collapse multi-collapse" id="screenSize">
+            <div class="card card-body">
+                <ul>
+                    @foreach (var size in screenSize)
+                    {
+                        <li>
+                            <label class="check">
+                                @size.Text
+                                @Html.CheckBox(size.Text.ToString(), false)
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* SCREEN TOUCH *@
+<div class="row" style="margin: 15px;">
+    <div style="width: 12%">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#touch" aria-expanded="false" aria-controls="touch" style="width: 100%">Touch</button>
+        <div class="collapse multi-collapse" id="touch">
+            <div class="card card-body">
+                <ul>
+                    <li>
+                        <label class="check">
+                            Yes
+                            @Html.CheckBox("Yes", false)
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="check">
+                            No
+                            @Html.CheckBox("No", false)
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div style="width: 12%; text-align:center;">
+    <button class="btn cust-btn " type="button" id="btn-registration" style="font-size: 20px;letter-spacing: 1px;">Search</button>
+</div>

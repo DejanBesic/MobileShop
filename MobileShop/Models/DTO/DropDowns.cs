@@ -28,6 +28,8 @@ namespace MobileShop.Models.DTO
 
         public IEnumerable<SoundM> Sounds { get; set; }
 
+        public IEnumerable<ShopM> Shops { get; set; }
+
         public DropDowns()
         {
 

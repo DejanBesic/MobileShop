@@ -26,11 +26,8 @@ namespace Repository
             return new CameraM()
             {
                 Id = cam.Id,
-                BackCamera = cam.BackCamera,
-                FrontCamera = cam.FrontCamera,
-                BackCameraChar = cam.BackCameraChar,
-                FrontCameraChar = cam.FrontCameraChar,
-                Video = cam.Video,
+                MP = cam.MpId,
+                Characteristics = cam.CharacteristicsId
             };
         }
 
@@ -46,11 +43,8 @@ namespace Repository
             {
                 return null;
             }
-            found.BackCamera = camera.BackCamera;
-            found.FrontCamera = camera.FrontCamera;
-            found.BackCameraChar = camera.BackCameraChar;
-            found.FrontCameraChar = camera.FrontCameraChar;
-            found.Video = camera.Video;
+            found.MP = camera.MpId;
+            found.Characteristics = camera.CharacteristicsId;
             Context.SaveChanges();
 
             return camera;
@@ -59,16 +53,13 @@ namespace Repository
         public IEnumerable<CameraM> FindAll()
         {
             List<CameraM> retVal = new List<CameraM>();
-            foreach (Camera c in Context.Cameras.ToList())
+            foreach (Camera cam in Context.Cameras.ToList())
             {
                 retVal.Add(new CameraM()
                 {
-                    Id = c.Id,
-                    BackCamera = c.BackCamera,
-                    FrontCamera = c.FrontCamera,
-                    BackCameraChar = c.BackCameraChar,
-                    FrontCameraChar = c.FrontCameraChar,
-                    Video = c.Video,
+                    Id = cam.Id,
+                    MP = cam.MpId,
+                    Characteristics = cam.CharacteristicsId
                 });
             }
 
@@ -82,11 +73,8 @@ namespace Repository
             return new CameraM()
             {
                 Id = camera.Id,
-                BackCamera = camera.BackCamera,
-                FrontCamera = camera.FrontCamera,
-                BackCameraChar = camera.BackCameraChar,
-                FrontCameraChar = camera.FrontCameraChar,
-                Video = camera.Video,
+                MP = camera.MpId,
+                Characteristics = camera.CharacteristicsId
             };
         }
 
@@ -94,11 +82,9 @@ namespace Repository
         {
             Camera cameraDb = new Camera()
             {
-                BackCamera = camera.BackCamera,
-                FrontCamera = camera.FrontCamera,
-                BackCameraChar = camera.BackCameraChar,
-                FrontCameraChar = camera.FrontCameraChar,
-                Video = camera.Video,
+                Id = camera.Id,
+                MpId = camera.MP ?? -1,
+                CharacteristicsId = camera.CharacteristicsId
             };
             Context.Cameras.Add(cameraDb);
             Context.SaveChanges();

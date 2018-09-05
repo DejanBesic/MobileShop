@@ -20,6 +20,7 @@ namespace MobileShop.Controllers
         private readonly PhonePlatfromService phonePlatfromService = new PhonePlatfromService();
         private readonly ScreenService screenService = new ScreenService();
         private readonly SoundService soundService = new SoundService();
+        private readonly ShopService shopService = new ShopService();
 
         public ActionResult Index()
         {
@@ -35,6 +36,7 @@ namespace MobileShop.Controllers
                 PhonePlatforms = phonePlatfromService.FindAll(),
                 Screens = screenService.FindAll(),
                 Sounds = soundService.FindAll(),
+                Shops = shopService.FindAll(),
             };
 
             return View(dropDowns);

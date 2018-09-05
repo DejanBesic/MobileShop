@@ -28,18 +28,23 @@ namespace MobileShop.Models
         public virtual DbSet<Additional> Additionals { get; set; }
         public virtual DbSet<Battery> Batteries { get; set; }
         public virtual DbSet<Camera> Cameras { get; set; }
+        public virtual DbSet<CameraCharacteristic> CameraCharacteristics { get; set; }
+        public virtual DbSet<CameraMP> CameraMPs { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Characteristic> Characteristics { get; set; }
         public virtual DbSet<Communication> Communications { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Memory> Memories { get; set; }
         public virtual DbSet<Mobile> Mobiles { get; set; }
+        public virtual DbSet<OperativeSystem> OperativeSystems { get; set; }
         public virtual DbSet<PackageContent> PackageContents { get; set; }
-        public virtual DbSet<PhonePlatform> PhonePlatforms { get; set; }
+        public virtual DbSet<Proccessor> Proccessors { get; set; }
+        public virtual DbSet<RAM> RAMs { get; set; }
         public virtual DbSet<Screen> Screens { get; set; }
         public virtual DbSet<Shop> Shops { get; set; }
         public virtual DbSet<Shop_Mobiles> Shop_Mobiles { get; set; }
         public virtual DbSet<Shopping> Shoppings { get; set; }
         public virtual DbSet<Sound> Sounds { get; set; }
+        public virtual DbSet<Video> Videos { get; set; }
     }
 }

@@ -18,13 +18,15 @@ namespace MobileShop.Models
         public Memory()
         {
             this.Mobiles = new HashSet<Mobile>();
+            this.Mobiles1 = new HashSet<Mobile>();
         }
     
         public int Id { get; set; }
-        public string Intern { get; set; }
-        public string Extern { get; set; }
+        public string Size { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mobile> Mobiles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mobile> Mobiles1 { get; set; }
     }
 }

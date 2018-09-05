@@ -396,7 +396,9 @@
     </Compile>
     <Compile Include="Models\DTO\DropDowns.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\DTO\LoginDTO.cs" />
+    <Compile Include="Models\DTO\LoginDTO.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
@@ -434,7 +436,9 @@
     <Content Include="Content\Bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
     <Content Include="Content\Bootstrap\bootstrap.min.css" />
+    <Content Include="Content\Home\Filter.css" />
     <Content Include="Content\Login\Android1.png" />
+    <Content Include="Content\Login\BackgroundImage.jpg" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\Login\nightsky.jpg" />
     <Content Include="Content\Register\Register.css" />
@@ -488,8 +492,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
@@ -497,6 +499,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Home\_SearchAndFilters.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

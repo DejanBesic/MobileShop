@@ -7,22 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MobileShop.Models
+namespace Repository
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class PhonePlatform
+    public partial class OperativeSystem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public PhonePlatform()
+        public OperativeSystem()
         {
             this.Mobiles = new HashSet<Mobile>();
         }
     
         public int Id { get; set; }
         public string OS { get; set; }
-        public string RAM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mobile> Mobiles { get; set; }

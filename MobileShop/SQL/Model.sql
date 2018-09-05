@@ -1,21 +1,36 @@
 DROP TABLE IF EXISTS Shopping;
 DROP TABLE IF EXISTS Cart;
 DROP TABLE IF EXISTS Shop_Mobiles;
-DROP TABLE IF EXISTS Shop;
 DROP TABLE IF EXISTS Customer;
+DROP TABLE IF EXISTS Shop;
 DROP TABLE IF EXISTS Administrator;
 DROP TABLE IF EXISTS Mobile;
 DROP TABLE IF EXISTS Additional;
 DROP TABLE IF EXISTS Battery;
 DROP TABLE IF EXISTS Camera;
+DROP TABLE IF EXISTS CameraCharacteristics;
+DROP TABLE IF EXISTS CameraMP;
 DROP TABLE IF EXISTS Characteristics;
 DROP TABLE IF EXISTS Memory;
-DROP TABLE IF EXISTS PhonePlatform;
+DROP TABLE IF EXISTS RAM;
+DROP TABLE IF EXISTS OperativeSystem;
+DROP TABLE IF EXISTS Proccessor;
 DROP TABLE IF EXISTS PackageContent;
 DROP TABLE IF EXISTS Screen;
 DROP TABLE IF EXISTS Sound;
 DROP TABLE IF EXISTS Communication;
+DROP TABLE IF EXISTS Video;
 
+
+CREATE TABLE Shop (
+	Id int PRIMARY KEY IDENTITY,
+	ShopName varchar(255),
+	ContactPhone varchar(255),
+	ContactMobilePhone varchar(255),
+	ContactAddress varchar(255),
+	HirePayment bit,
+	OpenTime varchar(255),
+);
 
 CREATE TABLE Customer (
 	Id int PRIMARY KEY IDENTITY,
@@ -41,13 +56,22 @@ CREATE TABLE Battery (
 	Capacity varchar(255)
 );
 
-CREATE TABLE Camera (
+CREATE TABLE CameraCharacteristics (
+	Id int PRIMARY KEY IDENTITY,
+	CamChars varchar(255),
+);
+
+CREATE TABLE CameraMP (
 	Id int  PRIMARY KEY IDENTITY,
-	BackCamera varchar(255),
-	BackCameraChar varchar(255),
-	FrontCamera varchar(255),
-	FrontCameraChar varchar(255),
-	Video varchar(255)
+	MP varchar(255),
+);
+
+CREATE TABLE Camera (
+	Id int PRIMARY KEY IDENTITY,
+	MpId int,
+	CharacteristicsId int,
+	FOREIGN KEY (MpId) REFERENCES CameraMP(Id),
+	FOREIGN KEY (CharacteristicsId) REFERENCES CameraCharacteristics(Id)
 );
 
 CREATE TABLE Characteristics (
@@ -74,8 +98,7 @@ CREATE TABLE Communication (
 
 CREATE TABLE Memory (
 	Id int  PRIMARY KEY IDENTITY,
-	Intern varchar(255),
-	Extern varchar(255),
+	Size varchar(255),
 );
 
 CREATE TABLE PackageContent (
@@ -83,11 +106,19 @@ CREATE TABLE PackageContent (
 	Content varchar(255),
 );
 
-CREATE TABLE PhonePlatform (
-	Id int  PRIMARY KEY IDENTITY,
-	OS varchar(255),
-	RAM varchar(255),
-	Proccessor varchar(255),
+CREATE TABLE OperativeSystem (
+	Id int PRIMARY KEY IDENTITY,
+	OS varchar(255)
+);
+
+CREATE TABLE RAM (
+	Id int PRIMARY KEY IDENTITY,
+	Memory varchar(255),
+);
+
+CREATE TABLE Proccessor (
+	Id int PRIMARY KEY IDENTITY,
+	ProccessorChars varchar(255),
 );
 
 CREATE TABLE Screen (
@@ -105,24 +136,40 @@ CREATE TABLE Sound (
 	HDVoice bit,
 );
 
+CREATE TABLE Video (
+	Id int PRIMARY KEY IDENTITY,
+	VideoDescription varchar(255),
+);
+
 CREATE TABLE Mobile (
 	Id int PRIMARY KEY IDENTITY,
 	About varchar(255),
 	Price float,
-	PlatformId int,
 	ScreenId int,
-	CameraId int,
-	MemoryId int,
 	SoundId int,
 	CommunicationId int,
 	BatteryId int,
 	CharacteristicsId int,
 	AdditionalId int,
 	PackageContentId int,
-	FOREIGN KEY (PlatformId) REFERENCES PhonePlatform(Id),
+	FrontCameraId int,
+	BackCameraId int,
+	VideoId int,
+	InternMemoryId int,
+	ExternMemoryId int,
+	ProccessorId int,
+	RamId int,
+	OsId int,
+
+	FOREIGN KEY (ProccessorId) REFERENCES Proccessor(Id),
+	FOREIGN KEY (RamId) REFERENCES RAM(Id),
+	FOREIGN KEY (OsId) REFERENCES OperativeSystem(Id),
+	FOREIGN KEY (InternMemoryId) REFERENCES Memory(Id),
+	FOREIGN KEY (ExternMemoryId) REFERENCES Memory(Id),
+	FOREIGN KEY (VideoId) REFERENCES Video(Id),
+	FOREIGN KEY (FrontCameraId) REFERENCES Camera(Id),
+	FOREIGN KEY (BackCameraId) REFERENCES Camera(Id),
 	FOREIGN KEY (ScreenId) REFERENCES Screen(Id),
-	FOREIGN KEY (CameraId) REFERENCES Camera(Id),
-	FOREIGN KEY (MemoryId) REFERENCES Memory(Id),
 	FOREIGN KEY (SoundId) REFERENCES Sound(Id),
 	FOREIGN KEY (CommunicationId) REFERENCES Communication(Id),
 	FOREIGN KEY (AdditionalId) REFERENCES Additional(Id),
@@ -131,16 +178,6 @@ CREATE TABLE Mobile (
 	FOREIGN KEY (CharacteristicsId) REFERENCES Characteristics(Id),
 );
 
-
-CREATE TABLE Shop (
-	Id int PRIMARY KEY IDENTITY,
-	ShopName varchar(255),
-	ContactPhone varchar(255),
-	ContactMobilePhone varchar(255),
-	ContactAddress varchar(255),
-	HirePayment bit,
-	OpenTime varchar(255),
-);
 
 CREATE TABLE Shop_Mobiles(
 	Id int PRIMARY KEY IDENTITY,
