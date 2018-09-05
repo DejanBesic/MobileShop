@@ -343,21 +343,16 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdditionalsController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="JWT\JwtAuthHandler.cs" />
     <Compile Include="JWT\JwtAuthorize.cs" />
     <Compile Include="JWT\JWTManager.cs" />
-    <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Additional.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -365,6 +360,12 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Camera.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CameraCharacteristic.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CameraMP.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs">
@@ -395,24 +396,28 @@
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DTO\DropDowns.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\DTO\LoginDTO.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\DTO\RegisterDTO.cs" />
     <Compile Include="Models\Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Mobile.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OperativeSystem.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\PackageContent.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PhonePlatform.cs">
+    <Compile Include="Models\Proccessor.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\DTO\RegisterDTO.cs" />
+    <Compile Include="Models\RAM.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Screen.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -426,6 +431,9 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sound.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Video.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

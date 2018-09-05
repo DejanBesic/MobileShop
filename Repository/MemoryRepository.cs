@@ -30,8 +30,7 @@ namespace Repository
             return new MemoryM()
             {
                 Id = memoryDb.Id,
-                Extern = memoryDb.Extern,
-                Intern = memoryDb.Intern,
+                Size = memoryDb.Size,
             };
         }
 
@@ -48,8 +47,7 @@ namespace Repository
                 return null;
             }
 
-            found.Intern = memory.Intern;
-            found.Extern = memory.Extern;
+            found.Size = memory.Size;
             Context.SaveChanges();
             return memory;
         }
@@ -62,8 +60,7 @@ namespace Repository
                 retVal.Add(new MemoryM()
                 {
                     Id = m.Id,
-                    Extern = m.Extern,
-                    Intern = m.Intern,
+                    Size = m.Size,
                 });
             }
 
@@ -77,8 +74,7 @@ namespace Repository
             return new MemoryM()
             {
                 Id = memoryDb.Id,
-                Extern = memoryDb.Extern,
-                Intern = memoryDb.Intern,
+                Size = memoryDb.Size,
             };
         }
 
@@ -86,8 +82,7 @@ namespace Repository
         {
             Memory memoryDb = new Memory()
             {
-                Extern = memory.Extern,
-                Intern = memory.Intern,
+                Size = memory.Size,
             };
             Context.Memories.Add(memoryDb);
             Context.SaveChanges();

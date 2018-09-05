@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class PhonePlatformM
+    public class RamM
     {
         public int Id { get; set; }
 
-        public string OS { get; set; }
+        public string Memory { get; set; }
 
-        public string RAM { get; set; }
-
-        public PhonePlatformM()
+        public RamM()
         {
 
         }

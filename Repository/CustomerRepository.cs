@@ -32,6 +32,7 @@ namespace Repository
                 Blocked = customerDb.Blocked ?? false,
                 Activated = customerDb.Activated ?? false,
                 IsAdmin = customerDb.IsAdmin ?? false,
+                ShopAdminId = customerDb.ShopAdminId ?? -1,
             }; 
         }
 
@@ -57,6 +58,7 @@ namespace Repository
             found.IsAdmin = customer.IsAdmin;
             found.Blocked = customer.Blocked;
             found.Activated = customer.Activated;
+            found.ShopAdminId = customer.ShopAdminId;
             Context.SaveChanges();
             customer.Password = "";
             return customer;
@@ -77,6 +79,7 @@ namespace Repository
                     Blocked = c.Blocked ?? false,
                     Activated = c.Activated ?? false,
                     IsAdmin = c.IsAdmin ?? false,
+                    ShopAdminId = c.ShopAdminId ?? -1,
                 });
             }
 
@@ -103,6 +106,7 @@ namespace Repository
                 Activated = customerDb.Activated ?? false,
                 IsAdmin = customerDb.IsAdmin ?? false,
                 Password = customerDb.CustomerPassword,
+                ShopAdminId = customerDb.ShopAdminId ?? -1,
             };
         }
 
@@ -125,6 +129,7 @@ namespace Repository
                 Blocked = customerDb.Blocked ?? false,
                 Activated = customerDb.Activated ?? false,
                 IsAdmin = customerDb.IsAdmin ?? false,
+                ShopAdminId = customerDb.ShopAdminId ?? -1,
             };
         }
 
@@ -140,6 +145,7 @@ namespace Repository
                 Activated = customer.Activated,
                 IsAdmin = customer.IsAdmin,
                 CustomerPassword = customer.Password,
+                ShopAdminId = customer.ShopAdminId,
             };
             Context.Customers.Add(customerDb);
             Context.SaveChanges();

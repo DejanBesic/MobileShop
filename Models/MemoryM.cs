@@ -10,9 +10,7 @@ namespace Models
     {
         public int Id { get; set; }
 
-        public string Extern { get; set; }
-
-        public string Intern { get; set; }
+        public string Size { get; set; }
 
         public MemoryM()
         {

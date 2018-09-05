@@ -16,24 +16,6 @@ namespace MobileShop
 
         public void Configuration(IAppBuilder app)
         {
-            var services = new ServiceCollection();
-            ConfigureServices(services);
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            {
-                options.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = "mobileshop.com",
-                    ValidAudience = "mobileshop.com",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MySigningSuperSecretKey"))
-                };
-            });
         }
     }
 }

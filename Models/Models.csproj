@@ -42,21 +42,26 @@
   <ItemGroup>
     <Compile Include="AdditionalM.cs" />
     <Compile Include="BatteryM.cs" />
+    <Compile Include="CameraCharacteristicsM.cs" />
     <Compile Include="CameraM.cs" />
+    <Compile Include="CameraMPM.cs" />
     <Compile Include="CartM.cs" />
     <Compile Include="CharacteristicsM.cs" />
     <Compile Include="CommunicationM.cs" />
     <Compile Include="CustomerM.cs" />
     <Compile Include="MemoryM.cs" />
     <Compile Include="MobileM.cs" />
+    <Compile Include="OperativeSystemM.cs" />
     <Compile Include="PackageContentM.cs" />
-    <Compile Include="PhonePlatformM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\ProccessorM.cs" />
+    <Compile Include="RamM.cs" />
     <Compile Include="ScreenM.cs" />
     <Compile Include="ShopM.cs" />
     <Compile Include="ShopMobilesM.cs" />
     <Compile Include="ShoppingM.cs" />
     <Compile Include="SoundM.cs" />
+    <Compile Include="VideoM.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

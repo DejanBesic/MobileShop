@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b80bb82b90504df680e75979944c5383" Name="Diagram1" ZoomLevel="72">
+      <Diagram DiagramId="baafb9f9cb204114836a1952e581512e" Name="Diagram1" ZoomLevel="94">
         <EntityTypeShape EntityType="MobileShopModel.Additional" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Battery" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Camera" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
@@ -26,30 +26,30 @@
         <EntityTypeShape EntityType="MobileShopModel.Shopping" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Sound" Width="1.5" PointX="0.75" PointY="41.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Video" Width="1.5" PointX="0.75" PointY="44.25" IsExpanded="true" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Addition__6EB64F9B" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__BatteryI__709E980D" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Camera__Characte__4E498009" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Camera__MpId__4D555BD0" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__BackCame__6AE5BEB7" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__FrontCam__69F19A7E" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Cart__CustomerId__783FB9D5" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Cart__ShopMobile__7933DE0E" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shopping__CartId__7C104AB9" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Characte__7192BC46" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Communic__6DC22B62" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Customer__ShopAd__42D7CD5D" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shopping__Custom__7D046EF2" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__ExternMe__6809520C" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__InternMe__67152DD3" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__OsId__6621099A" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__PackageC__6FAA73D4" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__Proccess__6438C128" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__RamId__652CE561" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__ScreenId__6BD9E2F0" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__SoundId__6CCE0729" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__VideoId__68FD7645" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__Mobil__746F28F1" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__ShopI__75634D2A" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Addition__30C33EC3" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__BatteryI__32AB8735" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Camera__Characte__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Camera__MpId__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__BackCame__2CF2ADDF" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__FrontCam__2BFE89A6" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Cart__CustomerId__3A4CA8FD" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Cart__ShopMobile__3B40CD36" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shopping__CartId__3E1D39E1" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Characte__339FAB6E" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Communic__2FCF1A8A" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Customer__ShopAd__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shopping__Custom__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__ExternMe__2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__InternMe__29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__OsId__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__PackageC__31B762FC" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__Proccess__2645B050" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__RamId__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__ScreenId__2DE6D218" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__SoundId__2EDAF651" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__VideoId__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__Mobil__367C1819" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__ShopI__37703C52" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

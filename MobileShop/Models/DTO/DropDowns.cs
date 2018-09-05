@@ -22,8 +22,6 @@ namespace MobileShop.Models.DTO
 
         public IEnumerable<PackageContentM> PackageContents { get; set; }
 
-        public IEnumerable<PhonePlatformM> PhonePlatforms { get; set; }
-
         public IEnumerable<ScreenM> Screens { get; set; }
 
         public IEnumerable<SoundM> Sounds { get; set; }

@@ -73,7 +73,7 @@ namespace Repository
             {
                 Capacity = battery.Capacity
             };
-            Context.Batteries.Add(batteryDb);
+            batteryDb = Context.Batteries.Add(batteryDb);
             Context.SaveChanges();
             battery.Id = batteryDb.Id;
             return battery;

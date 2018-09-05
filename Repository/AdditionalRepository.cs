@@ -10,7 +10,12 @@ namespace Repository
 {
     public class AdditionalRepository : IAdditionalRepository
     {
-        private readonly MobileShopEntities Context = new MobileShopEntities();
+        private readonly MobileShopEntities Context;
+
+        public AdditionalRepository()
+        {
+            Context = new MobileShopEntities();
+        }
 
         public void Dispose()
         {

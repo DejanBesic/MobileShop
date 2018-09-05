@@ -26,8 +26,8 @@ namespace Repository
             return new CameraM()
             {
                 Id = cam.Id,
-                MP = cam.MpId,
-                Characteristics = cam.CharacteristicsId
+                MP = cam.MpId ?? -1,
+                Characteristics = cam.CharacteristicsId ?? -1
             };
         }
 
@@ -43,8 +43,8 @@ namespace Repository
             {
                 return null;
             }
-            found.MP = camera.MpId;
-            found.Characteristics = camera.CharacteristicsId;
+            found.MpId= camera.MP;
+            found.CharacteristicsId= camera.Characteristics;
             Context.SaveChanges();
 
             return camera;
@@ -58,8 +58,8 @@ namespace Repository
                 retVal.Add(new CameraM()
                 {
                     Id = cam.Id,
-                    MP = cam.MpId,
-                    Characteristics = cam.CharacteristicsId
+                    MP = cam.MpId ?? -1,
+                    Characteristics = cam.CharacteristicsId ?? -1
                 });
             }
 
@@ -73,8 +73,8 @@ namespace Repository
             return new CameraM()
             {
                 Id = camera.Id,
-                MP = camera.MpId,
-                Characteristics = camera.CharacteristicsId
+                MP = camera.MpId ?? -1,
+                Characteristics = camera.CharacteristicsId ?? -1
             };
         }
 
@@ -83,8 +83,8 @@ namespace Repository
             Camera cameraDb = new Camera()
             {
                 Id = camera.Id,
-                MpId = camera.MP ?? -1,
-                CharacteristicsId = camera.CharacteristicsId
+                MpId = camera.MP,
+                CharacteristicsId = camera.Characteristics
             };
             Context.Cameras.Add(cameraDb);
             Context.SaveChanges();

@@ -17,7 +17,6 @@ namespace MobileShop.Controllers
         private readonly CommunicationService communicationService = new CommunicationService();
         private readonly MemoryService memoryService = new MemoryService();
         private readonly PackageContentService packageContentService = new PackageContentService();
-        private readonly PhonePlatfromService phonePlatfromService = new PhonePlatfromService();
         private readonly ScreenService screenService = new ScreenService();
         private readonly SoundService soundService = new SoundService();
         private readonly ShopService shopService = new ShopService();
@@ -33,7 +32,6 @@ namespace MobileShop.Controllers
                 Communications = communicationService.FindAll(),
                 Memories = memoryService.FindAll(),
                 PackageContents = packageContentService.FindAll(),
-                PhonePlatforms = phonePlatfromService.FindAll(),
                 Screens = screenService.FindAll(),
                 Sounds = soundService.FindAll(),
                 Shops = shopService.FindAll(),

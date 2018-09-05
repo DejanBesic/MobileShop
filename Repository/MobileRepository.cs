@@ -29,15 +29,20 @@ namespace Repository
                 About = mobile.About,
                 AdditionalId = mobile.AdditionalId ?? -1,
                 BatteryId = mobile.BatteryId ?? -1,
-                CameraId = mobile.CameraId ?? -1,
                 CharacteristicsId = mobile.CharacteristicsId ?? -1,
                 CommunicationId = mobile.CommunicationId ?? -1,
-                MemoryId = mobile.MemoryId ?? -1,
                 PackageContentId = mobile.PackageContentId ?? -1,
-                PlatformId = mobile.PlatformId ?? -1,
                 Price = mobile.Price ?? 0,
                 ScreenId = mobile.ScreenId ?? -1,
                 SoundId = mobile.SoundId ?? -1,
+                BackCameraId = mobile.BackCameraId ?? -1,
+                ExternMemoryId = mobile.ExternMemoryId ?? -1,
+                InternMemoryId = mobile.InternMemoryId ?? -1,
+                FrontCameraId = mobile.FrontCameraId ?? -1,
+                OsId = mobile.OsId ?? -1,
+                ProcessorId = mobile.ProccessorId ?? -1,
+                RamId = mobile.RamId ?? -1,
+                VideoId = mobile.VideoId ?? -1
             };
         }
 
@@ -56,15 +61,20 @@ namespace Repository
             found.About = mobile.About;
             found.AdditionalId = mobile.AdditionalId;
             found.BatteryId = mobile.BatteryId;
-            found.CameraId = mobile.CameraId;
             found.CharacteristicsId = mobile.CharacteristicsId;
             found.CommunicationId = mobile.CommunicationId;
-            found.MemoryId = mobile.MemoryId;
             found.PackageContentId = mobile.PackageContentId;
-            found.PlatformId = mobile.PlatformId;
             found.Price = mobile.Price;
             found.ScreenId = mobile.ScreenId;
             found.SoundId = mobile.SoundId;
+            found.BackCameraId = mobile.BackCameraId;
+            found.ExternMemoryId = mobile.ExternMemoryId;
+            found.InternMemoryId = mobile.InternMemoryId;
+            found.FrontCameraId = mobile.FrontCameraId;
+            found.OsId = mobile.OsId;
+            found.ProccessorId = mobile.ProcessorId;
+            found.RamId = mobile.RamId;
+            found.VideoId = mobile.VideoId;
             Context.SaveChanges();
 
             return mobile;
@@ -81,15 +91,20 @@ namespace Repository
                     About = mobile.About,
                     AdditionalId = mobile.AdditionalId ?? -1,
                     BatteryId = mobile.BatteryId ?? -1,
-                    CameraId = mobile.CameraId ?? -1,
                     CharacteristicsId = mobile.CharacteristicsId ?? -1,
                     CommunicationId = mobile.CommunicationId ?? -1,
-                    MemoryId = mobile.MemoryId ?? -1,
                     PackageContentId = mobile.PackageContentId ?? -1,
-                    PlatformId = mobile.PlatformId ?? -1,
                     Price = mobile.Price ?? 0,
                     ScreenId = mobile.ScreenId ?? -1,
                     SoundId = mobile.SoundId ?? -1,
+                    BackCameraId = mobile.BackCameraId ?? -1,
+                    ExternMemoryId = mobile.ExternMemoryId ?? -1,
+                    InternMemoryId = mobile.InternMemoryId ?? -1,
+                    FrontCameraId = mobile.FrontCameraId ?? -1,
+                    OsId = mobile.OsId ?? -1,
+                    ProcessorId = mobile.ProccessorId ?? -1,
+                    RamId = mobile.RamId ?? -1,
+                    VideoId = mobile.VideoId ?? -1
                 });
             }
 
@@ -106,15 +121,20 @@ namespace Repository
                 About = mobile.About,
                 AdditionalId = mobile.AdditionalId ?? -1,
                 BatteryId = mobile.BatteryId ?? -1,
-                CameraId = mobile.CameraId ?? -1,
                 CharacteristicsId = mobile.CharacteristicsId ?? -1,
                 CommunicationId = mobile.CommunicationId ?? -1,
-                MemoryId = mobile.MemoryId ?? -1,
                 PackageContentId = mobile.PackageContentId ?? -1,
-                PlatformId = mobile.PlatformId ?? -1,
                 Price = mobile.Price ?? 0,
                 ScreenId = mobile.ScreenId ?? -1,
                 SoundId = mobile.SoundId ?? -1,
+                BackCameraId = mobile.BackCameraId ?? -1,
+                ExternMemoryId = mobile.ExternMemoryId ?? -1,
+                InternMemoryId = mobile.InternMemoryId ?? -1,
+                FrontCameraId = mobile.FrontCameraId ?? -1,
+                OsId = mobile.OsId ?? -1,
+                ProcessorId = mobile.ProccessorId ?? -1,
+                RamId = mobile.RamId ?? -1,
+                VideoId = mobile.VideoId ?? -1
             };
         }
 
@@ -125,15 +145,20 @@ namespace Repository
                 About = mobile.About,
                 AdditionalId = mobile.AdditionalId,
                 BatteryId = mobile.BatteryId,
-                CameraId = mobile.CameraId,
                 CharacteristicsId = mobile.CharacteristicsId,
                 CommunicationId = mobile.CommunicationId,
-                MemoryId = mobile.MemoryId,
                 PackageContentId = mobile.PackageContentId,
-                PlatformId = mobile.PlatformId,
                 Price = mobile.Price,
                 ScreenId = mobile.ScreenId,
                 SoundId = mobile.SoundId,
+                BackCameraId = mobile.BackCameraId,
+                ExternMemoryId = mobile.ExternMemoryId,
+                InternMemoryId = mobile.InternMemoryId,
+                FrontCameraId = mobile.FrontCameraId,
+                OsId = mobile.OsId,
+                ProccessorId = mobile.ProcessorId,
+                RamId = mobile.RamId,
+                VideoId = mobile.VideoId
             };
             Context.Mobiles.Add(mobileDb);
             Context.SaveChanges();

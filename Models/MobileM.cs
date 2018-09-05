@@ -14,13 +14,7 @@ namespace Models
 
         public double Price { get; set; }
 
-        public int PlatformId { get; set; }
-
         public int ScreenId { get; set; }
-
-        public int CameraId { get; set; }
-
-        public int MemoryId { get; set; }
 
         public int SoundId { get; set; }
 
@@ -33,6 +27,22 @@ namespace Models
         public int PackageContentId { get; set; }
 
         public int CharacteristicsId { get; set; }
+
+        public int RamId { get; set; }
+
+        public int OsId { get; set; }
+
+        public int ProcessorId { get; set; }
+
+        public int ExternMemoryId { get; set; }
+
+        public int InternMemoryId { get; set; }
+
+        public int VideoId { get; set; }
+
+        public int FrontCameraId { get; set; }
+
+        public int BackCameraId { get; set; }
 
         public MobileM()
         {
