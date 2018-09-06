@@ -28,8 +28,19 @@ namespace MobileShop.Controllers
             }
 
             var token = authService.GenerateJWT(customer);
-
             FormsAuthentication.SetAuthCookie(token, true);
+            var httpContext = HttpContext.ApplicationInstance as MvcApplication;
+            HttpCookie cookie = null;
+            if (customer.IsAdmin)
+            {
+                cookie = new HttpCookie("Role", "ADMIN");
+            }
+            else
+            {
+                cookie = new HttpCookie("Role", "REGULAR");
+            }
+            cookie.Expires.AddMonths(1);
+            httpContext.Response.Cookies.Set(cookie);
 
             return Redirect("/Home");
         }
@@ -38,6 +49,8 @@ namespace MobileShop.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            var httpContext = HttpContext.ApplicationInstance as MvcApplication;
+            HttpContext.Response.SetCookie(new HttpCookie("Role", ""));
             return Redirect("/Auth/Login");
         }
 

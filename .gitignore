@@ -12,3 +12,5 @@ IRepository/obj/
 IRepository/bin/
 Models/bin
 Models/obj
+MobileShop.Tests/obj/
+MobileShop.Tests/bin/

@@ -10,31 +10,27 @@ namespace MobileShop.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly AdditionalService additionalService = new AdditionalService();
+        
         private readonly BatteryService batteryService = new BatteryService();
         private readonly CameraService cameraService = new CameraService();
-        private readonly CharacteristicsService characteristicsService = new CharacteristicsService();
-        private readonly CommunicationService communicationService = new CommunicationService();
         private readonly MemoryService memoryService = new MemoryService();
-        private readonly PackageContentService packageContentService = new PackageContentService();
-        private readonly ScreenService screenService = new ScreenService();
         private readonly SoundService soundService = new SoundService();
         private readonly ShopService shopService = new ShopService();
+        private readonly RamService ramService = new RamService();
+        private readonly OperativeSystemService operativeSystemService = new OperativeSystemService();
+
 
         public ActionResult Index()
         {
             DropDowns dropDowns = new DropDowns()
             {
-                Additionals = additionalService.FindAll(),
                 Batteries = batteryService.FindAll(),
                 Cameras = cameraService.FindAll(),
-                Characteristics = characteristicsService.FindAll(),
-                Communications = communicationService.FindAll(),
                 Memories = memoryService.FindAll(),
-                PackageContents = packageContentService.FindAll(),
-                Screens = screenService.FindAll(),
                 Sounds = soundService.FindAll(),
                 Shops = shopService.FindAll(),
+                OperativeSystems = operativeSystemService.FindAll(),
+                Rams = ramService.FindAll()
             };
 
             return View(dropDowns);

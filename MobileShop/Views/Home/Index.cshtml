@@ -1,40 +1,40 @@
 ﻿@using MobileShop.Models.DTO
 @model DropDowns
 
+
 @Styles.Render("~/Content/Home/Filter.css")
+@Scripts.Render("~/Content/Home/Filter.js")
+
 
 
 @{
-    var Additionals = Model.Additionals;
-    var Batteries = Model.Batteries;
+    var Batteries = Model.Batteries.OrderBy(x => x.Capacity);
     var Cameras = Model.Cameras;
-    var Communications = Model.Communications;
-    var Characteristics = Model.Characteristics;
-    var PackageContents = Model.PackageContents;
-    var Screens = Model.Screens;
     var Sounds = Model.Sounds;
     var Memories = Model.Memories;
     var Shops = Model.Shops;
+    var OperativeSystems = Model.OperativeSystems;
+    var Rams = Model.Rams;
 }
 
 @{
     var internMemory = new List<SelectListItem>();
-    internMemory.Add(new SelectListItem { Text = "8 GB", Value = "1" });
-    internMemory.Add(new SelectListItem { Text = "16 GB", Value = "2" });
-    internMemory.Add(new SelectListItem { Text = "32 GB", Value = "3" });
-    internMemory.Add(new SelectListItem { Text = "64 GB", Value = "4" });
-
     var externMemory = new List<SelectListItem>();
-    externMemory.Add(new SelectListItem { Text = "8 GB", Value = "1" });
-    externMemory.Add(new SelectListItem { Text = "16 GB", Value = "2" });
-    externMemory.Add(new SelectListItem { Text = "32 GB", Value = "3" });
-    externMemory.Add(new SelectListItem { Text = "64 GB", Value = "4" });
-    externMemory.Add(new SelectListItem { Text = "128 GB", Value = "5" });
-    externMemory.Add(new SelectListItem { Text = "256 GB", Value = "6" });
-    externMemory.Add(new SelectListItem { Text = "1 TB", Value = "7" });
-}
 
-@{
+    foreach (var memory in Memories)
+    {
+        var unit = " GB";
+        if (memory.Size == "1" || memory.Size == "2")
+        {
+            unit = " TB";
+        }
+
+        internMemory.Add(new SelectListItem { Text = memory.Size + unit, Value = memory.Id.ToString() });
+        externMemory.Add(new SelectListItem { Text = memory.Size + unit, Value = memory.Id.ToString() });
+
+    }
+
+    #region
     var screenSize = new List<SelectListItem>();
     screenSize.Add(new SelectListItem { Text = "2.5\"", Value = "1" });
     screenSize.Add(new SelectListItem { Text = "3.1\"", Value = "2" });
@@ -47,7 +47,7 @@
     screenSize.Add(new SelectListItem { Text = "4.2\"", Value = "8" });
     screenSize.Add(new SelectListItem { Text = "4.3\"", Value = "9" });
     screenSize.Add(new SelectListItem { Text = "4.5\"", Value = "10" });
-    screenSize.Add(new SelectListItem { Text = "4.6\"", Value = "11" });
+    screenSize.Add(new SelectListItem { Text = "4.6\"", Value = "12" });
     screenSize.Add(new SelectListItem { Text = "4.7\"", Value = "12" });
     screenSize.Add(new SelectListItem { Text = "4.8\"", Value = "13" });
     screenSize.Add(new SelectListItem { Text = "5.0\"", Value = "7" });
@@ -69,136 +69,298 @@
     screenSize.Add(new SelectListItem { Text = "8.0\"", Value = "6" });
     screenSize.Add(new SelectListItem { Text = "8.9\"", Value = "7" });
     screenSize.Add(new SelectListItem { Text = "9.0\"", Value = "7" });
+    #endregion
+
 }
 
-@{ 
-    var OS = new List<SelectListItem>();
-    screenSize.Add(new SelectListItem { Text = "Android", Value = "1" });
-    screenSize.Add(new SelectListItem { Text = "Windows", Value = "2" });
-    screenSize.Add(new SelectListItem { Text = "iOS", Value = "3" });
-    screenSize.Add(new SelectListItem { Text = "Other", Value = "4" });
-}
+<div class="slidecontainer" style="width: 12%; margin-left: 15px;">
+    <div style="margin-top: 10px;">
+        @Html.TextBox("SearchBox", null, new { placeholder="Search by name...", @class = "search-input" })
+    </div>
+    <div style="margin-top: 10px;">
+        <span>Price range:</span></br>
+        @Html.TextBox("minOutput", 1, new { id = "minOutput", style="width: 47%; ", placeholder="Min", onInput="onMinValueOutputChange()", min="1", max="100", type="number", @class="search-input" }) - 
+        @Html.TextBox("maxOutput", 1, new { id = "maxOutput", style = "width: 47%;", placeholder="Max", onInput = "onMaxValueOutputChange()", min="1", max="100", type = "number", @class = "search-input" })
+    </div>
+    <div style="margin-top: 10px;">
+        <span>Minimum price:</span>
+        <input type="range" min="1" max="100" value="1" class="slider" id="minRange" oninput="onMinValueSliderChange()">
+    </div>
+    <div style="margin-top: 10px;">
+        <span>Maximum price:</span>
+        <input type="range" min="1" max="100" value="100" class="slider" id="maxRange" oninput="onMaxValueSliderChange()">
+    </div>
+</div>
 
-@* EXTERN MEMORY *@
-<div class="row" style="margin: 15px;">
-    <div style="width: 12%">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#externMemory" aria-expanded="false" aria-controls="externMemory" style="width: 100%">Extern memory</button>
-        <div class="collapse multi-collapse" id="externMemory">
-            <div class="card card-body">
-                <ul>
-                    @foreach (var memory in externMemory)
-                    {
+    @* EXTERN MEMORY *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#externMemory" aria-expanded="false" aria-controls="externMemory" style="width: 100%">Extern memory</button>
+            <div class="collapse multi-collapse" id="externMemory">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var memory in externMemory)
+                        {
+                            <li>
+                                <label class="check">
+                                    @memory.Text
+                                    @Html.CheckBox(memory.Value, false)
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* INTERN MEMORY *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#internMemory" aria-expanded="false" aria-controls="internMemory" style="width: 100%">Intern memory</button>
+            <div class="collapse multi-collapse" id="internMemory">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var memory in internMemory)
+                        {
+                            <li>
+                                <label class="check">
+                                    @memory.Text
+                                    @Html.CheckBox(memory.Value, false)
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* SHOPS *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shops" aria-expanded="false" aria-controls="shops" style="width: 100%">Shops</button>
+            <div class="collapse multi-collapse" id="shops">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var shop in Shops)
+                        {
+                            <li>
+                                <label class="check">
+                                    @shop.ShopName
+                                    @Html.CheckBox(shop.Id.ToString(), false)
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* SCREEN SIZE *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#screenSize" aria-expanded="false" aria-controls="screenSize" style="width: 100%">Screen size</button>
+            <div class="collapse multi-collapse" id="screenSize">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var size in screenSize)
+                        {
+                            <li>
+                                <label class="check">
+                                    @size.Text
+                                    @Html.CheckBox(size.Text.ToString(), false)
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* SCREEN TOUCH *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#touch" aria-expanded="false" aria-controls="touch" style="width: 100%">Touch</button>
+            <div class="collapse multi-collapse" id="touch">
+                <div class="card card-body">
+                    <ul>
                         <li>
                             <label class="check">
-                                @memory.Text
-                                @Html.CheckBox(memory.Value, false)
+                                Yes
+                                @Html.CheckBox("Yes", false)
                                 <span class="checkmark"></span>
                             </label>
                         </li>
-                    }
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-@* INTERN MEMORY *@
-<div class="row" style="margin: 15px;">
-    <div style="width: 12%">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#internMemory" aria-expanded="false" aria-controls="internMemory" style="width: 100%">Intern memory</button>
-        <div class="collapse multi-collapse" id="internMemory">
-            <div class="card card-body">
-                <ul>
-                    @foreach (var memory in internMemory)
-                    {
                         <li>
                             <label class="check">
-                                @memory.Text
-                                @Html.CheckBox(memory.Value, false)
+                                No
+                                @Html.CheckBox("No", false)
                                 <span class="checkmark"></span>
                             </label>
                         </li>
-                    }
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-@* SHOPS *@
-<div class="row" style="margin: 15px;">
-    <div style="width: 12%">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#shops" aria-expanded="false" aria-controls="shops" style="width: 100%">Shops</button>
-        <div class="collapse multi-collapse" id="shops">
-            <div class="card card-body">
-                <ul>
-                    @foreach (var shop in Shops)
-                    {
+    @* SYSTEM *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#os" aria-expanded="false" aria-controls="os" style="width: 100%">System</button>
+            <div class="collapse multi-collapse" id="os">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var item in OperativeSystems)
+                        {
+                            <li>
+                                <label class="check">
+                                    @item.OS
+                                    @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* RAM *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ram" aria-expanded="false" aria-controls="ram" style="width: 100%">RAM</button>
+            <div class="collapse multi-collapse" id="ram">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var item in Rams)
+                        {
+                            <li>
+                                <label class="check">
+                                    @String.Concat(item.Memory, " GB")
+                                    @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @* BATTERY *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#battery" aria-expanded="false" aria-controls="battery" style="width: 100%">Battery</button>
+            <div class="collapse multi-collapse" id="battery">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var item in Batteries)
+                        {
+                            <li>
+                                <label class="check">
+                                    @item.Capacity
+                                    @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* FRONT CAMERA *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#frontCamera" aria-expanded="false" aria-controls="frontCamera" style="width: 100%">Front camera</button>
+            <div class="collapse multi-collapse" id="frontCamera">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var item in Cameras)
+                        {
+                            <li>
+                                <label class="check">
+                                    @String.Concat(item.MP, " MP")
+                                    @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* BACK CAMERA *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#backCamera" aria-expanded="false" aria-controls="backCamera" style="width: 100%">Main camera</button>
+            <div class="collapse multi-collapse" id="backCamera">
+                <div class="card card-body">
+                    <ul>
+                        @foreach (var item in Cameras)
+                        {
+                            <li>
+                                <label class="check">
+                                    @String.Concat(item.MP, " MP")
+                                    @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* SOUND *@
+    <div class="row" style="margin: 15px;">
+        <div style="width: 12%">
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#sound" aria-expanded="false" aria-controls="sound" style="width: 100%">Sound</button>
+            <div class="collapse multi-collapse" id="sound">
+                <div class="card card-body">
+                    <ul>
                         <li>
                             <label class="check">
-                                @shop.ShopName
-                                @Html.CheckBox(shop.Id.ToString(), false)
+                                FMRadio
+                                @Html.CheckBox("FMRadio", false)
                                 <span class="checkmark"></span>
                             </label>
                         </li>
-                    }
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-@* SCREEN SIZE *@
-<div class="row" style="margin: 15px;">
-    <div style="width: 12%">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#screenSize" aria-expanded="false" aria-controls="screenSize" style="width: 100%">Screen size</button>
-        <div class="collapse multi-collapse" id="screenSize">
-            <div class="card card-body">
-                <ul>
-                    @foreach (var size in screenSize)
-                    {
                         <li>
                             <label class="check">
-                                @size.Text
-                                @Html.CheckBox(size.Text.ToString(), false)
+                                HD Voice
+                                @Html.CheckBox("HDVoice", false)
                                 <span class="checkmark"></span>
                             </label>
                         </li>
-                    }
-                </ul>
+                        <li>
+                            <label class="check">
+                                Port 35 mm
+                                @Html.CheckBox("Port35mm", false)
+                                <span class="checkmark"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-@* SCREEN TOUCH *@
-<div class="row" style="margin: 15px;">
-    <div style="width: 12%">
-        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#touch" aria-expanded="false" aria-controls="touch" style="width: 100%">Touch</button>
-        <div class="collapse multi-collapse" id="touch">
-            <div class="card card-body">
-                <ul>
-                    <li>
-                        <label class="check">
-                            Yes
-                            @Html.CheckBox("Yes", false)
-                            <span class="checkmark"></span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="check">
-                            No
-                            @Html.CheckBox("No", false)
-                            <span class="checkmark"></span>
-                        </label>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <div style="width: 12%; text-align:center;">
+        <button class="btn cust-btn " type="button" id="btn-registration" style="font-size: 16px; letter-spacing: 1px; width: 100px;">Search</button>
     </div>
-</div>
-
-
-<div style="width: 12%; text-align:center;">
-    <button class="btn cust-btn " type="button" id="btn-registration" style="font-size: 20px;letter-spacing: 1px;">Search</button>
-</div>

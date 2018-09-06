@@ -1,10 +1,16 @@
 ﻿@{if (Request.IsAuthenticated)
     {
-        using (Html.BeginForm("Logout", "Auth", FormMethod.Get, new { id = "logoutForm", @class = "navbar-right" }))
+        using (Html.BeginForm("Logout", "Auth", FormMethod.Get, new { id = "logoutForm", @class = "navbar-right", style = "color: #337ab7;" }))
         {
     <ul class="nav navbar-nav navbar-right">
+        @if (Request.Cookies["Role"].Value == "ADMIN")
+        {
+            <li>
+                @Html.ActionLink("Hello!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color: #337ab7;" })
+            </li>
+        }
         <li>
-            @Html.ActionLink("Hello!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Hello!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color: #337ab7;" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
@@ -13,8 +19,8 @@
     else
     {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Auth", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Auth", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Auth", routeValues: null, htmlAttributes: new { id = "registerLink", style = "color: #337ab7;" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Auth", routeValues: null, htmlAttributes: new { id = "loginLink", style = "color: #337ab7;" })</li>
     </ul>
         }
     }

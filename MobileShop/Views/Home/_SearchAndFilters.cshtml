@@ -1,27 +1,2 @@
-﻿@using MobileShop.Models.DTO
-@model DropDowns
+﻿
 
-
-@{
-    var Additionals = Model.Additionals;
-    var Batteries = Model.Batteries;
-    var Cameras = Model.Cameras;
-    var Communications = Model.Communications;
-    var Characteristics = Model.Characteristics;
-    var PhonePlatforms = Model.PhonePlatforms;
-    var PackageContents = Model.PackageContents;
-    var Screens = Model.Screens;
-    var Sounds = Model.Sounds;
-    var Memories = Model.Memories; Model.
-}
-
-
-<div>
-    @Html.Label("SearchLabel", new { @class = "col-md-2 control-label" })
-    @Html.TextBox("SearchInput", new { @class = "form-control" })
-</div>
-
-<div>
-    @Html.Label("SearchLabel", new { @class = "col-md-2 control-label" })
-    @Html.DropDownListFor(m => m.Additionals, Additionals as SelectList);
-</div>
