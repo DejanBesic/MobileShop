@@ -22,15 +22,35 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Mobile shop", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", style = "color: #337ab7;" })
+             
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (Request.Cookies["Role"] != null && Request.Cookies["Role"].Value == "ADMIN")
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" style="color: #337ab7; font-size: medium" aria-haspopup="true" aria-expanded="false">
+                                Administration
+                            </a>
+                            <div class="dropdown-menu" style="background-color: #333;">
+                                <div style="padding: 10px;">
+                                    @Html.ActionLink("New mobile", "Index", "Mobile", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+                                </div>
+                                <div style="padding: 10px;">
+                                    @Html.ActionLink("New shop", "Index", "Shop", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+                                </div>
+                                <div style="padding: 10px;">
+                                    @Html.ActionLink("Accounts", "Index", "Account", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+                                </div>
+                            </div>
+                        </li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-        @RenderBody()
+    @RenderBody()
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

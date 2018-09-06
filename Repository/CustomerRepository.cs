@@ -145,7 +145,7 @@ namespace Repository
                 Activated = customer.Activated,
                 IsAdmin = customer.IsAdmin,
                 CustomerPassword = customer.Password,
-                ShopAdminId = customer.ShopAdminId,
+                ShopAdminId = null,
             };
             Context.Customers.Add(customerDb);
             Context.SaveChanges();

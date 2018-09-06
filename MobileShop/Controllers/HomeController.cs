@@ -12,7 +12,7 @@ namespace MobileShop.Controllers
     {
         
         private readonly BatteryService batteryService = new BatteryService();
-        private readonly CameraService cameraService = new CameraService();
+        private readonly CameraMPService cameraService = new CameraMPService();
         private readonly MemoryService memoryService = new MemoryService();
         private readonly SoundService soundService = new SoundService();
         private readonly ShopService shopService = new ShopService();

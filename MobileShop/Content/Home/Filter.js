@@ -1,4 +1,11 @@
-﻿function onMinValueSliderChange() {
+﻿
+$(document).ready(function () {
+    var maxOutput = document.getElementById("maxOutput");
+    var maxSlider = document.getElementById("maxRange");
+    maxOutput.value = maxSlider.value;
+});
+
+function onMinValueSliderChange() {
     var minSlider = document.getElementById("minRange");
     var minOutput = document.getElementById("minOutput");
 

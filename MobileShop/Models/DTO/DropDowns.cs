@@ -10,7 +10,7 @@ namespace MobileShop.Models.DTO
     {
         public IEnumerable<BatteryM> Batteries { get; set; }
 
-        public IEnumerable<CameraM> Cameras { get; set; }
+        public IEnumerable<CameraMPM> Cameras { get; set; }
 
         public IEnumerable<MemoryM> Memories { get; set; }
 
