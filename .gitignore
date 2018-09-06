@@ -1,0 +1,14 @@
+.vs
+
+Services/obj/
+Services/bin/
+Repository/bin/
+Repository/obj/
+MobileShop/bin/
+MobileShop/obj/
+IServices/bin/
+IServices/obj/
+IRepository/obj/
+IRepository/bin/
+Models/bin
+Models/obj
