@@ -27,14 +27,8 @@ namespace Repository
             {
                 Id = mobile.Id,
                 About = mobile.About,
-                AdditionalId = mobile.AdditionalId ?? -1,
                 BatteryId = mobile.BatteryId ?? -1,
-                CharacteristicsId = mobile.CharacteristicsId ?? -1,
-                CommunicationId = mobile.CommunicationId ?? -1,
-                PackageContentId = mobile.PackageContentId ?? -1,
                 Price = mobile.Price ?? 0,
-                ScreenId = mobile.ScreenId ?? -1,
-                SoundId = mobile.SoundId ?? -1,
                 BackCameraId = mobile.BackCameraId ?? -1,
                 ExternMemoryId = mobile.ExternMemoryId ?? -1,
                 InternMemoryId = mobile.InternMemoryId ?? -1,
@@ -42,7 +36,32 @@ namespace Repository
                 OsId = mobile.OsId ?? -1,
                 ProcessorId = mobile.ProccessorId ?? -1,
                 RamId = mobile.RamId ?? -1,
-                VideoId = mobile.VideoId ?? -1
+                AdditionalDescription = mobile.AdditionalDescription,
+                BackCameraChar = mobile.BackCameraChar,
+                Bluetooth = mobile.Bluetooth,
+                DataTransfer = mobile.DataTransfer,
+                Dimensions = mobile.Dimensions,
+                DualSIM = mobile.DualSIM ?? false,
+                FMRadio = mobile.FMRadio ?? false,
+                FrontCameraChar = mobile.FrontCameraChar,
+                GPS = mobile.GPS ?? false,
+                HDVoice  = mobile.HDVoice ?? false,
+                Network2G = mobile.Network2G,
+                Network3G = mobile.Network3G,
+                Network4G = mobile.Network4G,
+                NFC = mobile.NFC ?? false,
+                PackageContent = mobile.PackageContent,
+                PhoneMessages = mobile.PhoneMessages,
+                PhoneWeight = mobile.PhoneWeight,
+                Port35mm = mobile.Port35mm ?? false,
+                Resolution = mobile.Resolution,
+                ScreenSize = mobile.Size,
+                ScreenType = mobile.ScreenType,
+                SIM = mobile.SIM,
+                Touch = mobile.Touch ?? false,
+                USB = mobile.USB,
+                Video = mobile.Video, 
+                WiFi = mobile.WiFi,
             };
         }
 
@@ -59,14 +78,8 @@ namespace Repository
                 return null;
             }
             found.About = mobile.About;
-            found.AdditionalId = mobile.AdditionalId;
             found.BatteryId = mobile.BatteryId;
-            found.CharacteristicsId = mobile.CharacteristicsId;
-            found.CommunicationId = mobile.CommunicationId;
-            found.PackageContentId = mobile.PackageContentId;
             found.Price = mobile.Price;
-            found.ScreenId = mobile.ScreenId;
-            found.SoundId = mobile.SoundId;
             found.BackCameraId = mobile.BackCameraId;
             found.ExternMemoryId = mobile.ExternMemoryId;
             found.InternMemoryId = mobile.InternMemoryId;
@@ -74,7 +87,32 @@ namespace Repository
             found.OsId = mobile.OsId;
             found.ProccessorId = mobile.ProcessorId;
             found.RamId = mobile.RamId;
-            found.VideoId = mobile.VideoId;
+            found.AdditionalDescription = mobile.AdditionalDescription;
+            found.BackCameraChar = mobile.BackCameraChar;
+            found.Bluetooth = mobile.Bluetooth;
+            found.DataTransfer = mobile.DataTransfer;
+            found.Dimensions = mobile.Dimensions;
+            found.DualSIM = mobile.DualSIM;
+            found.FMRadio = mobile.FMRadio;
+            found.FrontCameraChar = mobile.FrontCameraChar;
+            found.GPS = mobile.GPS;
+            found.HDVoice = mobile.HDVoice;
+            found.Network2G = mobile.Network2G;
+            found.Network3G = mobile.Network3G;
+            found.Network4G = mobile.Network4G;
+            found.NFC = mobile.NFC;
+            found.PackageContent = mobile.PackageContent;
+            found.PhoneMessages = mobile.PhoneMessages;
+            found.PhoneWeight = mobile.PhoneWeight;
+            found.Port35mm = mobile.Port35mm;
+            found.Resolution = mobile.Resolution;
+            found.Size = mobile.ScreenSize;
+            found.ScreenType = mobile.ScreenType;
+            found.SIM = mobile.SIM;
+            found.Touch = mobile.Touch;
+            found.USB = mobile.USB;
+            found.Video = mobile.Video;
+            found.WiFi = mobile.WiFi;
             Context.SaveChanges();
 
             return mobile;
@@ -89,14 +127,8 @@ namespace Repository
                 {
                     Id = mobile.Id,
                     About = mobile.About,
-                    AdditionalId = mobile.AdditionalId ?? -1,
                     BatteryId = mobile.BatteryId ?? -1,
-                    CharacteristicsId = mobile.CharacteristicsId ?? -1,
-                    CommunicationId = mobile.CommunicationId ?? -1,
-                    PackageContentId = mobile.PackageContentId ?? -1,
                     Price = mobile.Price ?? 0,
-                    ScreenId = mobile.ScreenId ?? -1,
-                    SoundId = mobile.SoundId ?? -1,
                     BackCameraId = mobile.BackCameraId ?? -1,
                     ExternMemoryId = mobile.ExternMemoryId ?? -1,
                     InternMemoryId = mobile.InternMemoryId ?? -1,
@@ -104,7 +136,32 @@ namespace Repository
                     OsId = mobile.OsId ?? -1,
                     ProcessorId = mobile.ProccessorId ?? -1,
                     RamId = mobile.RamId ?? -1,
-                    VideoId = mobile.VideoId ?? -1
+                    AdditionalDescription = mobile.AdditionalDescription,
+                    BackCameraChar = mobile.BackCameraChar,
+                    Bluetooth = mobile.Bluetooth,
+                    DataTransfer = mobile.DataTransfer,
+                    Dimensions = mobile.Dimensions,
+                    DualSIM = mobile.DualSIM ?? false,
+                    FMRadio = mobile.FMRadio ?? false,
+                    FrontCameraChar = mobile.FrontCameraChar,
+                    GPS = mobile.GPS ?? false,
+                    HDVoice = mobile.HDVoice ?? false,
+                    Network2G = mobile.Network2G,
+                    Network3G = mobile.Network3G,
+                    Network4G = mobile.Network4G,
+                    NFC = mobile.NFC ?? false,
+                    PackageContent = mobile.PackageContent,
+                    PhoneMessages = mobile.PhoneMessages,
+                    PhoneWeight = mobile.PhoneWeight,
+                    Port35mm = mobile.Port35mm ?? false,
+                    Resolution = mobile.Resolution,
+                    ScreenSize = mobile.Size,
+                    ScreenType = mobile.ScreenType,
+                    SIM = mobile.SIM,
+                    Touch = mobile.Touch ?? false,
+                    USB = mobile.USB,
+                    Video = mobile.Video,
+                    WiFi = mobile.WiFi,
                 });
             }
 
@@ -119,14 +176,8 @@ namespace Repository
             {
                 Id = mobile.Id,
                 About = mobile.About,
-                AdditionalId = mobile.AdditionalId ?? -1,
                 BatteryId = mobile.BatteryId ?? -1,
-                CharacteristicsId = mobile.CharacteristicsId ?? -1,
-                CommunicationId = mobile.CommunicationId ?? -1,
-                PackageContentId = mobile.PackageContentId ?? -1,
                 Price = mobile.Price ?? 0,
-                ScreenId = mobile.ScreenId ?? -1,
-                SoundId = mobile.SoundId ?? -1,
                 BackCameraId = mobile.BackCameraId ?? -1,
                 ExternMemoryId = mobile.ExternMemoryId ?? -1,
                 InternMemoryId = mobile.InternMemoryId ?? -1,
@@ -134,7 +185,32 @@ namespace Repository
                 OsId = mobile.OsId ?? -1,
                 ProcessorId = mobile.ProccessorId ?? -1,
                 RamId = mobile.RamId ?? -1,
-                VideoId = mobile.VideoId ?? -1
+                AdditionalDescription = mobile.AdditionalDescription,
+                BackCameraChar = mobile.BackCameraChar,
+                Bluetooth = mobile.Bluetooth,
+                DataTransfer = mobile.DataTransfer,
+                Dimensions = mobile.Dimensions,
+                DualSIM = mobile.DualSIM ?? false,
+                FMRadio = mobile.FMRadio ?? false,
+                FrontCameraChar = mobile.FrontCameraChar,
+                GPS = mobile.GPS ?? false,
+                HDVoice = mobile.HDVoice ?? false,
+                Network2G = mobile.Network2G,
+                Network3G = mobile.Network3G,
+                Network4G = mobile.Network4G,
+                NFC = mobile.NFC ?? false,
+                PackageContent = mobile.PackageContent,
+                PhoneMessages = mobile.PhoneMessages,
+                PhoneWeight = mobile.PhoneWeight,
+                Port35mm = mobile.Port35mm ?? false,
+                Resolution = mobile.Resolution,
+                ScreenSize = mobile.Size,
+                ScreenType = mobile.ScreenType,
+                SIM = mobile.SIM,
+                Touch = mobile.Touch ?? false,
+                USB = mobile.USB,
+                Video = mobile.Video,
+                WiFi = mobile.WiFi,
             };
         }
 
@@ -142,15 +218,10 @@ namespace Repository
         {
             Mobile mobileDb = new Mobile()
             {
+                Id = mobile.Id,
                 About = mobile.About,
-                AdditionalId = mobile.AdditionalId,
                 BatteryId = mobile.BatteryId,
-                CharacteristicsId = mobile.CharacteristicsId,
-                CommunicationId = mobile.CommunicationId,
-                PackageContentId = mobile.PackageContentId,
                 Price = mobile.Price,
-                ScreenId = mobile.ScreenId,
-                SoundId = mobile.SoundId,
                 BackCameraId = mobile.BackCameraId,
                 ExternMemoryId = mobile.ExternMemoryId,
                 InternMemoryId = mobile.InternMemoryId,
@@ -158,7 +229,32 @@ namespace Repository
                 OsId = mobile.OsId,
                 ProccessorId = mobile.ProcessorId,
                 RamId = mobile.RamId,
-                VideoId = mobile.VideoId
+                AdditionalDescription = mobile.AdditionalDescription,
+                BackCameraChar = mobile.BackCameraChar,
+                Bluetooth = mobile.Bluetooth,
+                DataTransfer = mobile.DataTransfer,
+                Dimensions = mobile.Dimensions,
+                DualSIM = mobile.DualSIM,
+                FMRadio = mobile.FMRadio,
+                FrontCameraChar = mobile.FrontCameraChar,
+                GPS = mobile.GPS,
+                HDVoice = mobile.HDVoice,
+                Network2G = mobile.Network2G,
+                Network3G = mobile.Network3G,
+                Network4G = mobile.Network4G,
+                NFC = mobile.NFC,
+                PackageContent = mobile.PackageContent,
+                PhoneMessages = mobile.PhoneMessages,
+                PhoneWeight = mobile.PhoneWeight,
+                Port35mm = mobile.Port35mm,
+                Resolution = mobile.Resolution,
+                Size = mobile.ScreenSize,
+                ScreenType = mobile.ScreenType,
+                SIM = mobile.SIM,
+                Touch = mobile.Touch,
+                USB = mobile.USB,
+                Video = mobile.Video,
+                WiFi = mobile.WiFi,
             };
             Context.Mobiles.Add(mobileDb);
             Context.SaveChanges();

@@ -10,9 +10,7 @@ namespace Models
     {
         public int Id { get; set; }
 
-        public int Characteristics { get; set; }
-
-        public int MP { get; set; }
+        public string MP { get; set; }
 
         public CameraM()
         {

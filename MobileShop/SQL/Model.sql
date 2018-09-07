@@ -46,64 +46,19 @@ CREATE TABLE Customer (
 	FOREIGN KEY (ShopAdminId) REFERENCES Shop(Id)
 );
 
-CREATE TABLE Additional (
-	Id int PRIMARY KEY IDENTITY,
-	AdditionalDescription varchar(255)
-);
-
 CREATE TABLE Battery (
 	Id int  PRIMARY KEY IDENTITY,
 	Capacity varchar(255)
 );
 
-CREATE TABLE CameraCharacteristics (
-	Id int PRIMARY KEY IDENTITY,
-	CamChars varchar(255),
-);
-
-CREATE TABLE CameraMP (
+CREATE TABLE Camera (
 	Id int  PRIMARY KEY IDENTITY,
 	MP varchar(255),
-);
-
-CREATE TABLE Camera (
-	Id int PRIMARY KEY IDENTITY,
-	MpId int,
-	CharacteristicsId int,
-	FOREIGN KEY (MpId) REFERENCES CameraMP(Id),
-	FOREIGN KEY (CharacteristicsId) REFERENCES CameraCharacteristics(Id)
-);
-
-CREATE TABLE Characteristics (
-	Id int  PRIMARY KEY IDENTITY,
-	SIM varchar(255),
-	DualSIM bit,
-	Dimensions varchar(255),
-	PhoneWeight varchar(255)
-);
-
-CREATE TABLE Communication (
-	Id int  PRIMARY KEY IDENTITY,
-	DataTransfer varchar(255),
-	Network2G varchar(255),
-	Network3G varchar(255),
-	Network4G varchar(255),
-	USB varchar(255),
-	WiFi varchar(255),
-	Bluetooth varchar(255),
-	NFC bit,
-	GPS bit,
-	PhoneMessages varchar(255)
 );
 
 CREATE TABLE Memory (
 	Id int  PRIMARY KEY IDENTITY,
 	Size varchar(255),
-);
-
-CREATE TABLE PackageContent (
-	Id int  PRIMARY KEY IDENTITY,
-	Content varchar(255),
 );
 
 CREATE TABLE OperativeSystem (
@@ -121,40 +76,40 @@ CREATE TABLE Proccessor (
 	ProccessorChars varchar(255),
 );
 
-CREATE TABLE Screen (
-	Id int  PRIMARY KEY IDENTITY,
-	Size varchar(255),
-	Resolution varchar(255),
-	ScreenType varchar(255),
-	Touch bit
-);
-
-CREATE TABLE Sound (
-	Id int  PRIMARY KEY IDENTITY,
-	FMRadio bit,
-	Port35mm bit,
-	HDVoice bit,
-);
-
-CREATE TABLE Video (
-	Id int PRIMARY KEY IDENTITY,
-	VideoDescription varchar(255),
-);
-
 CREATE TABLE Mobile (
 	Id int PRIMARY KEY IDENTITY,
 	About varchar(255),
 	Price float,
-	ScreenId int,
-	SoundId int,
-	CommunicationId int,
+	SIM varchar(255),
+	DualSIM bit,
+	Dimensions varchar(255),
+	PhoneWeight varchar(255),
+	PackageContent varchar(255),
+	Size varchar(255),
+	Resolution varchar(255),
+	ScreenType varchar(255),
+	DataTransfer varchar(255),
+	Network2G varchar(255),
+	Network3G varchar(255),
+	Network4G varchar(255),
+	FrontCameraChar varchar(255),
+	BackCameraChar varchar(255),
+	USB varchar(255),
+	WiFi varchar(255),
+	Bluetooth varchar(255),
+	NFC bit,
+	GPS bit,
+	PhoneMessages varchar(255),
+	AdditionalDescription varchar(255),
+	Video varchar(255),
+	Touch bit,
+	FMRadio bit,
+	Port35mm bit,
+	HDVoice bit,
+
 	BatteryId int,
-	CharacteristicsId int,
-	AdditionalId int,
-	PackageContentId int,
 	FrontCameraId int,
 	BackCameraId int,
-	VideoId int,
 	InternMemoryId int,
 	ExternMemoryId int,
 	ProccessorId int,
@@ -166,16 +121,9 @@ CREATE TABLE Mobile (
 	FOREIGN KEY (OsId) REFERENCES OperativeSystem(Id),
 	FOREIGN KEY (InternMemoryId) REFERENCES Memory(Id),
 	FOREIGN KEY (ExternMemoryId) REFERENCES Memory(Id),
-	FOREIGN KEY (VideoId) REFERENCES Video(Id),
 	FOREIGN KEY (FrontCameraId) REFERENCES Camera(Id),
 	FOREIGN KEY (BackCameraId) REFERENCES Camera(Id),
-	FOREIGN KEY (ScreenId) REFERENCES Screen(Id),
-	FOREIGN KEY (SoundId) REFERENCES Sound(Id),
-	FOREIGN KEY (CommunicationId) REFERENCES Communication(Id),
-	FOREIGN KEY (AdditionalId) REFERENCES Additional(Id),
-	FOREIGN KEY (PackageContentId) REFERENCES PackageContent(Id),
 	FOREIGN KEY (BatteryId) REFERENCES Battery(Id),
-	FOREIGN KEY (CharacteristicsId) REFERENCES Characteristics(Id),
 );
 
 

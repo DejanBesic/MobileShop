@@ -12,9 +12,8 @@ namespace MobileShop.Controllers
     {
         
         private readonly BatteryService batteryService = new BatteryService();
-        private readonly CameraMPService cameraService = new CameraMPService();
+        private readonly CameraService cameraService = new CameraService();
         private readonly MemoryService memoryService = new MemoryService();
-        private readonly SoundService soundService = new SoundService();
         private readonly ShopService shopService = new ShopService();
         private readonly RamService ramService = new RamService();
         private readonly OperativeSystemService operativeSystemService = new OperativeSystemService();
@@ -27,7 +26,6 @@ namespace MobileShop.Controllers
                 Batteries = batteryService.FindAll(),
                 Cameras = cameraService.FindAll(),
                 Memories = memoryService.FindAll(),
-                Sounds = soundService.FindAll(),
                 Shops = shopService.FindAll(),
                 OperativeSystems = operativeSystemService.FindAll(),
                 Rams = ramService.FindAll()

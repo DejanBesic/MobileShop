@@ -49,38 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Additional.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AdditionalRepository.cs" />
     <Compile Include="Battery.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="BatteryRepository.cs" />
-    <Compile Include="CamCharsRepository.cs" />
     <Compile Include="Camera.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="CameraCharacteristic.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CameraMP.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CameraMPRepository.cs" />
     <Compile Include="CameraRepository.cs" />
     <Compile Include="Cart.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="CartRepository.cs" />
-    <Compile Include="Characteristic.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CharacteristicsRepository.cs" />
-    <Compile Include="Communication.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CommunicationRepository.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -106,13 +86,10 @@
     <Compile Include="Mobile.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="OperativeSystemRepository.cs" />
     <Compile Include="OperativeSystem.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="PackageContent.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
+    <Compile Include="OperativeSystemRepository.cs" />
     <Compile Include="Proccessor.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -121,9 +98,6 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="RamRepository.cs" />
-    <Compile Include="Screen.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
     <Compile Include="Shop.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -134,21 +108,11 @@
     <Compile Include="ShoppingRepository.cs" />
     <Compile Include="MemoryRepository.cs" />
     <Compile Include="MobileRepository.cs" />
-    <Compile Include="PackageContentRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScreenRepository.cs" />
     <Compile Include="ShopRepository.cs" />
     <Compile Include="Shop_Mobiles.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
-    <Compile Include="Sound.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SoundRepository.cs" />
-    <Compile Include="Video.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="VideoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

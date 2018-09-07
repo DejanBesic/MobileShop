@@ -8,7 +8,6 @@
 @{
     var Batteries = Model.Batteries.OrderBy(x => x.Capacity);
     var Cameras = Model.Cameras;
-    var Sounds = Model.Sounds;
     var Memories = Model.Memories;
     var Shops = Model.Shops;
     var OperativeSystems = Model.OperativeSystems;
@@ -77,7 +76,7 @@
         @Html.TextBox("SearchBox", null, new { placeholder="Search by name...", @class = "search-input" })
     </div>
     <div style="margin-top: 10px;">
-        <span>Price range:</span> </br>
+        <span>Price range:</span> <br>
         @Html.TextBox("minOutput", 1, new { id = "minOutput", style="width: 45%; ", placeholder="Min", onInput="onMinValueOutputChange()", min = minValue, max = maxValue, type="number", @class="search-input" }) - 
         @Html.TextBox("maxOutput", 1, new { id = "maxOutput", style = "width: 45%;", placeholder="Max", onInput = "onMaxValueOutputChange()", min = minValue, max = maxValue, type = "number", @class = "search-input" })
     </div>

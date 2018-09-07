@@ -23,37 +23,49 @@ namespace MobileShop.Models
         public int Id { get; set; }
         public string About { get; set; }
         public Nullable<double> Price { get; set; }
-        public Nullable<int> ScreenId { get; set; }
-        public Nullable<int> SoundId { get; set; }
-        public Nullable<int> CommunicationId { get; set; }
+        public string SIM { get; set; }
+        public Nullable<bool> DualSIM { get; set; }
+        public string Dimensions { get; set; }
+        public string PhoneWeight { get; set; }
+        public string PackageContent { get; set; }
+        public string Size { get; set; }
+        public string Resolution { get; set; }
+        public string ScreenType { get; set; }
+        public string DataTransfer { get; set; }
+        public string Network2G { get; set; }
+        public string Network3G { get; set; }
+        public string Network4G { get; set; }
+        public string FrontCameraChar { get; set; }
+        public string BackCameraChar { get; set; }
+        public string USB { get; set; }
+        public string WiFi { get; set; }
+        public string Bluetooth { get; set; }
+        public Nullable<bool> NFC { get; set; }
+        public Nullable<bool> GPS { get; set; }
+        public string PhoneMessages { get; set; }
+        public string AdditionalDescription { get; set; }
+        public string Video { get; set; }
+        public Nullable<bool> Touch { get; set; }
+        public Nullable<bool> FMRadio { get; set; }
+        public Nullable<bool> Port35mm { get; set; }
+        public Nullable<bool> HDVoice { get; set; }
         public Nullable<int> BatteryId { get; set; }
-        public Nullable<int> CharacteristicsId { get; set; }
-        public Nullable<int> AdditionalId { get; set; }
-        public Nullable<int> PackageContentId { get; set; }
         public Nullable<int> FrontCameraId { get; set; }
         public Nullable<int> BackCameraId { get; set; }
-        public Nullable<int> VideoId { get; set; }
         public Nullable<int> InternMemoryId { get; set; }
         public Nullable<int> ExternMemoryId { get; set; }
         public Nullable<int> ProccessorId { get; set; }
         public Nullable<int> RamId { get; set; }
         public Nullable<int> OsId { get; set; }
     
-        public virtual Additional Additional { get; set; }
         public virtual Battery Battery { get; set; }
         public virtual Camera Camera { get; set; }
         public virtual Camera Camera1 { get; set; }
-        public virtual Characteristic Characteristic { get; set; }
-        public virtual Communication Communication { get; set; }
         public virtual Memory Memory { get; set; }
         public virtual Memory Memory1 { get; set; }
         public virtual OperativeSystem OperativeSystem { get; set; }
-        public virtual PackageContent PackageContent { get; set; }
         public virtual Proccessor Proccessor { get; set; }
         public virtual RAM RAM { get; set; }
-        public virtual Screen Screen { get; set; }
-        public virtual Sound Sound { get; set; }
-        public virtual Video Video { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop_Mobiles> Shop_Mobiles { get; set; }
     }

@@ -40,29 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAdditionalService.cs" />
     <Compile Include="IAuthService.cs" />
     <Compile Include="IBatteryService.cs" />
-    <Compile Include="ICamCharsService.cs" />
-    <Compile Include="ICameraMPService.cs" />
     <Compile Include="ICameraService.cs" />
     <Compile Include="ICartService.cs" />
-    <Compile Include="ICharacteristicsService.cs" />
-    <Compile Include="ICommunicationService.cs" />
     <Compile Include="ICustomerService.cs" />
     <Compile Include="IMemoryService.cs" />
     <Compile Include="IMobileService.cs" />
     <Compile Include="IOperativeSystemService.cs" />
-    <Compile Include="IPackageContentService.cs" />
     <Compile Include="IProccessorService.cs" />
     <Compile Include="IRamService.cs" />
-    <Compile Include="IScreenService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="IShopMobilesService.cs" />
     <Compile Include="IShoppingService.cs" />
     <Compile Include="IShopService.cs" />
-    <Compile Include="ISoundService.cs" />
-    <Compile Include="IVideoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
