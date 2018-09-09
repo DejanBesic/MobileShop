@@ -10,6 +10,8 @@ namespace Models
     {
         public int Id { get; set; }
 
+        public string Name { get; set; }
+
         public string About { get; set; }
 
         public double Price { get; set; }
@@ -72,7 +74,7 @@ namespace Models
 
         public int OsId { get; set; }
 
-        public int ProcessorId { get; set; }
+        public string Proccessor { get; set; }
 
         public int ExternMemoryId { get; set; }
 

@@ -48,7 +48,6 @@
     <Compile Include="IMemoryService.cs" />
     <Compile Include="IMobileService.cs" />
     <Compile Include="IOperativeSystemService.cs" />
-    <Compile Include="IProccessorService.cs" />
     <Compile Include="IRamService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="IShopMobilesService.cs" />

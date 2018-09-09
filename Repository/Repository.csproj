@@ -90,10 +90,6 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="OperativeSystemRepository.cs" />
-    <Compile Include="Proccessor.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ProccessorRepository.cs" />
     <Compile Include="RAM.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>

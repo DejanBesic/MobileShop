@@ -18,15 +18,8 @@
 
     foreach (var memory in Memories)
     {
-        var unit = " GB";
-        if (memory.Size == "1" || memory.Size == "2")
-        {
-            unit = " TB";
-        }
-
-        internMemory.Add(new SelectListItem { Text = memory.Size + unit, Value = memory.Id.ToString() });
-        externMemory.Add(new SelectListItem { Text = memory.Size + unit, Value = memory.Id.ToString() });
-
+        internMemory.Add(new SelectListItem { Text = memory.Size, Value = memory.Id.ToString() });
+        externMemory.Add(new SelectListItem { Text = memory.Size, Value = memory.Id.ToString() });
     }
 
     var minValue = "1";
@@ -243,7 +236,7 @@
                         {
                             <li>
                                 <label class="check">
-                                    @String.Concat(item.Memory, " GB")
+                                    @String.Concat(item.Memory)
                                     @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
                                     <span class="checkmark"></span>
                                 </label>
@@ -290,7 +283,7 @@
                         {
                             <li>
                                 <label class="check">
-                                    @String.Concat(item.MP, " MP")
+                                    @String.Concat(item.MP)
                                     @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
                                     <span class="checkmark"></span>
                                 </label>
@@ -313,7 +306,7 @@
                         {
                             <li>
                                 <label class="check">
-                                    @String.Concat(item.MP, " MP")
+                                    @String.Concat(item.MP)
                                     @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
                                     <span class="checkmark"></span>
                                 </label>

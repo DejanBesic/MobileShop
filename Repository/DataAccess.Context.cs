@@ -32,7 +32,6 @@ namespace Repository
         public virtual DbSet<Memory> Memories { get; set; }
         public virtual DbSet<Mobile> Mobiles { get; set; }
         public virtual DbSet<OperativeSystem> OperativeSystems { get; set; }
-        public virtual DbSet<Proccessor> Proccessors { get; set; }
         public virtual DbSet<RAM> RAMs { get; set; }
         public virtual DbSet<Shop> Shops { get; set; }
         public virtual DbSet<Shop_Mobiles> Shop_Mobiles { get; set; }

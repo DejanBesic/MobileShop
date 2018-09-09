@@ -350,9 +350,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="JWT\JwtAuthHandler.cs" />
     <Compile Include="JWT\JwtAuthorize.cs" />
-    <Compile Include="JWT\JWTManager.cs" />
     <Compile Include="Models\Battery.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -384,6 +382,7 @@
     <Compile Include="Models\DTO\LoginDTO.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Models\DTO\MobileViewModel.cs" />
     <Compile Include="Models\DTO\RegisterDTO.cs" />
     <Compile Include="Models\Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
@@ -392,9 +391,6 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OperativeSystem.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Proccessor.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RAM.cs">
@@ -424,6 +420,7 @@
     <Content Include="Content\Login\BackgroundImage.jpg" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\Login\nightsky.jpg" />
+    <Content Include="Content\Mobile\NewMobile.css" />
     <Content Include="Content\Register\Register.css" />
     <Content Include="Content\Shared.css" />
     <Content Include="favicon.ico" />

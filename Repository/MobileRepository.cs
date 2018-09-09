@@ -26,6 +26,7 @@ namespace Repository
             return new MobileM()
             {
                 Id = mobile.Id,
+                Name = mobile.MobileName,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId ?? -1,
                 Price = mobile.Price ?? 0,
@@ -34,7 +35,7 @@ namespace Repository
                 InternMemoryId = mobile.InternMemoryId ?? -1,
                 FrontCameraId = mobile.FrontCameraId ?? -1,
                 OsId = mobile.OsId ?? -1,
-                ProcessorId = mobile.ProccessorId ?? -1,
+                Proccessor = mobile.Proccessor,
                 RamId = mobile.RamId ?? -1,
                 AdditionalDescription = mobile.AdditionalDescription,
                 BackCameraChar = mobile.BackCameraChar,
@@ -78,6 +79,7 @@ namespace Repository
                 return null;
             }
             found.About = mobile.About;
+            found.MobileName = mobile.Name;
             found.BatteryId = mobile.BatteryId;
             found.Price = mobile.Price;
             found.BackCameraId = mobile.BackCameraId;
@@ -85,7 +87,7 @@ namespace Repository
             found.InternMemoryId = mobile.InternMemoryId;
             found.FrontCameraId = mobile.FrontCameraId;
             found.OsId = mobile.OsId;
-            found.ProccessorId = mobile.ProcessorId;
+            found.Proccessor = mobile.Proccessor;
             found.RamId = mobile.RamId;
             found.AdditionalDescription = mobile.AdditionalDescription;
             found.BackCameraChar = mobile.BackCameraChar;
@@ -126,6 +128,7 @@ namespace Repository
                 retVal.Add(new MobileM()
                 {
                     Id = mobile.Id,
+                    Name = mobile.MobileName,
                     About = mobile.About,
                     BatteryId = mobile.BatteryId ?? -1,
                     Price = mobile.Price ?? 0,
@@ -134,7 +137,7 @@ namespace Repository
                     InternMemoryId = mobile.InternMemoryId ?? -1,
                     FrontCameraId = mobile.FrontCameraId ?? -1,
                     OsId = mobile.OsId ?? -1,
-                    ProcessorId = mobile.ProccessorId ?? -1,
+                    Proccessor = mobile.Proccessor,
                     RamId = mobile.RamId ?? -1,
                     AdditionalDescription = mobile.AdditionalDescription,
                     BackCameraChar = mobile.BackCameraChar,
@@ -175,6 +178,7 @@ namespace Repository
             return new MobileM()
             {
                 Id = mobile.Id,
+                Name = mobile.MobileName,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId ?? -1,
                 Price = mobile.Price ?? 0,
@@ -183,7 +187,7 @@ namespace Repository
                 InternMemoryId = mobile.InternMemoryId ?? -1,
                 FrontCameraId = mobile.FrontCameraId ?? -1,
                 OsId = mobile.OsId ?? -1,
-                ProcessorId = mobile.ProccessorId ?? -1,
+                Proccessor = mobile.Proccessor,
                 RamId = mobile.RamId ?? -1,
                 AdditionalDescription = mobile.AdditionalDescription,
                 BackCameraChar = mobile.BackCameraChar,
@@ -219,6 +223,7 @@ namespace Repository
             Mobile mobileDb = new Mobile()
             {
                 Id = mobile.Id,
+                MobileName = mobile.Name,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId,
                 Price = mobile.Price,
@@ -227,7 +232,7 @@ namespace Repository
                 InternMemoryId = mobile.InternMemoryId,
                 FrontCameraId = mobile.FrontCameraId,
                 OsId = mobile.OsId,
-                ProccessorId = mobile.ProcessorId,
+                Proccessor = mobile.Proccessor,
                 RamId = mobile.RamId,
                 AdditionalDescription = mobile.AdditionalDescription,
                 BackCameraChar = mobile.BackCameraChar,

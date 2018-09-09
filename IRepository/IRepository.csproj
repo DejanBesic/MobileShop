@@ -47,7 +47,6 @@
     <Compile Include="IMemoryRepository.cs" />
     <Compile Include="IMobileRepository.cs" />
     <Compile Include="IOperativeSystemRepository.cs" />
-    <Compile Include="IProccessorRepository.cs" />
     <Compile Include="IRamRepository.cs" />
     <Compile Include="IShopMobilesRepository.cs" />
     <Compile Include="IShoppingRepository.cs" />

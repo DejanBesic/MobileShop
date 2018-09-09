@@ -62,7 +62,6 @@
     <Compile Include="MemoryService.cs" />
     <Compile Include="MobileService.cs" />
     <Compile Include="OperativeSystemService.cs" />
-    <Compile Include="ProccessorService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RamService.cs" />
     <Compile Include="ShopMobilesService.cs" />

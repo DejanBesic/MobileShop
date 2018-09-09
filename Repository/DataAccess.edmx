@@ -54,10 +54,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MobileName" Type="varchar" MaxLength="255" />
           <Property Name="About" Type="varchar" MaxLength="255" />
           <Property Name="Price" Type="float" />
           <Property Name="SIM" Type="varchar" MaxLength="255" />
           <Property Name="DualSIM" Type="bit" />
+          <Property Name="Proccessor" Type="varchar" MaxLength="255" />
           <Property Name="Dimensions" Type="varchar" MaxLength="255" />
           <Property Name="PhoneWeight" Type="varchar" MaxLength="255" />
           <Property Name="PackageContent" Type="varchar" MaxLength="255" />
@@ -87,7 +89,6 @@
           <Property Name="BackCameraId" Type="int" />
           <Property Name="InternMemoryId" Type="int" />
           <Property Name="ExternMemoryId" Type="int" />
-          <Property Name="ProccessorId" Type="int" />
           <Property Name="RamId" Type="int" />
           <Property Name="OsId" Type="int" />
         </EntityType>
@@ -97,13 +98,6 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OS" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <EntityType Name="Proccessor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ProccessorChars" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="RAM">
           <Key>
@@ -142,7 +136,7 @@
           <Property Name="CartId" Type="int" />
           <Property Name="ShoppingNumber" Type="int" />
         </EntityType>
-        <Association Name="FK__Cart__CustomerId__019419E5">
+        <Association Name="FK__Cart__CustomerId__2022C2A6">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -154,7 +148,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cart__ShopMobile__02883E1E">
+        <Association Name="FK__Cart__ShopMobile__2116E6DF">
           <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="0..1" />
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -166,7 +160,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Customer__ShopAd__65EBFF70">
+        <Association Name="FK__Customer__ShopAd__075714DC">
           <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -178,7 +172,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__BackCame__79F2F81D">
+        <Association Name="FK__Mobile__BackCame__1881A0DE">
           <End Role="Camera" Type="Self.Camera" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -190,7 +184,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__BatteryI__7AE71C56">
+        <Association Name="FK__Mobile__BatteryI__1975C517">
           <End Role="Battery" Type="Self.Battery" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -202,7 +196,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__ExternMe__780AAFAB">
+        <Association Name="FK__Mobile__ExternMe__1699586C">
           <End Role="Memory" Type="Self.Memory" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -214,7 +208,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__FrontCam__78FED3E4">
+        <Association Name="FK__Mobile__FrontCam__178D7CA5">
           <End Role="Camera" Type="Self.Camera" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -226,7 +220,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__InternMe__77168B72">
+        <Association Name="FK__Mobile__InternMe__15A53433">
           <End Role="Memory" Type="Self.Memory" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -238,7 +232,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__OsId__76226739">
+        <Association Name="FK__Mobile__OsId__14B10FFA">
           <End Role="OperativeSystem" Type="Self.OperativeSystem" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -250,19 +244,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__Proccess__743A1EC7">
-          <End Role="Proccessor" Type="Self.Proccessor" Multiplicity="0..1" />
-          <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proccessor">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Mobile">
-              <PropertyRef Name="ProccessorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Mobile__RamId__752E4300">
+        <Association Name="FK__Mobile__RamId__13BCEBC1">
           <End Role="RAM" Type="Self.RAM" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,7 +256,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shop_Mobi__Mobil__7DC38901">
+        <Association Name="FK__Shop_Mobi__Mobil__1C5231C2">
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
           <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +268,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shop_Mobi__ShopI__7EB7AD3A">
+        <Association Name="FK__Shop_Mobi__ShopI__1D4655FB">
           <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
           <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -298,7 +280,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shopping__CartId__0564AAC9">
+        <Association Name="FK__Shopping__CartId__23F3538A">
           <End Role="Cart" Type="Self.Cart" Multiplicity="0..1" />
           <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
           <ReferentialConstraint>
@@ -310,7 +292,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shopping__Custom__0658CF02">
+        <Association Name="FK__Shopping__Custom__24E777C3">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
           <ReferentialConstraint>
@@ -330,68 +312,63 @@
           <EntitySet Name="Memory" EntityType="Self.Memory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mobile" EntityType="Self.Mobile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OperativeSystem" EntityType="Self.OperativeSystem" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Proccessor" EntityType="Self.Proccessor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RAM" EntityType="Self.RAM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shop" EntityType="Self.Shop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shop_Mobiles" EntityType="Self.Shop_Mobiles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Shopping" EntityType="Self.Shopping" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Cart__CustomerId__019419E5" Association="Self.FK__Cart__CustomerId__019419E5">
+          <AssociationSet Name="FK__Cart__CustomerId__2022C2A6" Association="Self.FK__Cart__CustomerId__2022C2A6">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Cart" EntitySet="Cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cart__ShopMobile__02883E1E" Association="Self.FK__Cart__ShopMobile__02883E1E">
+          <AssociationSet Name="FK__Cart__ShopMobile__2116E6DF" Association="Self.FK__Cart__ShopMobile__2116E6DF">
             <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
             <End Role="Cart" EntitySet="Cart" />
           </AssociationSet>
-          <AssociationSet Name="FK__Customer__ShopAd__65EBFF70" Association="Self.FK__Customer__ShopAd__65EBFF70">
+          <AssociationSet Name="FK__Customer__ShopAd__075714DC" Association="Self.FK__Customer__ShopAd__075714DC">
             <End Role="Shop" EntitySet="Shop" />
             <End Role="Customer" EntitySet="Customer" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__BackCame__79F2F81D" Association="Self.FK__Mobile__BackCame__79F2F81D">
+          <AssociationSet Name="FK__Mobile__BackCame__1881A0DE" Association="Self.FK__Mobile__BackCame__1881A0DE">
             <End Role="Camera" EntitySet="Camera" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__BatteryI__7AE71C56" Association="Self.FK__Mobile__BatteryI__7AE71C56">
+          <AssociationSet Name="FK__Mobile__BatteryI__1975C517" Association="Self.FK__Mobile__BatteryI__1975C517">
             <End Role="Battery" EntitySet="Battery" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__ExternMe__780AAFAB" Association="Self.FK__Mobile__ExternMe__780AAFAB">
+          <AssociationSet Name="FK__Mobile__ExternMe__1699586C" Association="Self.FK__Mobile__ExternMe__1699586C">
             <End Role="Memory" EntitySet="Memory" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__FrontCam__78FED3E4" Association="Self.FK__Mobile__FrontCam__78FED3E4">
+          <AssociationSet Name="FK__Mobile__FrontCam__178D7CA5" Association="Self.FK__Mobile__FrontCam__178D7CA5">
             <End Role="Camera" EntitySet="Camera" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__InternMe__77168B72" Association="Self.FK__Mobile__InternMe__77168B72">
+          <AssociationSet Name="FK__Mobile__InternMe__15A53433" Association="Self.FK__Mobile__InternMe__15A53433">
             <End Role="Memory" EntitySet="Memory" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__OsId__76226739" Association="Self.FK__Mobile__OsId__76226739">
+          <AssociationSet Name="FK__Mobile__OsId__14B10FFA" Association="Self.FK__Mobile__OsId__14B10FFA">
             <End Role="OperativeSystem" EntitySet="OperativeSystem" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__Proccess__743A1EC7" Association="Self.FK__Mobile__Proccess__743A1EC7">
-            <End Role="Proccessor" EntitySet="Proccessor" />
-            <End Role="Mobile" EntitySet="Mobile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Mobile__RamId__752E4300" Association="Self.FK__Mobile__RamId__752E4300">
+          <AssociationSet Name="FK__Mobile__RamId__13BCEBC1" Association="Self.FK__Mobile__RamId__13BCEBC1">
             <End Role="RAM" EntitySet="RAM" />
             <End Role="Mobile" EntitySet="Mobile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shop_Mobi__Mobil__7DC38901" Association="Self.FK__Shop_Mobi__Mobil__7DC38901">
+          <AssociationSet Name="FK__Shop_Mobi__Mobil__1C5231C2" Association="Self.FK__Shop_Mobi__Mobil__1C5231C2">
             <End Role="Mobile" EntitySet="Mobile" />
             <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shop_Mobi__ShopI__7EB7AD3A" Association="Self.FK__Shop_Mobi__ShopI__7EB7AD3A">
+          <AssociationSet Name="FK__Shop_Mobi__ShopI__1D4655FB" Association="Self.FK__Shop_Mobi__ShopI__1D4655FB">
             <End Role="Shop" EntitySet="Shop" />
             <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shopping__CartId__0564AAC9" Association="Self.FK__Shopping__CartId__0564AAC9">
+          <AssociationSet Name="FK__Shopping__CartId__23F3538A" Association="Self.FK__Shopping__CartId__23F3538A">
             <End Role="Cart" EntitySet="Cart" />
             <End Role="Shopping" EntitySet="Shopping" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shopping__Custom__0658CF02" Association="Self.FK__Shopping__Custom__0658CF02">
+          <AssociationSet Name="FK__Shopping__Custom__24E777C3" Association="Self.FK__Shopping__Custom__24E777C3">
             <End Role="Customer" EntitySet="Customer" />
             <End Role="Shopping" EntitySet="Shopping" />
           </AssociationSet>
@@ -407,7 +384,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Capacity" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__BatteryI__7AE71C56" FromRole="Battery" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__BatteryI__1975C517" FromRole="Battery" ToRole="Mobile" />
         </EntityType>
         <EntityType Name="Camera">
           <Key>
@@ -415,8 +392,8 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__BackCame__79F2F81D" FromRole="Camera" ToRole="Mobile" />
-          <NavigationProperty Name="Mobiles1" Relationship="Self.FK__Mobile__FrontCam__78FED3E4" FromRole="Camera" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__BackCame__1881A0DE" FromRole="Camera" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles1" Relationship="Self.FK__Mobile__FrontCam__178D7CA5" FromRole="Camera" ToRole="Mobile" />
         </EntityType>
         <EntityType Name="Cart">
           <Key>
@@ -425,9 +402,9 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CustomerId" Type="Int32" />
           <Property Name="ShopMobileId" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Cart__CustomerId__019419E5" FromRole="Cart" ToRole="Customer" />
-          <NavigationProperty Name="Shop_Mobiles" Relationship="Self.FK__Cart__ShopMobile__02883E1E" FromRole="Cart" ToRole="Shop_Mobiles" />
-          <NavigationProperty Name="Shoppings" Relationship="Self.FK__Shopping__CartId__0564AAC9" FromRole="Cart" ToRole="Shopping" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Cart__CustomerId__2022C2A6" FromRole="Cart" ToRole="Customer" />
+          <NavigationProperty Name="Shop_Mobiles" Relationship="Self.FK__Cart__ShopMobile__2116E6DF" FromRole="Cart" ToRole="Shop_Mobiles" />
+          <NavigationProperty Name="Shoppings" Relationship="Self.FK__Shopping__CartId__23F3538A" FromRole="Cart" ToRole="Shopping" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -443,9 +420,9 @@
           <Property Name="Activated" Type="Boolean" />
           <Property Name="IsAdmin" Type="Boolean" />
           <Property Name="ShopAdminId" Type="Int32" />
-          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__CustomerId__019419E5" FromRole="Customer" ToRole="Cart" />
-          <NavigationProperty Name="Shop" Relationship="Self.FK__Customer__ShopAd__65EBFF70" FromRole="Customer" ToRole="Shop" />
-          <NavigationProperty Name="Shoppings" Relationship="Self.FK__Shopping__Custom__0658CF02" FromRole="Customer" ToRole="Shopping" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__CustomerId__2022C2A6" FromRole="Customer" ToRole="Cart" />
+          <NavigationProperty Name="Shop" Relationship="Self.FK__Customer__ShopAd__075714DC" FromRole="Customer" ToRole="Shop" />
+          <NavigationProperty Name="Shoppings" Relationship="Self.FK__Shopping__Custom__24E777C3" FromRole="Customer" ToRole="Shopping" />
         </EntityType>
         <EntityType Name="Memory">
           <Key>
@@ -453,18 +430,20 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Size" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__ExternMe__780AAFAB" FromRole="Memory" ToRole="Mobile" />
-          <NavigationProperty Name="Mobiles1" Relationship="Self.FK__Mobile__InternMe__77168B72" FromRole="Memory" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__ExternMe__1699586C" FromRole="Memory" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles1" Relationship="Self.FK__Mobile__InternMe__15A53433" FromRole="Memory" ToRole="Mobile" />
         </EntityType>
         <EntityType Name="Mobile">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MobileName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="About" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Double" />
           <Property Name="SIM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="DualSIM" Type="Boolean" />
+          <Property Name="Proccessor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Dimensions" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="PhoneWeight" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="PackageContent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
@@ -494,18 +473,16 @@
           <Property Name="BackCameraId" Type="Int32" />
           <Property Name="InternMemoryId" Type="Int32" />
           <Property Name="ExternMemoryId" Type="Int32" />
-          <Property Name="ProccessorId" Type="Int32" />
           <Property Name="RamId" Type="Int32" />
           <Property Name="OsId" Type="Int32" />
-          <NavigationProperty Name="Battery" Relationship="Self.FK__Mobile__BatteryI__7AE71C56" FromRole="Mobile" ToRole="Battery" />
-          <NavigationProperty Name="Camera" Relationship="Self.FK__Mobile__BackCame__79F2F81D" FromRole="Mobile" ToRole="Camera" />
-          <NavigationProperty Name="Camera1" Relationship="Self.FK__Mobile__FrontCam__78FED3E4" FromRole="Mobile" ToRole="Camera" />
-          <NavigationProperty Name="Memory" Relationship="Self.FK__Mobile__ExternMe__780AAFAB" FromRole="Mobile" ToRole="Memory" />
-          <NavigationProperty Name="Memory1" Relationship="Self.FK__Mobile__InternMe__77168B72" FromRole="Mobile" ToRole="Memory" />
-          <NavigationProperty Name="OperativeSystem" Relationship="Self.FK__Mobile__OsId__76226739" FromRole="Mobile" ToRole="OperativeSystem" />
-          <NavigationProperty Name="Proccessor" Relationship="Self.FK__Mobile__Proccess__743A1EC7" FromRole="Mobile" ToRole="Proccessor" />
-          <NavigationProperty Name="RAM" Relationship="Self.FK__Mobile__RamId__752E4300" FromRole="Mobile" ToRole="RAM" />
-          <NavigationProperty Name="Shop_Mobiles" Relationship="Self.FK__Shop_Mobi__Mobil__7DC38901" FromRole="Mobile" ToRole="Shop_Mobiles" />
+          <NavigationProperty Name="Battery" Relationship="Self.FK__Mobile__BatteryI__1975C517" FromRole="Mobile" ToRole="Battery" />
+          <NavigationProperty Name="Camera" Relationship="Self.FK__Mobile__BackCame__1881A0DE" FromRole="Mobile" ToRole="Camera" />
+          <NavigationProperty Name="Camera1" Relationship="Self.FK__Mobile__FrontCam__178D7CA5" FromRole="Mobile" ToRole="Camera" />
+          <NavigationProperty Name="Memory" Relationship="Self.FK__Mobile__ExternMe__1699586C" FromRole="Mobile" ToRole="Memory" />
+          <NavigationProperty Name="Memory1" Relationship="Self.FK__Mobile__InternMe__15A53433" FromRole="Mobile" ToRole="Memory" />
+          <NavigationProperty Name="OperativeSystem" Relationship="Self.FK__Mobile__OsId__14B10FFA" FromRole="Mobile" ToRole="OperativeSystem" />
+          <NavigationProperty Name="RAM" Relationship="Self.FK__Mobile__RamId__13BCEBC1" FromRole="Mobile" ToRole="RAM" />
+          <NavigationProperty Name="Shop_Mobiles" Relationship="Self.FK__Shop_Mobi__Mobil__1C5231C2" FromRole="Mobile" ToRole="Shop_Mobiles" />
         </EntityType>
         <EntityType Name="OperativeSystem">
           <Key>
@@ -513,15 +490,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__OsId__76226739" FromRole="OperativeSystem" ToRole="Mobile" />
-        </EntityType>
-        <EntityType Name="Proccessor">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProccessorChars" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__Proccess__743A1EC7" FromRole="Proccessor" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__OsId__14B10FFA" FromRole="OperativeSystem" ToRole="Mobile" />
         </EntityType>
         <EntityType Name="RAM">
           <Key>
@@ -529,7 +498,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Memory" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__RamId__752E4300" FromRole="RAM" ToRole="Mobile" />
+          <NavigationProperty Name="Mobiles" Relationship="Self.FK__Mobile__RamId__13BCEBC1" FromRole="RAM" ToRole="Mobile" />
         </EntityType>
         <EntityType Name="Shop">
           <Key>
@@ -542,8 +511,8 @@
           <Property Name="ContactAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="HirePayment" Type="Boolean" />
           <Property Name="OpenTime" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__ShopAd__65EBFF70" FromRole="Shop" ToRole="Customer" />
-          <NavigationProperty Name="Shop_Mobiles" Relationship="Self.FK__Shop_Mobi__ShopI__7EB7AD3A" FromRole="Shop" ToRole="Shop_Mobiles" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Customer__ShopAd__075714DC" FromRole="Shop" ToRole="Customer" />
+          <NavigationProperty Name="Shop_Mobiles" Relationship="Self.FK__Shop_Mobi__ShopI__1D4655FB" FromRole="Shop" ToRole="Shop_Mobiles" />
         </EntityType>
         <EntityType Name="Shop_Mobiles">
           <Key>
@@ -553,9 +522,9 @@
           <Property Name="ShopId" Type="Int32" />
           <Property Name="MobileId" Type="Int32" />
           <Property Name="MobilesLeft" Type="Int32" />
-          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__ShopMobile__02883E1E" FromRole="Shop_Mobiles" ToRole="Cart" />
-          <NavigationProperty Name="Mobile" Relationship="Self.FK__Shop_Mobi__Mobil__7DC38901" FromRole="Shop_Mobiles" ToRole="Mobile" />
-          <NavigationProperty Name="Shop" Relationship="Self.FK__Shop_Mobi__ShopI__7EB7AD3A" FromRole="Shop_Mobiles" ToRole="Shop" />
+          <NavigationProperty Name="Carts" Relationship="Self.FK__Cart__ShopMobile__2116E6DF" FromRole="Shop_Mobiles" ToRole="Cart" />
+          <NavigationProperty Name="Mobile" Relationship="Self.FK__Shop_Mobi__Mobil__1C5231C2" FromRole="Shop_Mobiles" ToRole="Mobile" />
+          <NavigationProperty Name="Shop" Relationship="Self.FK__Shop_Mobi__ShopI__1D4655FB" FromRole="Shop_Mobiles" ToRole="Shop" />
         </EntityType>
         <EntityType Name="Shopping">
           <Key>
@@ -565,10 +534,10 @@
           <Property Name="CustomerId" Type="Int32" />
           <Property Name="CartId" Type="Int32" />
           <Property Name="ShoppingNumber" Type="Int32" />
-          <NavigationProperty Name="Cart" Relationship="Self.FK__Shopping__CartId__0564AAC9" FromRole="Shopping" ToRole="Cart" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Shopping__Custom__0658CF02" FromRole="Shopping" ToRole="Customer" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK__Shopping__CartId__23F3538A" FromRole="Shopping" ToRole="Cart" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Shopping__Custom__24E777C3" FromRole="Shopping" ToRole="Customer" />
         </EntityType>
-        <Association Name="FK__Mobile__BatteryI__7AE71C56">
+        <Association Name="FK__Mobile__BatteryI__1975C517">
           <End Role="Battery" Type="Self.Battery" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -580,7 +549,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__BackCame__79F2F81D">
+        <Association Name="FK__Mobile__BackCame__1881A0DE">
           <End Role="Camera" Type="Self.Camera" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -592,7 +561,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__FrontCam__78FED3E4">
+        <Association Name="FK__Mobile__FrontCam__178D7CA5">
           <End Role="Camera" Type="Self.Camera" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -604,7 +573,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cart__CustomerId__019419E5">
+        <Association Name="FK__Cart__CustomerId__2022C2A6">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -616,7 +585,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Cart__ShopMobile__02883E1E">
+        <Association Name="FK__Cart__ShopMobile__2116E6DF">
           <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="0..1" />
           <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
           <ReferentialConstraint>
@@ -628,7 +597,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shopping__CartId__0564AAC9">
+        <Association Name="FK__Shopping__CartId__23F3538A">
           <End Role="Cart" Type="Self.Cart" Multiplicity="0..1" />
           <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
           <ReferentialConstraint>
@@ -640,7 +609,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Customer__ShopAd__65EBFF70">
+        <Association Name="FK__Customer__ShopAd__075714DC">
           <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
           <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -652,7 +621,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shopping__Custom__0658CF02">
+        <Association Name="FK__Shopping__Custom__24E777C3">
           <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Shopping" Type="Self.Shopping" Multiplicity="*" />
           <ReferentialConstraint>
@@ -664,7 +633,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__ExternMe__780AAFAB">
+        <Association Name="FK__Mobile__ExternMe__1699586C">
           <End Role="Memory" Type="Self.Memory" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -676,7 +645,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__InternMe__77168B72">
+        <Association Name="FK__Mobile__InternMe__15A53433">
           <End Role="Memory" Type="Self.Memory" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -688,7 +657,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__OsId__76226739">
+        <Association Name="FK__Mobile__OsId__14B10FFA">
           <End Role="OperativeSystem" Type="Self.OperativeSystem" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -700,19 +669,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Mobile__Proccess__743A1EC7">
-          <End Role="Proccessor" Type="Self.Proccessor" Multiplicity="0..1" />
-          <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Proccessor">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Mobile">
-              <PropertyRef Name="ProccessorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Mobile__RamId__752E4300">
+        <Association Name="FK__Mobile__RamId__13BCEBC1">
           <End Role="RAM" Type="Self.RAM" Multiplicity="0..1" />
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -724,7 +681,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shop_Mobi__Mobil__7DC38901">
+        <Association Name="FK__Shop_Mobi__Mobil__1C5231C2">
           <End Role="Mobile" Type="Self.Mobile" Multiplicity="0..1" />
           <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -736,7 +693,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Shop_Mobi__ShopI__7EB7AD3A">
+        <Association Name="FK__Shop_Mobi__ShopI__1D4655FB">
           <End Role="Shop" Type="Self.Shop" Multiplicity="0..1" />
           <End Role="Shop_Mobiles" Type="Self.Shop_Mobiles" Multiplicity="*" />
           <ReferentialConstraint>
@@ -756,68 +713,63 @@
           <EntitySet Name="Memories" EntityType="Self.Memory" />
           <EntitySet Name="Mobiles" EntityType="Self.Mobile" />
           <EntitySet Name="OperativeSystems" EntityType="Self.OperativeSystem" />
-          <EntitySet Name="Proccessors" EntityType="Self.Proccessor" />
           <EntitySet Name="RAMs" EntityType="Self.RAM" />
           <EntitySet Name="Shops" EntityType="Self.Shop" />
           <EntitySet Name="Shop_Mobiles" EntityType="Self.Shop_Mobiles" />
           <EntitySet Name="Shoppings" EntityType="Self.Shopping" />
-          <AssociationSet Name="FK__Mobile__BatteryI__7AE71C56" Association="Self.FK__Mobile__BatteryI__7AE71C56">
+          <AssociationSet Name="FK__Mobile__BatteryI__1975C517" Association="Self.FK__Mobile__BatteryI__1975C517">
             <End Role="Battery" EntitySet="Batteries" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__BackCame__79F2F81D" Association="Self.FK__Mobile__BackCame__79F2F81D">
+          <AssociationSet Name="FK__Mobile__BackCame__1881A0DE" Association="Self.FK__Mobile__BackCame__1881A0DE">
             <End Role="Camera" EntitySet="Cameras" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__FrontCam__78FED3E4" Association="Self.FK__Mobile__FrontCam__78FED3E4">
+          <AssociationSet Name="FK__Mobile__FrontCam__178D7CA5" Association="Self.FK__Mobile__FrontCam__178D7CA5">
             <End Role="Camera" EntitySet="Cameras" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cart__CustomerId__019419E5" Association="Self.FK__Cart__CustomerId__019419E5">
+          <AssociationSet Name="FK__Cart__CustomerId__2022C2A6" Association="Self.FK__Cart__CustomerId__2022C2A6">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Cart" EntitySet="Carts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Cart__ShopMobile__02883E1E" Association="Self.FK__Cart__ShopMobile__02883E1E">
+          <AssociationSet Name="FK__Cart__ShopMobile__2116E6DF" Association="Self.FK__Cart__ShopMobile__2116E6DF">
             <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
             <End Role="Cart" EntitySet="Carts" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shopping__CartId__0564AAC9" Association="Self.FK__Shopping__CartId__0564AAC9">
+          <AssociationSet Name="FK__Shopping__CartId__23F3538A" Association="Self.FK__Shopping__CartId__23F3538A">
             <End Role="Cart" EntitySet="Carts" />
             <End Role="Shopping" EntitySet="Shoppings" />
           </AssociationSet>
-          <AssociationSet Name="FK__Customer__ShopAd__65EBFF70" Association="Self.FK__Customer__ShopAd__65EBFF70">
+          <AssociationSet Name="FK__Customer__ShopAd__075714DC" Association="Self.FK__Customer__ShopAd__075714DC">
             <End Role="Shop" EntitySet="Shops" />
             <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shopping__Custom__0658CF02" Association="Self.FK__Shopping__Custom__0658CF02">
+          <AssociationSet Name="FK__Shopping__Custom__24E777C3" Association="Self.FK__Shopping__Custom__24E777C3">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Shopping" EntitySet="Shoppings" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__ExternMe__780AAFAB" Association="Self.FK__Mobile__ExternMe__780AAFAB">
+          <AssociationSet Name="FK__Mobile__ExternMe__1699586C" Association="Self.FK__Mobile__ExternMe__1699586C">
             <End Role="Memory" EntitySet="Memories" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__InternMe__77168B72" Association="Self.FK__Mobile__InternMe__77168B72">
+          <AssociationSet Name="FK__Mobile__InternMe__15A53433" Association="Self.FK__Mobile__InternMe__15A53433">
             <End Role="Memory" EntitySet="Memories" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__OsId__76226739" Association="Self.FK__Mobile__OsId__76226739">
+          <AssociationSet Name="FK__Mobile__OsId__14B10FFA" Association="Self.FK__Mobile__OsId__14B10FFA">
             <End Role="OperativeSystem" EntitySet="OperativeSystems" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Mobile__Proccess__743A1EC7" Association="Self.FK__Mobile__Proccess__743A1EC7">
-            <End Role="Proccessor" EntitySet="Proccessors" />
-            <End Role="Mobile" EntitySet="Mobiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Mobile__RamId__752E4300" Association="Self.FK__Mobile__RamId__752E4300">
+          <AssociationSet Name="FK__Mobile__RamId__13BCEBC1" Association="Self.FK__Mobile__RamId__13BCEBC1">
             <End Role="RAM" EntitySet="RAMs" />
             <End Role="Mobile" EntitySet="Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shop_Mobi__Mobil__7DC38901" Association="Self.FK__Shop_Mobi__Mobil__7DC38901">
+          <AssociationSet Name="FK__Shop_Mobi__Mobil__1C5231C2" Association="Self.FK__Shop_Mobi__Mobil__1C5231C2">
             <End Role="Mobile" EntitySet="Mobiles" />
             <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
           </AssociationSet>
-          <AssociationSet Name="FK__Shop_Mobi__ShopI__7EB7AD3A" Association="Self.FK__Shop_Mobi__ShopI__7EB7AD3A">
+          <AssociationSet Name="FK__Shop_Mobi__ShopI__1D4655FB" Association="Self.FK__Shop_Mobi__ShopI__1D4655FB">
             <End Role="Shop" EntitySet="Shops" />
             <End Role="Shop_Mobiles" EntitySet="Shop_Mobiles" />
           </AssociationSet>
@@ -881,10 +833,12 @@
             <EntityTypeMapping TypeName="MobileShopModel.Mobile">
               <MappingFragment StoreEntitySet="Mobile">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MobileName" ColumnName="MobileName" />
                 <ScalarProperty Name="About" ColumnName="About" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="SIM" ColumnName="SIM" />
                 <ScalarProperty Name="DualSIM" ColumnName="DualSIM" />
+                <ScalarProperty Name="Proccessor" ColumnName="Proccessor" />
                 <ScalarProperty Name="Dimensions" ColumnName="Dimensions" />
                 <ScalarProperty Name="PhoneWeight" ColumnName="PhoneWeight" />
                 <ScalarProperty Name="PackageContent" ColumnName="PackageContent" />
@@ -914,7 +868,6 @@
                 <ScalarProperty Name="BackCameraId" ColumnName="BackCameraId" />
                 <ScalarProperty Name="InternMemoryId" ColumnName="InternMemoryId" />
                 <ScalarProperty Name="ExternMemoryId" ColumnName="ExternMemoryId" />
-                <ScalarProperty Name="ProccessorId" ColumnName="ProccessorId" />
                 <ScalarProperty Name="RamId" ColumnName="RamId" />
                 <ScalarProperty Name="OsId" ColumnName="OsId" />
               </MappingFragment>
@@ -925,14 +878,6 @@
               <MappingFragment StoreEntitySet="OperativeSystem">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="OS" ColumnName="OS" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Proccessors">
-            <EntityTypeMapping TypeName="MobileShopModel.Proccessor">
-              <MappingFragment StoreEntitySet="Proccessor">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ProccessorChars" ColumnName="ProccessorChars" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

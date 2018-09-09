@@ -21,10 +21,12 @@ namespace MobileShop.Models
         }
     
         public int Id { get; set; }
+        public string MobileName { get; set; }
         public string About { get; set; }
         public Nullable<double> Price { get; set; }
         public string SIM { get; set; }
         public Nullable<bool> DualSIM { get; set; }
+        public string Proccessor { get; set; }
         public string Dimensions { get; set; }
         public string PhoneWeight { get; set; }
         public string PackageContent { get; set; }
@@ -54,7 +56,6 @@ namespace MobileShop.Models
         public Nullable<int> BackCameraId { get; set; }
         public Nullable<int> InternMemoryId { get; set; }
         public Nullable<int> ExternMemoryId { get; set; }
-        public Nullable<int> ProccessorId { get; set; }
         public Nullable<int> RamId { get; set; }
         public Nullable<int> OsId { get; set; }
     
@@ -64,7 +65,6 @@ namespace MobileShop.Models
         public virtual Memory Memory { get; set; }
         public virtual Memory Memory1 { get; set; }
         public virtual OperativeSystem OperativeSystem { get; set; }
-        public virtual Proccessor Proccessor { get; set; }
         public virtual RAM RAM { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop_Mobiles> Shop_Mobiles { get; set; }

@@ -71,17 +71,14 @@ CREATE TABLE RAM (
 	Memory varchar(255),
 );
 
-CREATE TABLE Proccessor (
-	Id int PRIMARY KEY IDENTITY,
-	ProccessorChars varchar(255),
-);
-
 CREATE TABLE Mobile (
 	Id int PRIMARY KEY IDENTITY,
+	MobileName varchar(255),
 	About varchar(255),
 	Price float,
 	SIM varchar(255),
 	DualSIM bit,
+	Proccessor varchar(255),
 	Dimensions varchar(255),
 	PhoneWeight varchar(255),
 	PackageContent varchar(255),
@@ -112,11 +109,9 @@ CREATE TABLE Mobile (
 	BackCameraId int,
 	InternMemoryId int,
 	ExternMemoryId int,
-	ProccessorId int,
 	RamId int,
 	OsId int,
 
-	FOREIGN KEY (ProccessorId) REFERENCES Proccessor(Id),
 	FOREIGN KEY (RamId) REFERENCES RAM(Id),
 	FOREIGN KEY (OsId) REFERENCES OperativeSystem(Id),
 	FOREIGN KEY (InternMemoryId) REFERENCES Memory(Id),
