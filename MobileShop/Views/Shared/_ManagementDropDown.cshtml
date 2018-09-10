@@ -1,0 +1,19 @@
+﻿@if (Request.Cookies["Role"] != null && Request.Cookies["Role"].Value == "ADMIN")
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="ListsDropDown" data-toggle="dropdown" style="color: #337ab7; font-size: medium" aria-haspopup="true" aria-expanded="false">
+            Managment
+        </a>
+        <div class="dropdown-menu" style="background-color: #333;">
+            <div style="padding: 10px;">
+                @Html.ActionLink("Shop info", "All", "Shop", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+            </div>
+            <div style="padding: 10px;">
+                @Html.ActionLink("Manage admins", "All", "Account", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+            </div>
+            <div style="padding: 10px;">
+                @Html.ActionLink("Add mobile to shop", "All", "Mobile", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+            </div>
+        </div>
+    </li>
+}

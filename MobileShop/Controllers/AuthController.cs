@@ -33,7 +33,13 @@ namespace MobileShop.Controllers
             HttpCookie cookie = null;
             if (customer.IsAdmin)
             {
-                cookie = new HttpCookie("Role", "ADMIN");
+                if (customer.IsRootAdmin)
+                {
+                    cookie = new HttpCookie("Role", "ROOT");
+                } else
+                {
+                    cookie = new HttpCookie("Role", "ADMIN");
+                }
             }
             else
             {
@@ -85,7 +91,7 @@ namespace MobileShop.Controllers
 
             var token = authService.GenerateJWT(newCustomer);
             FormsAuthentication.SetAuthCookie(token, true);
-
+            HttpContext.Response.SetCookie(new HttpCookie("Role", "REGULAR"));
             return Redirect("/Home");
         }
     }

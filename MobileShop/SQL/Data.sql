@@ -4,8 +4,8 @@ insert into Shop values ('MTS', '021/345-67-89', '061-234-56-78', 'Bulevar Oslob
 insert into Shop values ('Mobile shop', '021/345-67-89', '061-234-56-78', 'Bulevar Oslobodjenja', 0, '8 - 20');
 insert into Shop values ('Emmi', '021/345-67-89', '061-234-56-78', 'Bulevar Oslobodjenja', 0, '8 - 20');
 
-insert into Customer values('Dejan', 'Besic', 'Zeleznicka 15', 'admin@gmail.com', 'pass', 0, 1, 1, 1);
-insert into Customer values('Srdjan', 'Besic', 'Zeleznicka 15', 'pwi1@gmail.com', 'pass', 0, 1, 0, 2);
+insert into Customer values('Dejan', 'Besic', 'Zeleznicka 15', 'admin@gmail.com', 'pass', 0, 1, 1, 1, 1);
+insert into Customer values('Srdjan', 'Besic', 'Zeleznicka 15', 'pwi1@gmail.com', 'pass', 0, 1, 0, 0, 2);
 
 insert into Battery values('1821 mAh');
 insert into Battery values('3300 mAh');

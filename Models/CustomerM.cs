@@ -28,6 +28,8 @@ namespace Models
 
         public int ShopAdminId { get; set; }
 
+        public bool IsRootAdmin { get; set; }
+
         public CustomerM()
         {
 

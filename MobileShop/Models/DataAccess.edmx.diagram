@@ -4,32 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0b68e7c567a849d0bde07f1bd988dd4f" Name="Diagram1">
-        <EntityTypeShape EntityType="MobileShopModel.Battery" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileShopModel.Camera" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileShopModel.Cart" Width="1.5" PointX="7.5" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="4159d28254fd45798d946a2a2e47d08a" Name="Diagram1">
+        <EntityTypeShape EntityType="MobileShopModel.Battery" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileShopModel.Camera" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileShopModel.Cart" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Customer" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Memory" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Mobile" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileShopModel.OperativeSystem" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileShopModel.OperativeSystem" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.RAM" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileShopModel.Shop" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MobileShopModel.Shop" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MobileShopModel.Shop_Mobiles" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MobileShopModel.Shopping" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__BatteryI__1975C517" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__BackCame__1881A0DE" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__FrontCam__178D7CA5" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Cart__CustomerId__2022C2A6" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Cart__ShopMobile__2116E6DF" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shopping__CartId__23F3538A" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Customer__ShopAd__075714DC" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shopping__Custom__24E777C3" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__ExternMe__1699586C" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__InternMe__15A53433" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__OsId__14B10FFA" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Mobile__RamId__13BCEBC1" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__Mobil__1C5231C2" ManuallyRouted="false" />
-        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__ShopI__1D4655FB" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MobileShopModel.Shopping" Width="1.5" PointX="9.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__BatteryI__6A85CC04" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__BackCame__6991A7CB" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__FrontCam__689D8392" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Cart__CustomerId__7132C993" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Cart__ShopMobile__7226EDCC" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shopping__CartId__75035A77" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Customer__ShopAd__58671BC9" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shopping__Custom__75F77EB0" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__ExternMe__67A95F59" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__InternMe__66B53B20" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__OsId__65C116E7" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Mobile__RamId__64CCF2AE" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__Mobil__6D6238AF" ManuallyRouted="false" />
+        <AssociationConnector Association="MobileShopModel.FK__Shop_Mobi__ShopI__6E565CE8" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

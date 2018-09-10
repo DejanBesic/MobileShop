@@ -32,6 +32,7 @@ namespace Repository
                 Blocked = customerDb.Blocked ?? false,
                 Activated = customerDb.Activated ?? false,
                 IsAdmin = customerDb.IsAdmin ?? false,
+                IsRootAdmin = customerDb.IsRootAdmin ?? false,
                 ShopAdminId = customerDb.ShopAdminId ?? -1,
             }; 
         }
@@ -51,7 +52,7 @@ namespace Repository
             found.FirstName = customer.FirstName;
             found.LastName = customer.LastName;
             found.Email = customer.Email;
-            if (customer.Password != "")
+            if (customer.Password != null && customer.Password != "")
             {
                 found.CustomerPassword = customer.Password;
             }
@@ -59,6 +60,7 @@ namespace Repository
             found.Blocked = customer.Blocked;
             found.Activated = customer.Activated;
             found.ShopAdminId = customer.ShopAdminId;
+            found.IsRootAdmin = customer.IsRootAdmin;
             Context.SaveChanges();
             customer.Password = "";
             return customer;
@@ -80,6 +82,7 @@ namespace Repository
                     Activated = c.Activated ?? false,
                     IsAdmin = c.IsAdmin ?? false,
                     ShopAdminId = c.ShopAdminId ?? -1,
+                    IsRootAdmin = c.IsRootAdmin ?? false,
                 });
             }
 
@@ -107,6 +110,7 @@ namespace Repository
                 IsAdmin = customerDb.IsAdmin ?? false,
                 Password = customerDb.CustomerPassword,
                 ShopAdminId = customerDb.ShopAdminId ?? -1,
+                IsRootAdmin = customerDb.IsRootAdmin ?? false,
             };
         }
 
@@ -130,6 +134,7 @@ namespace Repository
                 Activated = customerDb.Activated ?? false,
                 IsAdmin = customerDb.IsAdmin ?? false,
                 ShopAdminId = customerDb.ShopAdminId ?? -1,
+                IsRootAdmin = customerDb.IsRootAdmin ?? false,
             };
         }
 
@@ -146,6 +151,7 @@ namespace Repository
                 IsAdmin = customer.IsAdmin,
                 CustomerPassword = customer.Password,
                 ShopAdminId = null,
+                IsRootAdmin = customer.IsRootAdmin,
             };
             Context.Customers.Add(customerDb);
             Context.SaveChanges();

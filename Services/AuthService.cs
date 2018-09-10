@@ -60,7 +60,7 @@ namespace Services
                 IJwtDecoder decoder = new JwtDecoder(serializer, validator, urlEncoder);
 
                 var json = decoder.Decode(jwt, new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["JwtSecret"])).ToString(), verify: true);
-                customer = customerService.FindById((int) JObject.Parse(json)["Id"]);
+                customer = customerService.FindById((int) JObject.Parse(json)["id"]);
             }
             catch (TokenExpiredException)
             {

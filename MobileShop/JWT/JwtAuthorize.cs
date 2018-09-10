@@ -29,7 +29,7 @@ namespace MobileShop.JWT
                 IJwtDecoder decoder = new JwtDecoder(serializer, validator, urlEncoder);
 
                 var json = decoder.Decode(token, new SymmetricSecurityKey(Encoding.UTF8.GetBytes(ConfigurationManager.AppSettings["JwtSecret"])).ToString(), verify: true);
-                if (Role == "ADMIN" && Role != httpContext.Request.Cookies["Role"].Value)
+                if (Role != "" && Role != null && Role != httpContext.Request.Cookies["Role"].Value)
                 {
                     
                     return false;

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Models.CustomerM>
+
+@Scripts.Render("~/Content/Account/Account.js")
+
+<div class="row" style="margin-left: 15px; margin-right: 15px;">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        <h2>Add admin to your shop</h2>
+        <table class="table">
+            <tr><th>Id</th><th>Email</th><th>Name</th><th>Last name</th><th></th></tr>
+            @foreach (var customer in Model)
+            {    
+                <tr id=@customer.Id>
+                    <td>@customer.Id</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.FirstName</td>
+                    <td>@customer.LastName</td>
+                    <td><button class="btn-primary" onclick="Add(@customer.Id)">Add</button></td>
+                </tr>
+            }
+        </table>
+    </div>
+    
+</div>
