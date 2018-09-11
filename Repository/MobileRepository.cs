@@ -29,7 +29,6 @@ namespace Repository
                 Name = mobile.MobileName,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId ?? -1,
-                Price = mobile.Price ?? 0,
                 BackCameraId = mobile.BackCameraId ?? -1,
                 ExternMemoryId = mobile.ExternMemoryId ?? -1,
                 InternMemoryId = mobile.InternMemoryId ?? -1,
@@ -81,7 +80,6 @@ namespace Repository
             found.About = mobile.About;
             found.MobileName = mobile.Name;
             found.BatteryId = mobile.BatteryId;
-            found.Price = mobile.Price;
             found.BackCameraId = mobile.BackCameraId;
             found.ExternMemoryId = mobile.ExternMemoryId;
             found.InternMemoryId = mobile.InternMemoryId;
@@ -131,7 +129,6 @@ namespace Repository
                     Name = mobile.MobileName,
                     About = mobile.About,
                     BatteryId = mobile.BatteryId ?? -1,
-                    Price = mobile.Price ?? 0,
                     BackCameraId = mobile.BackCameraId ?? -1,
                     ExternMemoryId = mobile.ExternMemoryId ?? -1,
                     InternMemoryId = mobile.InternMemoryId ?? -1,
@@ -181,7 +178,6 @@ namespace Repository
                 Name = mobile.MobileName,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId ?? -1,
-                Price = mobile.Price ?? 0,
                 BackCameraId = mobile.BackCameraId ?? -1,
                 ExternMemoryId = mobile.ExternMemoryId ?? -1,
                 InternMemoryId = mobile.InternMemoryId ?? -1,
@@ -226,7 +222,6 @@ namespace Repository
                 MobileName = mobile.Name,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId,
-                Price = mobile.Price,
                 BackCameraId = mobile.BackCameraId,
                 ExternMemoryId = mobile.ExternMemoryId,
                 InternMemoryId = mobile.InternMemoryId,

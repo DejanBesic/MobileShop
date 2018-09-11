@@ -23,7 +23,6 @@ namespace MobileShop.Models
         public int Id { get; set; }
         public string MobileName { get; set; }
         public string About { get; set; }
-        public Nullable<double> Price { get; set; }
         public string SIM { get; set; }
         public Nullable<bool> DualSIM { get; set; }
         public string Proccessor { get; set; }

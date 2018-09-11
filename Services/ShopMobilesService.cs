@@ -38,6 +38,11 @@ namespace Services
             return shopMobilesRepository.FindById(id);
         }
 
+        public ShopMobilesM FindByShopAndMobile(int shopId, int mobileId)
+        {
+            return shopMobilesRepository.FindByShopAndMobile(shopId, mobileId);
+        }
+
         public ShopMobilesM Save(ShopMobilesM shopMobiles)
         {
             return shopMobilesRepository.Save(shopMobiles);

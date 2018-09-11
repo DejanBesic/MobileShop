@@ -384,6 +384,8 @@
     <Compile Include="Models\DTO\LoginDTO.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Models\DTO\MobileDTO.cs" />
+    <Compile Include="Models\DTO\MobileShopDTO.cs" />
     <Compile Include="Models\DTO\MobileViewModel.cs" />
     <Compile Include="Models\DTO\RegisterDTO.cs" />
     <Compile Include="Models\Memory.cs">
@@ -423,6 +425,7 @@
     <Content Include="Content\Login\BackgroundImage.jpg" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\Login\nightsky.jpg" />
+    <Content Include="Content\Mobile\Mobile.js" />
     <Content Include="Content\Mobile\NewMobile.css" />
     <Content Include="Content\Register\Register.css" />
     <Content Include="Content\Shared.css" />
@@ -488,6 +491,10 @@
     <Content Include="Views\Shared\_CreateDropDown.cshtml" />
     <Content Include="Views\Shared\_ManagementDropDown.cshtml" />
     <Content Include="Views\Account\All.cshtml" />
+    <Content Include="Views\Shop\Info.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Mobile\All.cshtml" />
+    <Content Include="Views\Mobile\Manage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

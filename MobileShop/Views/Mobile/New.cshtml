@@ -15,14 +15,10 @@
 
 @using (Html.BeginForm("Create", "Mobile", FormMethod.Post, new { @class = "login-form" }))
 {
-    <div class="row" style="margin-left: 15px; margin-right: 15px; margin-top: 30px; border: thin solid #337ab7; padding: 15px;">
+    <div class="row" style="margin-left: 15px; margin-right: 15px; margin-top: 30px; border: thin solid #FF7417; padding: 15px;">
         <div class="col-sm-3" style="text-align: left;">
             @Html.Label("Name")
             @Html.TextBoxFor(x => Mobile.Name, null, new { @class = "form-control" })
-        </div>
-        <div class="col-sm-3" style="text-align: left;">
-            @Html.Label("Price")
-            @Html.TextBoxFor(x => x.Mobile.Price, null, new { @class = "form-control", type="number" })
         </div>
         <div class="col-sm-3"></div>
         <div class="col-sm-3" style="margin-top: 10px;">
@@ -36,7 +32,7 @@
     <div class="row" style="margin-left: 15px; margin-right: 15px; margin-top: 30px;">
         <div class="col-sm-3">
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Additional info</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("SIM")
                 @Html.TextBoxFor(x => x.Mobile.SIM, null, new { @class = "form-control" })
                        
@@ -64,7 +60,7 @@
             </div>
             <div style="margin: 10px;"></div>
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Memory</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Intern memory")
                 @Html.DropDownListFor(x => x.Mobile.InternMemoryId, Memories.Select(x => new SelectListItem() { Text = x.Size, Value = x.Id.ToString() }), new { @class = "form-control"})
 
@@ -74,8 +70,8 @@
 
         </div>
         <div class="col-sm-3">
-            <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Network</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Communication</span>
+            <div style="border: thin solid #FF7417;  padding: 15px;">
 
                 @Html.Label("Data transfer")
                 @Html.TextBoxFor(x => x.Mobile.DataTransfer, null, new { @class = "form-control" })
@@ -117,7 +113,7 @@
 
         <div class="col-sm-3">
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Sound</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <div style="border: thin solid #FF7417;  padding: 15px;">
                 <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("FM Radio")
@@ -140,7 +136,7 @@
             </div>
             <div style="margin: 10px;"></div>
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Camera</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Main camera")
                 @Html.DropDownListFor(x => x.Mobile.BackCameraId, Cameras.Select(x => new SelectListItem() { Text = x.MP, Value = x.Id.ToString() }), new { @class = "form-control"})
 
@@ -160,7 +156,7 @@
 
         <div class="col-sm-3">
             <span style="font-size:medium; font-weight: bold;">Platform</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Operating system")
                 @Html.DropDownListFor(x => Mobile.OsId, OperativeSystems.Select(x => new SelectListItem() { Text = x.OS, Value = x.Id.ToString() }), new { @class = "form-control" })
 
@@ -172,7 +168,7 @@
             </div>
             <div style="margin: 10px;"></div>
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Screen</span>
-            <div style="border: thin solid #337ab7;  padding: 15px;">
+            <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Size")
                 @Html.TextBoxFor(x => x.Mobile.ScreenSize, null, new { @class = "form-control" })
 

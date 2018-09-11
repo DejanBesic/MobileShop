@@ -48,5 +48,34 @@ namespace MobileShop.Controllers
 
             return RedirectToAction("New");
         }
+
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Info()
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+
+            ShopM shop = new ShopM();
+
+            if(customer.ShopAdminId != -1)
+            {
+                shop = shopService.FindById(customer.ShopAdminId);
+            }
+
+            
+
+            return View(shop);
+        }
+
+        [HttpPost]
+        [JwtAuthorize(Role ="ADMIN")]
+        public ActionResult Save(ShopM shop)
+        {
+            if (ModelState.IsValid)
+            {
+                shopService.Edit(shop);    
+            }
+
+            return RedirectToAction("Info");
+        }
     }
 }

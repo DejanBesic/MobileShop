@@ -30,6 +30,7 @@ namespace Repository
                 MobileId = shopMobiles.MobileId ?? -1,
                 MobilesLeft = shopMobiles.MobilesLeft ?? 0,
                 ShopId = shopMobiles.ShopId ?? -1,
+                Price = shopMobiles.Price ?? 0,
             };
         }
 
@@ -48,7 +49,7 @@ namespace Repository
             found.ShopId = shopMobiles.ShopId;
             found.MobilesLeft = shopMobiles.MobilesLeft;
             found.MobileId = shopMobiles.MobileId;
-
+            found.Price = shopMobiles.Price;
             Context.SaveChanges();
 
             return shopMobiles;
@@ -65,6 +66,7 @@ namespace Repository
                     MobileId = shopMobiles.MobileId ?? -1,
                     MobilesLeft = shopMobiles.MobilesLeft ?? 0,
                     ShopId = shopMobiles.ShopId ?? -1,
+                    Price = shopMobiles.Price ?? 0,
                 });
             }
 
@@ -81,6 +83,7 @@ namespace Repository
                 MobileId = shopMobiles.MobileId ?? -1,
                 MobilesLeft = shopMobiles.MobilesLeft ?? 0,
                 ShopId = shopMobiles.ShopId ?? -1,
+                Price = shopMobiles.Price ?? 0,
             };
         }
 
@@ -91,11 +94,30 @@ namespace Repository
                 MobileId = shopMobiles.MobileId,
                 MobilesLeft = shopMobiles.MobilesLeft,
                 ShopId = shopMobiles.ShopId,
+                Price = shopMobiles.Price,
             };
             Context.Shop_Mobiles.Add(shopMobilesDb);
             Context.SaveChanges();
             shopMobiles.Id = shopMobilesDb.Id;
             return shopMobiles;
+        }
+
+        public ShopMobilesM FindByShopAndMobile(int shopId, int mobileId)
+        {
+            var found = Context.Shop_Mobiles.SingleOrDefault(x => x.ShopId == shopId && x.MobileId == mobileId);
+            if (found == null)
+            {
+                return null;
+            }
+
+            return new ShopMobilesM()
+            {
+                Id = found.Id,
+                MobileId = found.MobileId ?? -1,
+                Price = found.Price ?? 0,
+                MobilesLeft = found.MobilesLeft ?? 0,
+                ShopId = found.ShopId ?? -1,
+            };
         }
     }
 }

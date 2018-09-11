@@ -24,6 +24,7 @@ namespace Repository
         public Nullable<int> ShopId { get; set; }
         public Nullable<int> MobileId { get; set; }
         public Nullable<int> MobilesLeft { get; set; }
+        public Nullable<double> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }

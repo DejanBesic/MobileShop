@@ -14,5 +14,6 @@ namespace IRepository
         ShopMobilesM Save(ShopMobilesM shopMobiles);
         ShopMobilesM Delete(int id);
         ShopMobilesM Edit(ShopMobilesM shopMobiles);
+        ShopMobilesM FindByShopAndMobile(int shopId, int mobileId);
     }
 }

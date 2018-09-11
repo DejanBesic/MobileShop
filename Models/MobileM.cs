@@ -14,8 +14,6 @@ namespace Models
 
         public string About { get; set; }
 
-        public double Price { get; set; }
-
         public string SIM { get; set; }
 
         public bool DualSIM { get; set; }

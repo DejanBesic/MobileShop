@@ -59,7 +59,7 @@ namespace Repository
             found.IsAdmin = customer.IsAdmin;
             found.Blocked = customer.Blocked;
             found.Activated = customer.Activated;
-            found.ShopAdminId = customer.ShopAdminId;
+            found.ShopAdminId = (customer.ShopAdminId != -1) ? (int?) customer.ShopAdminId : null;
             found.IsRootAdmin = customer.IsRootAdmin;
             Context.SaveChanges();
             customer.Password = "";

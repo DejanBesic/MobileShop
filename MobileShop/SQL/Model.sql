@@ -42,6 +42,7 @@ CREATE TABLE Customer (
 	Blocked bit,
 	Activated bit,
 	IsAdmin bit,
+	IsRootAdmin bit,
 	ShopAdminId int,
 	FOREIGN KEY (ShopAdminId) REFERENCES Shop(Id)
 );
@@ -75,7 +76,6 @@ CREATE TABLE Mobile (
 	Id int PRIMARY KEY IDENTITY,
 	MobileName varchar(255),
 	About varchar(255),
-	Price float,
 	SIM varchar(255),
 	DualSIM bit,
 	Proccessor varchar(255),
@@ -127,6 +127,8 @@ CREATE TABLE Shop_Mobiles(
 	ShopId int,
 	MobileId int,
 	MobilesLeft int,
+	Price float,
+
 	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
 	FOREIGN KEY (ShopId) REFERENCES Shop(Id),
 );

@@ -1,20 +1,20 @@
 ﻿@{if (Request.IsAuthenticated)
     {
-        using (Html.BeginForm("Logout", "Auth", FormMethod.Get, new { id = "logoutForm", @class = "navbar-right", style = "color: #337ab7; font-size: medium;" }))
+        using (Html.BeginForm("Logout", "Auth", FormMethod.Get, new { id = "logoutForm", @class = "navbar-right", style = "color: #FF7417; font-size: medium;" }))
         {
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color: #337ab7; font-size: medium;" })
+            @Html.ActionLink("Hello!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "color: #FF7417; font-size: medium;" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()" style="color: #337ab7; font-size: medium;">Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()" style="color: #FF7417; font-size: medium;">Log off</a></li>
     </ul>
         }
     }
     else
     {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Auth", routeValues: null, htmlAttributes: new { id = "registerLink", style = "color: #337ab7; font-size: medium;" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Auth", routeValues: null, htmlAttributes: new { id = "loginLink", style = "color: #337ab7; font-size: medium;" })</li>
+        <li>@Html.ActionLink("Register", "Register", "Auth", routeValues: null, htmlAttributes: new { id = "registerLink", style = "color: #FF7417; font-size: medium;" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Auth", routeValues: null, htmlAttributes: new { id = "loginLink", style = "color: #FF7417; font-size: medium;" })</li>
     </ul>
         }
     }

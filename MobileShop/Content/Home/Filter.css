@@ -27,7 +27,7 @@
     height: 18px;
     width: 18px;
     background-color: #fff;
-    border-color: #337ab7;
+    border-color: #FF7417;
     border-style: solid;
     border-width: 2px;
 }
@@ -58,7 +58,7 @@
     width: 5px;
     height: 10px;
     border: solid;
-    border-color: #337ab7;
+    border-color: #FF7417;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -67,14 +67,14 @@
 
 .cust-btn {
     margin-bottom: 10px;
-    background-color: #337ab7;
+    background-color: #FF7417;
     border-width: 2px;
-    border-color: #337ab7;
+    border-color: #FF7417;
     color: #fff;
 }
 
     .cust-btn:hover {
-        border-color: #337ab7;
+        border-color: #FF7417;
         background-color: #fff;
         color: #337ab7;
         border-radius: 20px;
@@ -96,17 +96,17 @@
     transition: opacity .2s;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: #337ab7; 
-    cursor: pointer; /* Cursor on hover */
-}
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        width: 25px; /* Set a specific slider handle width */
+        height: 25px; /* Slider handle height */
+        background: #FF7417;
+        cursor: pointer; /* Cursor on hover */
+    }
 
 .search-input {
     border-radius: 4px;
-    border: solid 1px #337ab7;
+    border: solid 1px #FF7417;
     width: 100%;
     height: 30px;
     font-size: medium;

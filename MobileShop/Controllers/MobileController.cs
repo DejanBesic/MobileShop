@@ -1,4 +1,5 @@
 ﻿using MobileShop.JWT;
+using MobileShop.Models;
 using MobileShop.Models.DTO;
 using Models;
 using Services;
@@ -19,7 +20,8 @@ namespace MobileShop.Controllers
         private readonly RamService ramService = new RamService();
         private readonly OperativeSystemService operativeSystemService = new OperativeSystemService();
         private readonly MobileService mobileService = new MobileService();
-
+        private readonly ShopMobilesService shopMobilesService = new ShopMobilesService();
+        private readonly AuthService authService = new AuthService();
         // GET: Mobile
         public ActionResult Index()
         {
@@ -67,6 +69,64 @@ namespace MobileShop.Controllers
             }
 
             return RedirectToAction("/New");
+        }
+
+        [JwtAuthorize(Role="ADMIN")]
+        public ActionResult All()
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            IEnumerable<ShopMobilesM> shopMobiles = shopMobilesService.FindAll().Where(x => x.ShopId == customer.ShopAdminId);
+
+            return View(mobileService.FindAll().Where(x => !shopMobiles.Contains(new ShopMobilesM() { ShopId = customer.ShopAdminId, MobileId = x.Id })));
+        }
+
+        [HttpPost]
+        [JwtAuthorize(Role ="ADMIN")]
+        public ActionResult Add(MobileShopDTO mobileShop)
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            ShopMobilesM foundPair = shopMobilesService.FindByShopAndMobile(customer.ShopAdminId, mobileShop.MobileId);
+            if(foundPair != null)
+            {
+                foundPair.Price = mobileShop.Price;
+                foundPair.MobilesLeft += mobileShop.Amount;
+                shopMobilesService.Edit(foundPair);
+            }
+            else
+            {
+                shopMobilesService.Save(new ShopMobilesM()
+                {
+                    MobileId = mobileShop.MobileId,
+                    MobilesLeft = mobileShop.Amount,
+                    ShopId = customer.ShopAdminId,
+                    Price = mobileShop.Price,
+                });
+            }
+
+            return RedirectToAction("All");
+        }
+
+
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Manage()
+        {
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+
+            return View(mobileService.FindAll().Where(x=> shopMobilesService.FindByShopAndMobile(admin.ShopAdminId, x.Id) != null));
+        }
+
+        [HttpDelete]
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Remove(int id)
+        {
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+            ShopMobilesM shopMobiles = shopMobilesService.FindByShopAndMobile(admin.ShopAdminId, id);
+            if (shopMobiles != null)
+            {
+                shopMobilesService.Delete(shopMobiles.Id);
+            }
+
+            return RedirectToAction("Manage");
         }
 
     }

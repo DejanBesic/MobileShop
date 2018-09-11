@@ -10,16 +10,16 @@
         <table class="table">
             <tr><th>Id</th><th>Email</th><th>Name</th><th>Last name</th><th></th></tr>
             @foreach (var customer in Model)
-            {    
+            {
                 <tr id=@customer.Id>
                     <td>@customer.Id</td>
                     <td>@customer.Email</td>
                     <td>@customer.FirstName</td>
                     <td>@customer.LastName</td>
-                    <td><button class="btn-warning" onclick="Add(@customer.Id)">Add</button></td>
+                    <td><button class="btn-danger" onclick="Remove(@customer.Id)">Remove</button></td>
                 </tr>
             }
         </table>
     </div>
-    
+
 </div>

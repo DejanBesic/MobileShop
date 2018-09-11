@@ -16,6 +16,8 @@ namespace Models
 
         public int MobilesLeft { get; set; }
 
+        public double Price { get; set; }
+
         public ShopMobilesM()
         {
 

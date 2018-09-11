@@ -1,23 +1,23 @@
 ﻿@if (Request.Cookies["Role"] != null && (Request.Cookies["Role"].Value == "REGULAR" || Request.Cookies["Role"].Value == "ADMIN"))
 {
 <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" style="color: #337ab7; font-size: medium" aria-haspopup="true" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" style="color: #FF7417; font-size: medium" aria-haspopup="true" aria-expanded="false">
         Create
     </a>
     <div class="dropdown-menu" style="background-color: #333;">
        @if (Request.Cookies["Role"].Value == "REGULAR")
        {
             <div style="padding: 10px;">
-                @Html.ActionLink("New shop", "New", "Shop", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+                @Html.ActionLink("New shop", "New", "Shop", routeValues: null, htmlAttributes: new { style = "color: #FF7417; font-size: medium;" })
             </div>
        }
         @if (Request.Cookies["Role"] != null && Request.Cookies["Role"].Value == "ADMIN")
         {
             <div style="padding: 10px;">
-                @Html.ActionLink("New mobile", "New", "Mobile", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+                @Html.ActionLink("New mobile", "New", "Mobile", routeValues: null, htmlAttributes: new { style = "color: #FF7417; font-size: medium;" })
             </div>
             <div style="padding: 10px;">
-                @Html.ActionLink("New admin", "All", "Account", routeValues: null, htmlAttributes: new { style = "color: #337ab7; font-size: medium;" })
+                @Html.ActionLink("New admin", "All", "Account", routeValues: null, htmlAttributes: new { style = "color: #FF7417; font-size: medium;" })
             </div>
         }
     </div>

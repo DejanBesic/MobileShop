@@ -11,3 +11,17 @@
         }
     });
 }
+
+function Remove(id) {
+    $.ajax({
+        url: "./Remove/" + id,
+        contentType: "application/json",
+        method: "DELETE",
+        success: () => {
+            $("#" + id).remove();
+        },
+        error: () => {
+            alert("Failed to remove admin. Try refreshing page.");
+        }
+    });
+}

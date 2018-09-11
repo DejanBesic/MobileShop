@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MobileShop.Models.DTO.MobileDTO>
+
+@Scripts.Render("~/Content/Mobile/Mobile.js")
+
+<div class="row" style="margin-left: 15px; margin-right: 15px;">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+        <h2>Add mobile to your shop</h2>
+        <table class="table">
+            <tr><th>Id</th><th>Name</th><th>Price</th><th>Amount</th><th></th></tr>
+            @foreach (var mobile in Model)
+            {
+                <tr id=@mobile.Id>
+                    <td>@mobile.Id</td>
+                    <td>@mobile.Name</td>
+                    <td><button class="btn-danger" onclick="Remove(@mobile.Id)">Remove</button></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

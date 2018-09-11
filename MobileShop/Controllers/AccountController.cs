@@ -40,5 +40,31 @@ namespace MobileShop.Controllers
 
             return RedirectToAction("All");
         }
+
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Manage()
+        {
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+
+            return View(customerService.FindAll().Where(x => x.ShopAdminId == admin.ShopAdminId && x.Id != admin.Id));
+        }
+
+        [HttpDelete]
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Remove(int id)
+        {
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+            CustomerM customer = customerService.FindById(id);
+            if (customer == null || admin.ShopAdminId != customer.ShopAdminId)
+            {
+                return RedirectToAction("Manage");
+            }
+            customer.IsAdmin = false;
+            customer.ShopAdminId = -1;
+            customerService.Edit(customer);
+
+            return RedirectToAction("Manage");
+        }
+
     }
 }
