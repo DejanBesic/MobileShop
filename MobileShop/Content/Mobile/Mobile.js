@@ -12,7 +12,7 @@
         method: "POST",
         data: JSON.stringify(obj),
         success: () => {
-            alert("Successfully added.");
+            $("#" + id).remove();
         },
         error: () => {
             alert("Failed to add mobile. Try refreshing page.");
@@ -20,16 +20,24 @@
     });
 }
 
-function Remove(id) {
+function Edit(id, name) {
+
+    var obj = new Object();
+    obj.Amount = $("#amount_" + id).val();
+    obj.Price = $("#price_" + id).val();
+    obj.Id = id;
+    obj.Name = name;
+
     $.ajax({
-        url: "./Remove/" + id,
+        url: "./Edit",
         contentType: "application/json",
-        method: "DELETE",
+        method: "PUT",
+        data: JSON.stringify(obj),
         success: () => {
-            $("#" + id).remove();
+            alert("Successfully edited.")
         },
         error: () => {
-            alert("Failed to remove mobile. Try refreshing page.");
+            alert("Failed to edit mobile. Try refreshing page.");
         }
     });
 }

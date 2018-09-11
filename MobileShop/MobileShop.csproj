@@ -381,6 +381,8 @@
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DTO\DropDowns.cs" />
+    <Compile Include="Models\DTO\HomeDTO.cs" />
+    <Compile Include="Models\DTO\HomeMobile.cs" />
     <Compile Include="Models\DTO\LoginDTO.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
@@ -495,6 +497,7 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Mobile\All.cshtml" />
     <Content Include="Views\Mobile\Manage.cshtml" />
+    <Content Include="Views\Home\_Card.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

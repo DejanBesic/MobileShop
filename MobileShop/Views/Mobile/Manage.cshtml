@@ -14,7 +14,9 @@
                 <tr id=@mobile.Id>
                     <td>@mobile.Id</td>
                     <td>@mobile.Name</td>
-                    <td><button class="btn-danger" onclick="Remove(@mobile.Id)">Remove</button></td>
+                    <td style="width: 100px;"><input type="number" value=@mobile.Price id="price_@mobile.Id" class="form-control"/></td>
+                    <td style="width: 100px;"><input type="number" value=@mobile.Amount id="amount_@mobile.Id" class="form-control" /></td>
+                    <td><button onclick="Edit(@mobile.Id, '@mobile.Name')" style="margin: auto; margin-top: 2%;" class="btn-success">Edit</button></td>
                 </tr>
             }
         </table>

@@ -74,10 +74,9 @@ namespace MobileShop.Controllers
         [JwtAuthorize(Role="ADMIN")]
         public ActionResult All()
         {
-            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
-            IEnumerable<ShopMobilesM> shopMobiles = shopMobilesService.FindAll().Where(x => x.ShopId == customer.ShopAdminId);
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
 
-            return View(mobileService.FindAll().Where(x => !shopMobiles.Contains(new ShopMobilesM() { ShopId = customer.ShopAdminId, MobileId = x.Id })));
+            return View(mobileService.FindAll().Where(x => shopMobilesService.FindByShopAndMobile(admin.ShopAdminId, x.Id) == null));
         }
 
         [HttpPost]
@@ -86,13 +85,7 @@ namespace MobileShop.Controllers
         {
             CustomerM customer = authService.DecodeJWT(User.Identity.Name);
             ShopMobilesM foundPair = shopMobilesService.FindByShopAndMobile(customer.ShopAdminId, mobileShop.MobileId);
-            if(foundPair != null)
-            {
-                foundPair.Price = mobileShop.Price;
-                foundPair.MobilesLeft += mobileShop.Amount;
-                shopMobilesService.Edit(foundPair);
-            }
-            else
+            if (foundPair == null)
             {
                 shopMobilesService.Save(new ShopMobilesM()
                 {
@@ -111,19 +104,29 @@ namespace MobileShop.Controllers
         public ActionResult Manage()
         {
             CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+            IEnumerable<ShopMobilesM> shopMobiles = shopMobilesService.FindAll().Where(x => x.ShopId == admin.ShopAdminId);
 
-            return View(mobileService.FindAll().Where(x=> shopMobilesService.FindByShopAndMobile(admin.ShopAdminId, x.Id) != null));
+            List<MobileDTO> mobileDTOs = new List<MobileDTO>();
+            foreach (var m in shopMobiles)
+            {
+                MobileM mobile = mobileService.FindById(m.MobileId);
+                mobileDTOs.Add(new MobileDTO() { Id = m.MobileId, Amount = m.MobilesLeft, Price = m.Price, Name = mobile.Name });
+            }
+
+            return View(mobileDTOs);
         }
 
-        [HttpDelete]
+        [HttpPut]
         [JwtAuthorize(Role = "ADMIN")]
-        public ActionResult Remove(int id)
+        public ActionResult Edit(MobileDTO mobileDTO)
         {
             CustomerM admin = authService.DecodeJWT(User.Identity.Name);
-            ShopMobilesM shopMobiles = shopMobilesService.FindByShopAndMobile(admin.ShopAdminId, id);
+            ShopMobilesM shopMobiles = shopMobilesService.FindByShopAndMobile(admin.ShopAdminId, mobileDTO.Id);
             if (shopMobiles != null)
             {
-                shopMobilesService.Delete(shopMobiles.Id);
+                shopMobiles.Price = mobileDTO.Price;
+                shopMobiles.MobilesLeft = mobileDTO.Amount;
+                shopMobilesService.Edit(shopMobiles);
             }
 
             return RedirectToAction("Manage");

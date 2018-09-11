@@ -70,13 +70,13 @@
     background-color: #FF7417;
     border-width: 2px;
     border-color: #FF7417;
-    color: #fff;
+    color: #333;
 }
 
     .cust-btn:hover {
         border-color: #FF7417;
         background-color: #fff;
-        color: #337ab7;
+        color: #333;
         border-radius: 20px;
     }
 

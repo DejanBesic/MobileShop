@@ -15,7 +15,8 @@
 
 @using (Html.BeginForm("Create", "Mobile", FormMethod.Post, new { @class = "login-form" }))
 {
-    <div class="row" style="margin-left: 15px; margin-right: 15px; margin-top: 30px; border: thin solid #FF7417; padding: 15px;">
+    <h2 style="margin-left: 15px; margin-top: 15px;">Add new mobile</h2>
+    <div class="row" style="margin-left: 15px; margin-right: 15px; border: thin solid #FF7417; padding: 15px;">
         <div class="col-sm-3" style="text-align: left;">
             @Html.Label("Name")
             @Html.TextBoxFor(x => Mobile.Name, null, new { @class = "form-control" })
