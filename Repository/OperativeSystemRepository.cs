@@ -63,6 +63,11 @@ namespace Repository
         {
             OperativeSystem os = Context.OperativeSystems.SingleOrDefault(x => x.Id == id);
 
+            if (os == null)
+            {
+                return null;
+            }
+
             return new OperativeSystemM() { Id = os.Id, OS = os.OS };
         }
 

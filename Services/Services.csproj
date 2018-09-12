@@ -59,6 +59,7 @@
     <Compile Include="CameraService.cs" />
     <Compile Include="CartService.cs" />
     <Compile Include="CustomerService.cs" />
+    <Compile Include="ImageService.cs" />
     <Compile Include="MemoryService.cs" />
     <Compile Include="MobileService.cs" />
     <Compile Include="OperativeSystemService.cs" />

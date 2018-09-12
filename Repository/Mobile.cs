@@ -17,6 +17,7 @@ namespace Repository
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Mobile()
         {
+            this.Images = new HashSet<Image>();
             this.Shop_Mobiles = new HashSet<Shop_Mobiles>();
         }
     
@@ -61,6 +62,8 @@ namespace Repository
         public virtual Battery Battery { get; set; }
         public virtual Camera Camera { get; set; }
         public virtual Camera Camera1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Image> Images { get; set; }
         public virtual Memory Memory { get; set; }
         public virtual Memory Memory1 { get; set; }
         public virtual OperativeSystem OperativeSystem { get; set; }

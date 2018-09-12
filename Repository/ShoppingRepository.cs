@@ -73,6 +73,11 @@ namespace Repository
         {
             Shopping shopping = Context.Shoppings.SingleOrDefault(x => x.Id == id);
 
+            if (shopping == null)
+            {
+                return null;
+            }
+
             return new ShoppingM()
             {
                 Id = shopping.Id,

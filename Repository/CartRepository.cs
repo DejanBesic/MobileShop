@@ -86,6 +86,11 @@ namespace Repository
         {
             Cart cart = Context.Carts.SingleOrDefault(x => x.Id == id);
 
+            if (cart == null)
+            {
+                return null;
+            }
+
             return new CartM()
             {
                 Id = cart.Id,

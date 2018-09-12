@@ -77,6 +77,11 @@ namespace Repository
         {
             Shop_Mobiles shopMobiles = Context.Shop_Mobiles.SingleOrDefault(x => x.Id == id);
 
+            if (shopMobiles == null)
+            {
+                return null;
+            }
+
             return new ShopMobilesM()
             {
                 Id = shopMobiles.Id,

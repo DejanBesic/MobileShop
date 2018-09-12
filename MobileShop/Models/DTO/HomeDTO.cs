@@ -9,7 +9,7 @@ namespace MobileShop.Models.DTO
     {
         public DropDowns Drops { get; set; }
 
-        public IEnumerable<HomeMobile> Mobile { get; set; }
+        public IEnumerable<HomeMobile> Mobiles { get; set; }
 
         public HomeDTO()
         {

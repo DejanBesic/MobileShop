@@ -71,6 +71,11 @@ namespace Repository
         {
             Memory memoryDb = Context.Memories.SingleOrDefault(x => x.Id == id);
 
+            if (memoryDb == null)
+            {
+                return null;
+            }
+
             return new MemoryM()
             {
                 Id = memoryDb.Id,

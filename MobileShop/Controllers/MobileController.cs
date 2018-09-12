@@ -5,6 +5,7 @@ using Models;
 using Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -22,6 +23,8 @@ namespace MobileShop.Controllers
         private readonly MobileService mobileService = new MobileService();
         private readonly ShopMobilesService shopMobilesService = new ShopMobilesService();
         private readonly AuthService authService = new AuthService();
+        private readonly ImageService imageService = new ImageService();
+
         // GET: Mobile
         public ActionResult Index()
         {
@@ -44,6 +47,11 @@ namespace MobileShop.Controllers
             MobileViewModel mobileViewModel = new MobileViewModel()
             {
                 DropDowns = dropDowns,
+                Mobile = new NewMobileDTO()
+                {
+                    Mobile = new MobileM(),
+                    Images = new List<HttpPostedFileBase>(),
+                }
             };
 
 
@@ -51,8 +59,10 @@ namespace MobileShop.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(MobileM mobile)
+        public ActionResult Create(NewMobileDTO mobileDTO)
         {
+
+            MobileM mobile = mobileDTO.Mobile;
             RamM ram = ramService.FindById(mobile.RamId);
             MemoryM internMemory = memoryService.FindById(mobile.InternMemoryId);
             MemoryM externMemory = memoryService.FindById(mobile.ExternMemoryId);
@@ -60,13 +70,25 @@ namespace MobileShop.Controllers
             CameraM frontCamera = cameraService.FindById(mobile.FrontCameraId);
             OperativeSystemM os = operativeSystemService.FindById(mobile.OsId);
             BatteryM battery = batteryService.FindById(mobile.BatteryId);
-
+            IEnumerable<HttpPostedFileBase> Images = mobileDTO.Images;
+            if (Images == null)
+            {
+                return RedirectToAction("/New");
+            }
 
             if (ModelState.IsValid && ram != null && internMemory != null && externMemory != null 
                 && backCamera != null && frontCamera != null && os != null && battery != null)
             {
-                mobileService.Save(mobile);
+                MobileM tempMobile = mobileService.Save(mobile);
+                MemoryStream target = new MemoryStream();
+
+                foreach (var image in Images)
+                {
+                    image.InputStream.CopyTo(target);
+                    imageService.Save(new ImagesM() { MobileId = tempMobile.Id, ImageBinary = target.ToArray() });
+                }
             }
+
 
             return RedirectToAction("/New");
         }

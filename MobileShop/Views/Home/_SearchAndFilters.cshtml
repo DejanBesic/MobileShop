@@ -24,8 +24,8 @@
         externMemory.Add(new SelectListItem { Text = memory.Size, Value = memory.Id.ToString() });
     }
 
-    var minValue = "1";
-    var maxValue = "100";
+    var minValue = Model.MinPrice;
+    var maxValue = Model.MaxPrice;
 
     #region
     var screenSize = new List<SelectListItem>();
@@ -66,27 +66,26 @@
 
 }
 
-
-<div style="margin-top: 10px;">
+<div style="margin-top: 10px; max-width: 220px;">
     @Html.TextBox("SearchBox", null, new { placeholder = "Search by name...", @class = "search-input" })
 </div>
-<div style="margin-top: 10px;">
+<div style="margin-top: 10px; max-width: 220px;">
     <span>Price range:</span> <br>
     @Html.TextBox("minOutput", 1, new { id = "minOutput", style = "width: 45%; ", placeholder = "Min", onInput = "onMinValueOutputChange()", min = minValue, max = maxValue, type = "number", @class = "search-input" }) -
     @Html.TextBox("maxOutput", 1, new { id = "maxOutput", style = "width: 45%;", placeholder = "Max", onInput = "onMaxValueOutputChange()", min = minValue, max = maxValue, type = "number", @class = "search-input" })
 </div>
-<div style="margin-top: 10px;">
+<div style="margin-top: 10px; max-width: 220px;">
     <span>Minimum price:</span>
     <input type="range" min=@minValue max=@maxValue value=@minValue class="slider" id="minRange" oninput="onMinValueSliderChange()">
 </div>
-<div style="margin-top: 10px;">
+<div style="margin-top: 10px; max-width: 220px;">
     <span>Maximum price:</span>
     <input type="range" min=@minValue max=@maxValue value=@maxValue class="slider" id="maxRange" oninput="onMaxValueSliderChange()">
 </div>
 
 
 @* EXTERN MEMORY *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#externMemory" aria-expanded="false" aria-controls="externMemory" style="width: 100%; background-color: #333; color:#FF7417;">Extern memory</button>
     <div class="collapse multi-collapse" id="externMemory">
         <div class="card card-body">
@@ -107,7 +106,7 @@
 </div>
 
 @* INTERN MEMORY *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#internMemory" aria-expanded="false" aria-controls="internMemory" style="width: 100%; background-color: #333; color:#FF7417;">Intern memory</button>
     <div class="collapse multi-collapse" id="internMemory">
         <div class="card card-body">
@@ -128,7 +127,7 @@
 </div>
 
 @* SHOPS *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#shops" aria-expanded="false" aria-controls="shops" style="width: 100%; background-color: #333; color:#FF7417;">Shops</button>
     <div class="collapse multi-collapse" id="shops">
         <div class="card card-body">
@@ -149,7 +148,7 @@
 </div>
 
 @* SCREEN SIZE *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#screenSize" aria-expanded="false" aria-controls="screenSize" style="width: 100%; background-color: #333; color:#FF7417;">Screen size</button>
     <div class="collapse multi-collapse" id="screenSize">
         <div class="card card-body">
@@ -170,7 +169,7 @@
 </div>
 
 @* SCREEN TOUCH *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#touch" aria-expanded="false" aria-controls="touch" style="width: 100%; background-color: #333; color:#FF7417;">Touch</button>
     <div class="collapse multi-collapse" id="touch">
         <div class="card card-body">
@@ -195,7 +194,7 @@
 </div>
 
 @* SYSTEM *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#os" aria-expanded="false" aria-controls="os" style="width: 100%; background-color: #333; color:#FF7417;">System</button>
     <div class="collapse multi-collapse" id="os">
         <div class="card card-body">
@@ -216,7 +215,7 @@
 </div>
 
 @* RAM *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#ram" aria-expanded="false" aria-controls="ram" style="width: 100%; background-color: #333; color:#FF7417;">RAM</button>
     <div class="collapse multi-collapse" id="ram">
         <div class="card card-body">
@@ -237,7 +236,7 @@
 </div>
 
 @* BATTERY *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#battery" aria-expanded="false" aria-controls="battery" style="width: 100%; background-color: #333; color:#FF7417;">Battery</button>
     <div class="collapse multi-collapse" id="battery">
         <div class="card card-body">
@@ -258,7 +257,7 @@
 </div>
 
 @* FRONT CAMERA *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#frontCamera" aria-expanded="false" aria-controls="frontCamera" style="width: 100%; background-color: #333; color:#FF7417;">Front camera</button>
     <div class="collapse multi-collapse" id="frontCamera">
         <div class="card card-body">
@@ -280,7 +279,7 @@
 
 
 @* BACK CAMERA *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#backCamera" aria-expanded="false" aria-controls="backCamera" style="width: 100%; background-color: #333; color:#FF7417;">Main camera</button>
     <div class="collapse multi-collapse" id="backCamera">
         <div class="card card-body">
@@ -301,7 +300,7 @@
 </div>
 
 @* SOUND *@
-<div class="row" style="margin: 15px 0px 15px 0px;">
+<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
     <button class="btn" type="button" data-toggle="collapse" data-target="#sound" aria-expanded="false" aria-controls="sound" style="width: 100%; background-color: #333; color:#FF7417;">Sound</button>
     <div class="collapse multi-collapse" id="sound">
         <div class="card card-body">
@@ -332,6 +331,6 @@
     </div>
 </div>
 
-<div style="text-align:center;">
+<div style="text-align:center; max-width: 220px;">
     <button class="btn cust-btn " type="button" id="btn-registration" style="font-size: 16px; letter-spacing: 1px; width: 100px;">Search</button>
 </div>

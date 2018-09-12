@@ -20,6 +20,11 @@ namespace Repository
         public BatteryM Delete(int id)
         {
             Battery batt = Context.Batteries.SingleOrDefault(x => x.Id == id);
+            if(batt == null)
+            {
+                return null;
+            }
+
             Context.Batteries.Remove(batt);
             Context.SaveChanges();
 
@@ -62,6 +67,12 @@ namespace Repository
         public BatteryM FindById(int id)
         {
             Battery battery = Context.Batteries.SingleOrDefault(x => x.Id == id);
+            if (battery == null)
+            {
+
+                return null;
+            }
+
 
             return new BatteryM() { Id = battery.Id, Capacity = battery.Capacity };
 

@@ -20,6 +20,12 @@ namespace Repository
         public ShopM Delete(int id)
         {
             Shop shop = Context.Shops.SingleOrDefault(x => x.Id == id);
+
+            if (shop == null)
+            {
+                return null;
+            }
+
             Context.Shops.Remove(shop);
             Context.SaveChanges();
 

@@ -10,10 +10,10 @@
     var Shops = Model.DropDowns.Shops;
     var OperativeSystems = Model.DropDowns.OperativeSystems;
     var Rams = Model.DropDowns.Rams;
-    var Mobile = Model.Mobile;
+    var Mobile = Model.Mobile.Mobile;
 }
 
-@using (Html.BeginForm("Create", "Mobile", FormMethod.Post, new { @class = "login-form" }))
+@using (Html.BeginForm("Create", "Mobile", FormMethod.Post, new { @class = "login-form", enctype = "multipart/form-data" }))
 {
     <h2 style="margin-left: 15px; margin-top: 15px;">Add new mobile</h2>
     <div class="row" style="margin-left: 15px; margin-right: 15px; border: thin solid #FF7417; padding: 15px;">
@@ -21,7 +21,10 @@
             @Html.Label("Name")
             @Html.TextBoxFor(x => Mobile.Name, null, new { @class = "form-control" })
         </div>
-        <div class="col-sm-3"></div>
+        <div class="col-sm-3">
+            @Html.Label("Choose images")
+            @Html.TextBox("Images", null, new { type="file", accept="image/png, image/jpeg", multiple="true" })
+        </div>
         <div class="col-sm-3" style="margin-top: 10px;">
             <div style="text-align: right;">
                 <input class="btn cust-btn " type="submit" id="btn-registration" style="font-size: 16px; display: inline; letter-spacing: 1px; width: 100px;" value="Create" />
@@ -35,38 +38,38 @@
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Additional info</span>
             <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("SIM")
-                @Html.TextBoxFor(x => x.Mobile.SIM, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.SIM, null, new { @class = "form-control" })
                        
                 <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("Dual SIM")
                     </div>
-                    @Html.CheckBoxFor(x => x.Mobile.DualSIM, new { @class = "mobile-checkbox" })
+                    @Html.CheckBoxFor(x => Mobile.DualSIM, new { @class = "mobile-checkbox" })
                 </div>
                 @Html.Label("Battery capacity")
-                @Html.DropDownListFor(x => x.Mobile.BatteryId, Batteries.Select(x => new SelectListItem() { Text = x.Capacity, Value = x.Id.ToString() }), new { @class = "form-control"})
+                @Html.DropDownListFor(x => Mobile.BatteryId, Batteries.Select(x => new SelectListItem() { Text = x.Capacity, Value = x.Id.ToString() }), new { @class = "form-control"})
 
                 @Html.Label("Weight")
-                @Html.TextBoxFor(x => x.Mobile.PhoneWeight, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.PhoneWeight, null, new { @class = "form-control" })
 
                 @Html.Label("Additionals")
-                @Html.TextBoxFor(x => x.Mobile.AdditionalDescription, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.AdditionalDescription, null, new { @class = "form-control" })
 
                 @Html.Label("Package content")
-                @Html.TextBoxFor(x => x.Mobile.PackageContent, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.PackageContent, null, new { @class = "form-control" })
 
                 @Html.Label("About")
-                @Html.TextBoxFor(x => x.Mobile.About, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.About, null, new { @class = "form-control" })
 
             </div>
             <div style="margin: 10px;"></div>
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Memory</span>
             <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Intern memory")
-                @Html.DropDownListFor(x => x.Mobile.InternMemoryId, Memories.Select(x => new SelectListItem() { Text = x.Size, Value = x.Id.ToString() }), new { @class = "form-control"})
+                @Html.DropDownListFor(x => Mobile.InternMemoryId, Memories.Select(x => new SelectListItem() { Text = x.Size, Value = x.Id.ToString() }), new { @class = "form-control"})
 
                 @Html.Label("Extern memory")
-                @Html.DropDownListFor(x => x.Mobile.ExternMemoryId, Memories.Select(x => new SelectListItem() { Text = x.Size, Value = x.Id.ToString() }), new { @class = "form-control" })
+                @Html.DropDownListFor(x => Mobile.ExternMemoryId, Memories.Select(x => new SelectListItem() { Text = x.Size, Value = x.Id.ToString() }), new { @class = "form-control" })
             </div>
 
         </div>
@@ -75,40 +78,40 @@
             <div style="border: thin solid #FF7417;  padding: 15px;">
 
                 @Html.Label("Data transfer")
-                @Html.TextBoxFor(x => x.Mobile.DataTransfer, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.DataTransfer, null, new { @class = "form-control" })
 
                 @Html.Label("2G network")
-                @Html.TextBoxFor(x => x.Mobile.Network2G, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Network2G, null, new { @class = "form-control" })
 
                 @Html.Label("3G network")
-                @Html.TextBoxFor(x => x.Mobile.Network3G, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Network3G, null, new { @class = "form-control" })
 
                 @Html.Label("4G network")
-                @Html.TextBoxFor(x => x.Mobile.Network4G, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Network4G, null, new { @class = "form-control" })
 
                 @Html.Label("USB")
-                @Html.TextBoxFor(x => x.Mobile.USB, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.USB, null, new { @class = "form-control" })
 
                 @Html.Label("WiFi")
-                @Html.TextBoxFor(x => x.Mobile.WiFi, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.WiFi, null, new { @class = "form-control" })
 
                 @Html.Label("Bluetooth")
-                @Html.TextBoxFor(x => x.Mobile.Bluetooth, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Bluetooth, null, new { @class = "form-control" })
 
                <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("NFC")
                     </div>
-                    @Html.CheckBoxFor(x => x.Mobile.NFC, new { @class = "mobile-checkbox" })
+                    @Html.CheckBoxFor(x => Mobile.NFC, new { @class = "mobile-checkbox" })
                 </div>
                 <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("GPS")
                     </div>
-                        @Html.CheckBoxFor(x => x.Mobile.GPS, new { @class = "mobile-checkbox" })
+                        @Html.CheckBoxFor(x => Mobile.GPS, new { @class = "mobile-checkbox" })
                 </div>
                 @Html.Label("Messages")
-                @Html.TextBoxFor(x => x.Mobile.PhoneMessages, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.PhoneMessages, null, new { @class = "form-control" })
             </div>
         </div>
 
@@ -119,39 +122,39 @@
                     <div>
                         @Html.Label("FM Radio")
                     </div>
-                    @Html.CheckBoxFor(x => x.Mobile.FMRadio, new { @class = "mobile-checkbox" })
+                    @Html.CheckBoxFor(x => Mobile.FMRadio, new { @class = "mobile-checkbox" })
                 </div>
                 <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("3.5mm port")
                     </div>
-                    @Html.CheckBoxFor(x => x.Mobile.Port35mm, new { @class = "mobile-checkbox" })
+                    @Html.CheckBoxFor(x => Mobile.Port35mm, new { @class = "mobile-checkbox" })
                 </div>
                 <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("HD voice")
                     </div>
 
-                    @Html.CheckBoxFor(x => x.Mobile.HDVoice, new { @class = "mobile-checkbox" })
+                    @Html.CheckBoxFor(x => Mobile.HDVoice, new { @class = "mobile-checkbox" })
                 </div>
             </div>
             <div style="margin: 10px;"></div>
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Camera</span>
             <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Main camera")
-                @Html.DropDownListFor(x => x.Mobile.BackCameraId, Cameras.Select(x => new SelectListItem() { Text = x.MP, Value = x.Id.ToString() }), new { @class = "form-control"})
+                @Html.DropDownListFor(x => Mobile.BackCameraId, Cameras.Select(x => new SelectListItem() { Text = x.MP, Value = x.Id.ToString() }), new { @class = "form-control"})
 
                 @Html.Label("Main camera characteristics")
-                @Html.TextBoxFor(x => x.Mobile.BackCameraChar, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.BackCameraChar, null, new { @class = "form-control" })
 
                 @Html.Label("Front camera")
-                @Html.DropDownListFor(x => x.Mobile.FrontCameraId, Cameras.Select(x => new SelectListItem() { Text = x.MP, Value = x.Id.ToString() }), new { @class = "form-control" })
+                @Html.DropDownListFor(x => Mobile.FrontCameraId, Cameras.Select(x => new SelectListItem() { Text = x.MP, Value = x.Id.ToString() }), new { @class = "form-control" })
 
                 @Html.Label("Front camera characteristics")
-                @Html.TextBoxFor(x => x.Mobile.FrontCameraChar, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.FrontCameraChar, null, new { @class = "form-control" })
 
                 @Html.Label("Video")
-                @Html.TextBoxFor(x => x.Mobile.Video, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Video, null, new { @class = "form-control" })
             </div>
         </div>
 
@@ -171,23 +174,23 @@
             <span style="font-size:medium; font-weight: bold; margin-top: 20px;">Screen</span>
             <div style="border: thin solid #FF7417;  padding: 15px;">
                 @Html.Label("Size")
-                @Html.TextBoxFor(x => x.Mobile.ScreenSize, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.ScreenSize, null, new { @class = "form-control" })
 
                 @Html.Label("Resolution")
-                @Html.TextBoxFor(x => x.Mobile.Resolution, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Resolution, null, new { @class = "form-control" })
 
                 @Html.Label("Type")
-                @Html.TextBoxFor(x => x.Mobile.ScreenType, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.ScreenType, null, new { @class = "form-control" })
 
                 <div style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
                     <div>
                         @Html.Label("Touch", new { @class = "margin: 10px;" })
                     </div>
-                    @Html.CheckBoxFor(x => x.Mobile.Touch, new { @class = "mobile-checkbox" })
+                    @Html.CheckBoxFor(x => Mobile.Touch, new { @class = "mobile-checkbox" })
                 </div>
 
                 @Html.Label("Dimensions")
-                @Html.TextBoxFor(x => x.Mobile.Dimensions, null, new { @class = "form-control" })
+                @Html.TextBoxFor(x => Mobile.Dimensions, null, new { @class = "form-control" })
             </div>
 
         </div>

@@ -389,7 +389,11 @@
     <Compile Include="Models\DTO\MobileDTO.cs" />
     <Compile Include="Models\DTO\MobileShopDTO.cs" />
     <Compile Include="Models\DTO\MobileViewModel.cs" />
+    <Compile Include="Models\DTO\NewMobileDTO.cs" />
     <Compile Include="Models\DTO\RegisterDTO.cs" />
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>DataAccess.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Memory.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -420,6 +424,7 @@
     <Content Include="Content\Bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
     <Content Include="Content\Bootstrap\bootstrap.min.css" />
+    <Content Include="Content\Home\Card.css" />
     <Content Include="Content\Home\Filter.css" />
     <Content Include="Content\Home\Filter.js" />
     <Content Include="Content\jquery-3.3.1.js" />

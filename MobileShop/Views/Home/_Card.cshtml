@@ -1,1 +1,18 @@
-﻿
+﻿@model MobileShop.Models.DTO.HomeMobile
+
+@{ 
+    var images = Model.Images.ToList();
+    var cover = "/Content/Login/Android1.png";
+    if (images.Count > 0)
+    {
+        cover = "data:image/png;base64," + images[0];
+    }
+}
+
+@Styles.Render("~/Content/Home/Card.css")
+
+<div class="card-container">
+    <div class="card-header">@Model.ShopName - @Model.Name</div>
+    <img src="@cover" width="250" height="350" class="card-content"/>
+    <div class="card-footer">Price: @Model.Price</div>
+</div>

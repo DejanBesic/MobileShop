@@ -44,6 +44,7 @@
     <Compile Include="ICameraRepository.cs" />
     <Compile Include="ICartRepository.cs" />
     <Compile Include="ICustomerRepository.cs" />
+    <Compile Include="IImageRepository.cs" />
     <Compile Include="IMemoryRepository.cs" />
     <Compile Include="IMobileRepository.cs" />
     <Compile Include="IOperativeSystemRepository.cs" />

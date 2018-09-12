@@ -172,6 +172,11 @@ namespace Repository
         {
             Mobile mobile = Context.Mobiles.SingleOrDefault(x => x.Id == id);
 
+            if (mobile == null)
+            {
+                return null;
+            }
+
             return new MobileM()
             {
                 Id = mobile.Id,

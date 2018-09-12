@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS Shopping;
 DROP TABLE IF EXISTS Cart;
+DROP TABLE IF EXISTS Images;
 DROP TABLE IF EXISTS Shop_Mobiles;
 DROP TABLE IF EXISTS Customer;
 DROP TABLE IF EXISTS Shop;
@@ -121,6 +122,12 @@ CREATE TABLE Mobile (
 	FOREIGN KEY (BatteryId) REFERENCES Battery(Id),
 );
 
+CREATE TABLE Images(
+	Id int PRIMARY KEY IDENTITY,
+	ImageBinary varbinary(MAX),
+	MobileId int,
+	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
+);
 
 CREATE TABLE Shop_Mobiles(
 	Id int PRIMARY KEY IDENTITY,

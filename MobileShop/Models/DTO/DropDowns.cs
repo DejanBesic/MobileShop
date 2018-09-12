@@ -20,6 +20,11 @@ namespace MobileShop.Models.DTO
 
         public IEnumerable<RamM> Rams { get; set; }
 
+        public double MaxPrice { get; set; }
+
+        public double MinPrice { get; set; }
+
+
         public DropDowns()
         {
 

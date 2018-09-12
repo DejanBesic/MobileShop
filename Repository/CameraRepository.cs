@@ -67,11 +67,12 @@ namespace Repository
         {
             Camera camera = Context.Cameras.SingleOrDefault(x => x.Id == id);
 
-            return new CameraM()
+            if (camera == null)
             {
-                Id = camera.Id,
-                MP = camera.MP
-            };
+                return null;
+            }
+
+            return new CameraM(){ Id = camera.Id, MP = camera.MP };
         }
 
         public CameraM Save(CameraM camera)

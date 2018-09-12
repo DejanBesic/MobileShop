@@ -1,0 +1,25 @@
+﻿.card-container {
+    max-width: 250px;
+    display: inline-block;
+    margin: 15px;
+    text-align: center;
+}
+
+.card-header {
+    width: 250px;
+    color: #FF7417;
+    font-size: medium;
+    background-color: #333;
+}
+
+.card-footer {
+    width: 250px;
+    border: 1px solid black;
+    color: #FF7417;
+    background-color: #333;
+    font-size: medium;
+}
+
+.card-content {
+    border: 1px solid black;
+}

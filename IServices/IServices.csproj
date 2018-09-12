@@ -45,6 +45,7 @@
     <Compile Include="ICameraService.cs" />
     <Compile Include="ICartService.cs" />
     <Compile Include="ICustomerService.cs" />
+    <Compile Include="IImageService.cs" />
     <Compile Include="IMemoryService.cs" />
     <Compile Include="IMobileService.cs" />
     <Compile Include="IOperativeSystemService.cs" />

@@ -62,6 +62,10 @@ namespace Repository
         public RamM FindById(int id)
         {
             RAM ram = Context.RAMs.SingleOrDefault(x => x.Id == id);
+            if (ram == null)
+            {
+                return null;
+            }
 
             return new RamM() { Id = ram.Id, Memory = ram.Memory};
         }
