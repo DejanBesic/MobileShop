@@ -10,6 +10,8 @@ namespace MobileShop.Models.DTO
     {
         public int Id { get; set; }
 
+        public int MobileId { get; set; }
+
         public string ShopName { get; set; }
 
         public string Name { get; set; }

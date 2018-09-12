@@ -11,8 +11,11 @@
 
 @Styles.Render("~/Content/Home/Card.css")
 
+
 <div class="card-container">
-    <div class="card-header">@Model.ShopName - @Model.Name</div>
-    <img src="@cover" width="250" height="350" class="card-content"/>
-    <div class="card-footer">Price: @Model.Price</div>
+    <div class="card-header">@Html.ActionLink(Model.ShopName + " - " + Model.Name, "One", "Mobile", new { Model.Id }, new { style = "color: #FF7417" })</div>
+    <a href="/Mobile/One/@Model.Id">
+        <img src="@cover" width="250" height="350" class="card-content" />
+        <div class="card-footer">Price: @Model.Price</div>
+    </a>
 </div>

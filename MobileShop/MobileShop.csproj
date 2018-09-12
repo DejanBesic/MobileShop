@@ -390,6 +390,7 @@
     <Compile Include="Models\DTO\MobileShopDTO.cs" />
     <Compile Include="Models\DTO\MobileViewModel.cs" />
     <Compile Include="Models\DTO\NewMobileDTO.cs" />
+    <Compile Include="Models\DTO\OneMobile.cs" />
     <Compile Include="Models\DTO\RegisterDTO.cs" />
     <Compile Include="Models\Image.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
@@ -432,6 +433,8 @@
     <Content Include="Content\Login\BackgroundImage.jpg" />
     <Content Include="Content\Login\Login.css" />
     <Content Include="Content\Login\nightsky.jpg" />
+    <Content Include="Content\Mobile\jssor.slider-27.5.0.min.js" />
+    <Content Include="Content\Mobile\Mobile.css" />
     <Content Include="Content\Mobile\Mobile.js" />
     <Content Include="Content\Mobile\NewMobile.css" />
     <Content Include="Content\Register\Register.css" />
@@ -462,6 +465,7 @@
     <Content Include="Models\DataAccess.edmx.diagram">
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Mobile\jssor.slider-27.5.0.min" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -503,6 +507,7 @@
     <Content Include="Views\Mobile\All.cshtml" />
     <Content Include="Views\Mobile\Manage.cshtml" />
     <Content Include="Views\Home\_Card.cshtml" />
+    <Content Include="Views\Mobile\One.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

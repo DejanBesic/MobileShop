@@ -43,6 +43,7 @@ namespace MobileShop.Controllers
                     ShopId = sm.ShopId,
                     ShopName = shopService.FindById(sm.ShopId).ShopName,
                     Images = images,
+                    MobileId = sm.MobileId,
                 });
             }
 

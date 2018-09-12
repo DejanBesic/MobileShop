@@ -28,8 +28,33 @@ namespace MobileShop.Controllers
         // GET: Mobile
         public ActionResult Index()
         {
+
             return View();
         }
+
+        public ActionResult One(int id)
+        {
+            ShopMobilesM shopMobiles = shopMobilesService.FindById(id);
+            if (shopMobiles == null)
+            {
+
+                return RedirectToAction("Index", "Home");
+            }
+            List<string> images = new List<string>();
+            foreach (ImagesM img in imageService.FindByMobile(shopMobiles.MobileId))
+            {
+                images.Add(Convert.ToBase64String(img.ImageBinary));
+            }
+
+            return View(new OneMobile()
+            {
+                Shop = shopService.FindById(shopMobiles.ShopId),
+                Images = images,
+                Mobile = mobileService.FindById(shopMobiles.MobileId),
+                Price = shopMobiles.Price,
+            });
+        }
+
 
         [JwtAuthorize(Role="ADMIN")]
         public ActionResult New()
@@ -80,10 +105,11 @@ namespace MobileShop.Controllers
                 && backCamera != null && frontCamera != null && os != null && battery != null)
             {
                 MobileM tempMobile = mobileService.Save(mobile);
-                MemoryStream target = new MemoryStream();
+
 
                 foreach (var image in Images)
                 {
+                    MemoryStream target = new MemoryStream();
                     image.InputStream.CopyTo(target);
                     imageService.Save(new ImagesM() { MobileId = tempMobile.Id, ImageBinary = target.ToArray() });
                 }
