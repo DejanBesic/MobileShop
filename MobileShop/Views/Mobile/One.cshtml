@@ -2,111 +2,124 @@
 @Scripts.Render("~/Content/Mobile/Mobile.js")
 @Styles.Render("~/Content/Mobile/Mobile.css")
 @Scripts.Render("~/Content/Mobile/jssor.slider-27.5.0.min.js")
+@Styles.Render("~/Content/Home/Filter.css")
+@Scripts.Render("~/Content/Home/Filter.js")
+
 @{ 
-    var images = Model.Images.ToList();
-    var Mobile = Model.Mobile;
+    var Images = Model.Images.ToList();
     var Shop = Model.Shop;
-    var counter1 = 0;
-    var counter2 = 0;
 }
-
-<div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:380px;overflow:hidden;visibility:hidden;">
-    <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
-        @foreach (var image in images)
-        {
-            <div>
-                <img data-u="image" src="data:image/png;base64, @image" />
-            </div>
-        }
-    </div>
-    <!-- Bullet Navigator -->
-    <div data-u="navigator" class="jssorb051" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
-        <div data-u="prototype" class="i" style="width:16px;height:16px;">
-            <svg style="position:absolute;top:0;left:0;width:100%;height:100%;">
-                <circle class="b" cx="8000" cy="8000" r="5800"></circle>
-            </svg>
-        </div>
-    </div>
-    <!-- Arrow Navigator -->
-    <div data-u="arrowleft" class="jssora051" style="width:55px;height:55px;top:0px;left:25px;" data-autocenter="2" data-scale="0.75" data-scale-left="0.75">
-        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;">
-            <polyline class="a" points="11040,1920 4960,8000 11040,14080 "></polyline>
-        </svg>
-    </div>
-    <div data-u="arrowright" class="jssora051" style="width:55px;height:55px;top:0px;right:25px;" data-autocenter="2" data-scale="0.75" data-scale-right="0.75">
-        <svg style="position:absolute;top:0;left:0;width:100%;height:100%;">
-            <polyline class="a" points="4960,1920 11040,8000 4960,14080 "></polyline>
-        </svg>
-    </div>
-</div>
-<script type="text/javascript">jssor_1_slider_init();</script>
-    
-@*<div class="container">
-    <div id="main_area">
-        <!-- Slider -->
+<div class="row" style="margin-right: 15px; margin-left: 15px; margin-top: 30px;">
+    <div class="col-sm-3">
         <div class="row">
-            <div class="col-sm-6" id="slider-thumbs">
-                <!-- Bottom switcher of slider -->
-            
-            </div>
-            <div class="col-sm-6">
-                <div class="col-xs-12" id="slider">
-                    <!-- Top part of the slider -->
-                    <div class="row">
-                        <div class="col-sm-12" id="carousel-bounding-box">
-                            <div class="carousel slide" id="myCarousel" style="height: 450px; width: 350px">
-                                <!-- Carousel items -->
-                                <div class="carousel-inner">
-                                    @foreach (var image in images)
-                                    {
-                                        if (counter2 == 0) { 
-                                        <div class="active item" data-slide-number="@counter2" >
-                                            <img src="data:image/png;base64, @image">
-                                        </div>
-                                        }
-                                        else
-                                        {
-                                            <div class="item" data-slide-number="@counter2">
-                                                <img class="slider-image" src="data:image/png;base64, @image">
-                                            </div>
-                                        }
-                                        counter2++;
-                                    }
-
-                                  
-                                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                </a>
-                            </div>
+            <div id="jssor_1" style="position: relative; margin: auto; width: 100px; height: 125px; overflow:hidden; visibility: hidden; border: solid #FF7417 1px;">
+                <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 100px; height: 125px; overflow: hidden;">
+                    @foreach (var image in Images)
+                    {
+                        <div>
+                            <img data-u="image" src="data:image/png;base64, @image" />
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
-                <ul class="hide-bullets">
+        </div>
+        <div class="row mobile-name">
+            @Model.Name
+        </div>
+        <div class="row mobile-price">
+            Price: @Model.Price
+        </div>
+        <div class="row mobile-about">
+            @Model.About
+        </div>
+        <script type="text/javascript">jssor_1_slider_init();</script>
+    </div>
+    <div class="col-sm-5" >
+        <span class="attribute-header">Platform</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Operative system</td><td>@Model.OperatingSystem</td></tr>
+            <tr><td class="attribute-name" width="40%">Proccessor</td><td>@Model.Proccessor</td></tr>
+            <tr><td class="attribute-name" width="40%">RAM</td><td>@Model.RAM</td></tr>
+        </table>
 
-                    @foreach (var image in images)
-                    {
-                        if (counter1 == 0)
-                        {
-                            <li class="col-sm-3" style="margin-top: 15px;">
-                                <a class="thumbnail" id="carousel-selector-@counter1">
-                                    <img src="data:image/png;base64, @image">
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="col-sm-3" style="margin-top: 15px;">
-                                <a class="thumbnail" id="carousel-selector-@counter1"><img src="data:image/png;base64, @image"></a>
-                            </li>
-                        }
-                        counter1++;
-                    }
-                </ul>
+        <span class="attribute-header">Screen</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Size</td><td>@Model.ScreenSize</td></tr>
+            <tr><td class="attribute-name" width="40%">Resolution</td><td>@Model.Resolution</td></tr>
+            <tr><td class="attribute-name" width="40%">Type</td><td>@Model.ScreenType</td></tr>
+            <tr><td class="attribute-name" width="40%">Touch</td>@if (Model.Touch == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+        </table>
 
+        <span class="attribute-header">Camera</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Main camera</td><td>@Model.BackCamera</td></tr>
+            <tr><td class="attribute-name" width="40%">Main camera characteristics</td><td>@Model.BackCameraChar</td></tr>
+            <tr><td class="attribute-name" width="40%">Front camera</td><td>@Model.FrontCamera</td></tr>
+            <tr><td class="attribute-name" width="40%">Front camera characteristics</td><td>@Model.FrontCameraChar</td></tr>
+            <tr><td class="attribute-name" width="40%">Video</td><td>@Model.Video</td></tr>
+        </table>
+
+        <span class="attribute-header">Memory</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Intern memory</td><td>@Model.InternMemory</td></tr>
+            <tr><td class="attribute-name" width="40%">Extern memory</td><td>@Model.ExternMemory</td></tr>
+        </table>
+
+        <span class="attribute-header">Sound</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">HD voice</td>@if (Model.HDVoice == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+            <tr><td class="attribute-name" width="40%">3.5 mm port</td>@if (Model.Port35mm == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+            <tr><td class="attribute-name" width="40%">FM radio</td>@if (Model.FMRadio == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+        </table>
+
+        <span class="attribute-header">Communications</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Data transfer</td><td>@Model.DataTransfer</td></tr>
+            <tr><td class="attribute-name" width="40%">2G network</td><td>@Model.Network2G</td></tr>
+            <tr><td class="attribute-name" width="40%">3G network</td><td>@Model.Network3G</td></tr>
+            <tr><td class="attribute-name" width="40%">4G network</td><td>@Model.Network4G</td></tr>
+            <tr><td class="attribute-name "width="40%">USB</td><td>@Model.USB</td></tr>
+            <tr><td class="attribute-name" width="40%">WiFi</td><td>@Model.WiFi</td></tr>
+            <tr><td class="attribute-name" width="40%">Bluetooth</td><td>@Model.Bluetooth</td></tr>
+            <tr><td class="attribute-name" width="40%">GPS</td>@if (Model.GPS == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+            <tr><td class="attribute-name" width="40%">NFC</td>@if (Model.NFC == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+            <tr><td class="attribute-name" width="40%">Messages</td><td>@Model.PhoneMessages</td></tr>
+        </table>
+
+        <span class="attribute-header">Battery</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Capacity</td><td>@Model.BatteryCapacity</td></tr>
+        </table>
+
+        <span class="attribute-header">Additional characteristics</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">SIM</td><td>@Model.SIM</td></tr>
+            <tr><td class="attribute-name" width="40%">Dual SIM</td>@if (Model.DualSIM == true) { <td>Yes</td> } else { <td> No </td>}</tr>
+            <tr><td class="attribute-name" width="40%">Dimensions</td><td>@Model.Dimensions</td></tr>
+            <tr><td class="attribute-name" width="40%">Weight</td><td>@Model.PhoneWeight</td></tr>
+        </table>
+
+        <span class="attribute-header">Additional functionalities</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Description</td><td>@Model.AdditionalDescription</td></tr>
+        </table>
+
+        <span class="attribute-header">Package content</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="40%">Description</td><td>@Model.PackageContent</td></tr>
+        </table>
+    </div>
+    <div class="col-sm-4">
+          <span class="attribute-header">Shop info</span>
+        <table class="table table-bordered">
+            <tr><td class="attribute-name" width="50%">Name</td><td>@Shop.ShopName</td></tr>
+            <tr><td class="attribute-name" width="50%">Phone number</td><td>@Shop.ContactPhone</td></tr>
+            <tr><td class="attribute-name" width="50%">Mobile number</td><td>@Shop.ContactMobilePhone</td></tr>
+            <tr><td class="attribute-name" width="50%">Address</td><td>@Shop.ContactAddress</td></tr>
+            <tr><td class="attribute-name" width="50%">Open time</td><td>@Shop.OpenTime</td></tr>
+        </table>
+        <div>
+            <button class="btn cust-btn " type="button" id="btn-registration" style="font-size: 16px; letter-spacing: 1px; width: 120px;" onclick="AddToCart(@Model.Id, @Shop.Id, @Model.Price)">Add to cart</button>
         </div>
     </div>
-</div>*@
+</div>

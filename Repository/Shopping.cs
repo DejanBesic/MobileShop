@@ -16,10 +16,13 @@ namespace Repository
     {
         public int Id { get; set; }
         public Nullable<int> CustomerId { get; set; }
-        public Nullable<int> CartId { get; set; }
-        public Nullable<int> ShoppingNumber { get; set; }
+        public Nullable<int> MobileId { get; set; }
+        public Nullable<double> Price { get; set; }
+        public Nullable<int> ShopId { get; set; }
+        public string ShoppingStatus { get; set; }
     
-        public virtual Cart Cart { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual Mobile Mobile { get; set; }
+        public virtual Shop Shop { get; set; }
     }
 }

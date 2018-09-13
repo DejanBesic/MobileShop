@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="IBatteryRepository.cs" />
     <Compile Include="ICameraRepository.cs" />
-    <Compile Include="ICartRepository.cs" />
     <Compile Include="ICustomerRepository.cs" />
     <Compile Include="IImageRepository.cs" />
     <Compile Include="IMemoryRepository.cs" />

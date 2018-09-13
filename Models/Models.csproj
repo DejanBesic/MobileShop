@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="BatteryM.cs" />
     <Compile Include="CameraM.cs" />
-    <Compile Include="CartM.cs" />
     <Compile Include="CustomerM.cs" />
     <Compile Include="ImagesM.cs" />
     <Compile Include="MemoryM.cs" />

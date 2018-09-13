@@ -43,7 +43,6 @@
     <Compile Include="IAuthService.cs" />
     <Compile Include="IBatteryService.cs" />
     <Compile Include="ICameraService.cs" />
-    <Compile Include="ICartService.cs" />
     <Compile Include="ICustomerService.cs" />
     <Compile Include="IImageService.cs" />
     <Compile Include="IMemoryService.cs" />

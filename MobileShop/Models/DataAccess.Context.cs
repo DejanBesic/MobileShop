@@ -27,7 +27,6 @@ namespace MobileShop.Models
     
         public virtual DbSet<Battery> Batteries { get; set; }
         public virtual DbSet<Camera> Cameras { get; set; }
-        public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Memory> Memories { get; set; }

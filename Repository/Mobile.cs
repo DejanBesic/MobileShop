@@ -19,6 +19,7 @@ namespace Repository
         {
             this.Images = new HashSet<Image>();
             this.Shop_Mobiles = new HashSet<Shop_Mobiles>();
+            this.Shoppings = new HashSet<Shopping>();
         }
     
         public int Id { get; set; }
@@ -70,5 +71,7 @@ namespace Repository
         public virtual RAM RAM { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shop_Mobiles> Shop_Mobiles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Shopping> Shoppings { get; set; }
     }
 }

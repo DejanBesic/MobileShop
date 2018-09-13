@@ -1,4 +1,24 @@
-﻿function Add(id) {
+﻿function AddToCart(mobileId, shopId, price) {
+    var obj = new Object();
+    obj.MobileId = mobileId;
+    obj.ShopId = shopId;
+    obj.Price = price;
+
+    $.ajax({
+        url: "/Shopping/Add",
+        contentType: "application/json",
+        method: "POST",
+        data: JSON.stringify(obj),
+        success: () => {
+            alert("Successfully added mobile to cart.")
+        },
+        error: () => {
+            alert("Failed to add mobile to cart. Try refreshing page.");
+        }
+    });
+}
+
+function Add(id) {
     var amount = $("#amount_" + id).val();
     var price = $("#price_" + id).val();
     var obj = new Object();
@@ -77,7 +97,7 @@ jssor_1_slider_init = function () {
 
     /*#region responsive code begin*/
 
-    var MAX_WIDTH = 980;
+    var MAX_WIDTH = 400;
 
     function ScaleSlider() {
         var containerElement = jssor_1_slider.$Elmt.parentNode;

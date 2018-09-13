@@ -57,10 +57,6 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="CameraRepository.cs" />
-    <Compile Include="Cart.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CartRepository.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>

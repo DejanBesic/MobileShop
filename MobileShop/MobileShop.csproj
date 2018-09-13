@@ -349,6 +349,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MobileController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Controllers\ShoppingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -357,9 +358,6 @@
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Camera.cs">
-      <DependentUpon>DataAccess.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Cart.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
@@ -458,6 +456,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Mobile\jssor.slider-27.5.0.min" />
     <EntityDeploy Include="Models\DataAccess.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DataAccess.Designer.cs</LastGenOutput>
@@ -465,7 +464,6 @@
     <Content Include="Models\DataAccess.edmx.diagram">
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\Mobile\jssor.slider-27.5.0.min" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -511,6 +509,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Shopping\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

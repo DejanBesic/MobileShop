@@ -45,13 +45,57 @@ namespace MobileShop.Controllers
             {
                 images.Add(Convert.ToBase64String(img.ImageBinary));
             }
+            MobileM mobile = mobileService.FindById(shopMobiles.MobileId);
+            CameraM backCamera = cameraService.FindById(mobile.BackCameraId);
+            CameraM frontCamera = cameraService.FindById(mobile.FrontCameraId);
+            RamM ram = ramService.FindById(mobile.RamId);
+            MemoryM internMemory = memoryService.FindById(mobile.InternMemoryId);
+            MemoryM externMemory = memoryService.FindById(mobile.ExternMemoryId);
+            OperativeSystemM operatingSystem = operativeSystemService.FindById(mobile.OsId);
+            BatteryM battery = batteryService.FindById(mobile.BatteryId);
 
             return View(new OneMobile()
             {
                 Shop = shopService.FindById(shopMobiles.ShopId),
                 Images = images,
-                Mobile = mobileService.FindById(shopMobiles.MobileId),
                 Price = shopMobiles.Price,
+                About = mobile.About,
+                AdditionalDescription = mobile.AdditionalDescription,
+                BackCamera = backCamera != null ? backCamera.MP : "",
+                FrontCamera = frontCamera != null ? frontCamera.MP : "",
+                BackCameraChar = mobile.BackCameraChar,
+                BatteryCapacity = battery != null ? battery.Capacity : "",
+                Bluetooth = mobile.Bluetooth,
+                DataTransfer = mobile.DataTransfer,
+                Dimensions = mobile.Dimensions,
+                DualSIM = mobile.DualSIM,
+                ExternMemory = externMemory != null ? externMemory.Size : "",
+                FMRadio = mobile.FMRadio,
+                FrontCameraChar = mobile.FrontCameraChar,
+                GPS = mobile.GPS,
+                HDVoice = mobile.HDVoice,
+                Id = mobile.Id,
+                InternMemory = internMemory != null ? internMemory.Size : "",
+                Name = mobile.Name,
+                Network2G = mobile.Network2G,
+                Network3G = mobile.Network3G,
+                Network4G = mobile.Network4G,
+                NFC = mobile.NFC,
+                OperatingSystem = operatingSystem != null ? operatingSystem.OS : "",
+                PackageContent = mobile.PackageContent,
+                PhoneMessages = mobile.PhoneMessages,
+                PhoneWeight = mobile.PhoneWeight,
+                Port35mm = mobile.Port35mm,
+                Proccessor = mobile.Proccessor,
+                RAM = ram != null ? ram.Memory : "",
+                Resolution = mobile.Resolution,
+                ScreenSize = mobile.ScreenSize,
+                ScreenType = mobile.ScreenType,
+                SIM = mobile.SIM,
+                Touch = mobile.Touch,
+                USB = mobile.USB,
+                Video = mobile.Video,
+                WiFi = mobile.WiFi,
             });
         }
 

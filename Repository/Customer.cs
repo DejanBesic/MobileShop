@@ -17,7 +17,6 @@ namespace Repository
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            this.Carts = new HashSet<Cart>();
             this.Shoppings = new HashSet<Shopping>();
         }
     
@@ -33,8 +32,6 @@ namespace Repository
         public Nullable<bool> IsRootAdmin { get; set; }
         public Nullable<int> ShopAdminId { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cart> Carts { get; set; }
         public virtual Shop Shop { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Shopping> Shoppings { get; set; }

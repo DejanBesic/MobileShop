@@ -140,19 +140,15 @@ CREATE TABLE Shop_Mobiles(
 	FOREIGN KEY (ShopId) REFERENCES Shop(Id),
 );
 
-CREATE TABLE Cart (
-	Id int PRIMARY KEY IDENTITY,
-	CustomerId int,
-	ShopMobileId int,
-	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
-	FOREIGN KEY (ShopMobileId) REFERENCES Shop_Mobiles(Id),
-);
-
 CREATE TABLE Shopping (
 	Id int PRIMARY KEY IDENTITY,
 	CustomerId int,
-	CartId int,
-	ShoppingNumber int,
-	FOREIGN KEY (CartId) REFERENCES Cart(Id),
+	MobileId int,
+	Price float,
+	ShopId int,
+	ShoppingStatus varchar(255),
+
 	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
+	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),
+	FOREIGN KEY (ShopId) REFERENCES Shop(Id),
 );

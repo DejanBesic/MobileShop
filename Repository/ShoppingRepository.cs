@@ -26,9 +26,11 @@ namespace Repository
             return new ShoppingM()
             {
                 Id = shopping.Id,
-                CartId = shopping.CartId ?? -1,
                 CustomerId = shopping.CustomerId ?? -1,
-                ShoppingNumber = shopping.ShoppingNumber ?? -1,
+                MobileId = shopping.MobileId ?? -1,
+                Price = shopping.Price ?? 0,
+                ShopId = shopping.ShopId ?? -1,
+                Status = shopping.ShoppingStatus,
             };
         }
 
@@ -44,9 +46,11 @@ namespace Repository
             {
                 return null;
             }
-            found.CartId = shopping.CartId;
             found.CustomerId = shopping.CustomerId;
-            found.ShoppingNumber = shopping.ShoppingNumber;
+            found.MobileId = shopping.MobileId;
+            found.Price = shopping.Price;
+            found.ShopId = shopping.ShopId;
+            found.ShoppingStatus = shopping.Status;
             Context.SaveChanges();
 
             return shopping;
@@ -60,9 +64,11 @@ namespace Repository
                 retVal.Add(new ShoppingM()
                 {
                     Id = shopping.Id,
-                    CartId = shopping.CartId ?? -1,
                     CustomerId = shopping.CustomerId ?? -1,
-                    ShoppingNumber = shopping.ShoppingNumber ?? -1,
+                    MobileId = shopping.MobileId ?? -1,
+                    Price = shopping.Price ?? 0,
+                    ShopId = shopping.ShopId ?? -1,
+                    Status = shopping.ShoppingStatus,
                 });
             }
 
@@ -81,9 +87,11 @@ namespace Repository
             return new ShoppingM()
             {
                 Id = shopping.Id,
-                CartId = shopping.CartId ?? -1,
                 CustomerId = shopping.CustomerId ?? -1,
-                ShoppingNumber = shopping.ShoppingNumber ?? -1,
+                MobileId = shopping.MobileId ?? -1,
+                Price = shopping.Price ?? 0,
+                ShopId = shopping.ShopId ?? -1,
+                Status = shopping.ShoppingStatus,
             };
         }
 
@@ -91,9 +99,12 @@ namespace Repository
         {
             Shopping shoppingDb = new Shopping()
             {
-                CartId = shopping.CartId,
+                Id = shopping.Id,
                 CustomerId = shopping.CustomerId,
-                ShoppingNumber = shopping.ShoppingNumber,
+                MobileId = shopping.MobileId,
+                Price = shopping.Price,
+                ShopId = shopping.ShopId,
+                ShoppingStatus = shopping.Status,
             };
             Context.Shoppings.Add(shoppingDb);
             Context.SaveChanges();
