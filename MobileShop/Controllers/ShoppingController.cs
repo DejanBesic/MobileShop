@@ -19,10 +19,95 @@ namespace MobileShop.Controllers
         private readonly ShoppingService shoppingService = new ShoppingService();
 
 
-        // GET: Shopping
+        [JwtAuthorize]
         public ActionResult Index()
         {
-            return View();
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            
+            return View(shoppingService.FindAll().Where(x => x.CustomerId == customer.Id && x.Status == "Active"));
+        }
+
+        [HttpPut]
+        [JwtAuthorize]
+        public ActionResult Buy()
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            foreach (var shopping in shoppingService.FindAll().Where(x => x.CustomerId == customer.Id && x.Status == "Active"))
+            {
+                shopping.Status = "Pending";
+                shoppingService.Edit(shopping);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpDelete]
+        [JwtAuthorize]
+        public ActionResult Remove(int id)
+        {
+            ShoppingM shopping = shoppingService.FindById(id);
+            if (shopping == null || shopping.Status != "Active" || shoppingService.Delete(id) == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }       
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        [HttpPut]
+        [JwtAuthorize(Role ="ADMIN")]
+        public ActionResult Accept(int id)
+        {
+            ShoppingM shopping = shoppingService.FindById(id);
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            ShopMobilesM shopMobiles = shopMobilesService.FindByShopAndMobile(shopping.ShopId, shopping.MobileId);
+
+            if (shopping == null || shopping.Status != "Pending" || shopMobiles != null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (shopping.ShopId != customer.ShopAdminId)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+            }
+            shopping.Status = "Accepted";
+            shoppingService.Edit(shopping);
+            shopMobiles.MobilesLeft--;
+            shopMobilesService.Edit(shopMobiles);
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        [HttpPut]
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Decline(int id)
+        {
+            ShoppingM shopping = shoppingService.FindById(id);
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+
+            if (shopping == null || shopping.Status != "Pending")
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            if (shopping.ShopId != customer.ShopAdminId)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Unauthorized);
+            }
+
+            shopping.Status = "Declined";
+            shoppingService.Edit(shopping);
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult Pendings()
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+
+            return View(shoppingService.FindAll().Where(x=> x.ShopId == customer.Id && x.Status == "Pending"));
         }
 
         [HttpPost]
@@ -43,7 +128,7 @@ namespace MobileShop.Controllers
             shopping.Status = "Active";
             shoppingService.Save(shopping);
 
-            return new HttpStatusCodeResult(200);
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
     }
 }
