@@ -31,6 +31,7 @@ namespace Repository
                 Price = shopping.Price ?? 0,
                 ShopId = shopping.ShopId ?? -1,
                 Status = shopping.ShoppingStatus,
+                Date = shopping.PurchasingDate ?? DateTime.Now,
             };
         }
 
@@ -51,6 +52,7 @@ namespace Repository
             found.Price = shopping.Price;
             found.ShopId = shopping.ShopId;
             found.ShoppingStatus = shopping.Status;
+            found.PurchasingDate = shopping.Date;
             Context.SaveChanges();
 
             return shopping;
@@ -69,6 +71,7 @@ namespace Repository
                     Price = shopping.Price ?? 0,
                     ShopId = shopping.ShopId ?? -1,
                     Status = shopping.ShoppingStatus,
+                    Date = shopping.PurchasingDate ?? DateTime.Now,
                 });
             }
 
@@ -92,6 +95,7 @@ namespace Repository
                 Price = shopping.Price ?? 0,
                 ShopId = shopping.ShopId ?? -1,
                 Status = shopping.ShoppingStatus,
+                Date = shopping.PurchasingDate ?? DateTime.Now,
             };
         }
 
@@ -99,12 +103,12 @@ namespace Repository
         {
             Shopping shoppingDb = new Shopping()
             {
-                Id = shopping.Id,
                 CustomerId = shopping.CustomerId,
                 MobileId = shopping.MobileId,
                 Price = shopping.Price,
                 ShopId = shopping.ShopId,
                 ShoppingStatus = shopping.Status,
+                PurchasingDate = DateTime.Now,
             };
             Context.Shoppings.Add(shoppingDb);
             Context.SaveChanges();

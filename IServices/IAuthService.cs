@@ -12,5 +12,6 @@ namespace IServices
         bool Authenticate(string email, string password);
         string GenerateJWT(CustomerM customer);
         CustomerM DecodeJWT(string jwt);
+        string HashPassword(string password);
     }
 }

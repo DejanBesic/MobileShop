@@ -79,7 +79,6 @@ namespace Repository
         {
             Camera cameraDb = new Camera()
             {
-                Id = camera.Id,
                 MP = camera.MP,
             };
             Context.Cameras.Add(cameraDb);

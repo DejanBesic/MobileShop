@@ -1,0 +1,26 @@
+﻿@model List<MobileShop.Models.DTO.ShoppingDTO>
+
+<div class="row" style="margin-left: 15px; margin-right: 15px;">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <table class="table" id="cart">
+            <tr>
+                <th>Id</th>
+                <th>Mobile name</th>
+                <th>Shop name</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+            @foreach (var shopping in Model)
+            {
+                <tr id="@shopping.Id">
+                    <td>@shopping.Id</td>
+                    <td>@Html.ActionLink(shopping.MobileName, "One/" + shopping.MobileId, "Mobile", routeValues: null, htmlAttributes: new { style = "color: #FF7417; font-size: medium;" })</td>
+                    <td>@shopping.ShopName</td>
+                    <td>@shopping.Price</td>
+                    <td>@shopping.Status</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

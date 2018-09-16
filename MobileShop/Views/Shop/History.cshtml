@@ -1,5 +1,4 @@
 ﻿@model List<MobileShop.Models.DTO.ShoppingDTO>
-@Scripts.Render("~/Content/Shopping/Pendings.js")
 
 <div class="row" style="margin-left: 15px; margin-right: 15px;">
     <div class="col-sm-2"></div>
@@ -8,26 +7,20 @@
             <tr>
                 <th>Id</th>
                 <th>Mobile name</th>
-                <th>Mobile id</th>    
-                <th>Shop name</th>
-                <th>Shop id</th>
                 <th>Customer name</th>
                 <th>Customer id</th>
-                <th>Price</th><th></th><th></th>
+                <th>Price</th>
+                <th>Status</th>
             </tr>
             @foreach (var shopping in Model)
             {
                 <tr id="@shopping.Id">
                     <td>@shopping.Id</td>
-                    <td>@shopping.MobileName</td>
-                    <td>@shopping.MobileId</td>
-                    <td>@shopping.ShopName</td>
-                    <td>@shopping.ShopId</td>
+                    <td>@Html.ActionLink(shopping.MobileName, "One/" + shopping.MobileId, "Mobile", routeValues: null, htmlAttributes: new { style = "color: #FF7417; font-size: medium;" })</td>
                     <td>@shopping.Customer</td>
                     <td>@shopping.CustomerId</td>
                     <td>@shopping.Price</td>
-                    <td><button class="btn-success" onclick="Accept(@shopping.Id)">Accept</button></td>
-                    <td><button class="btn-danger" onclick="Decline(@shopping.Id)">Decline</button></td>
+                    <td>@shopping.Status</td>
                 </tr>
             }
         </table>

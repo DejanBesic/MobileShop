@@ -390,6 +390,7 @@
     <Compile Include="Models\DTO\NewMobileDTO.cs" />
     <Compile Include="Models\DTO\OneMobile.cs" />
     <Compile Include="Models\DTO\RegisterDTO.cs" />
+    <Compile Include="Models\DTO\ShoppingDTO.cs" />
     <Compile Include="Models\Image.cs">
       <DependentUpon>DataAccess.tt</DependentUpon>
     </Compile>
@@ -437,6 +438,8 @@
     <Content Include="Content\Mobile\NewMobile.css" />
     <Content Include="Content\Register\Register.css" />
     <Content Include="Content\Shared.css" />
+    <Content Include="Content\Shopping\Cart.js" />
+    <Content Include="Content\Shopping\Pendings.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -510,6 +513,8 @@
     <Content Include="Views\Shopping\Pendings.cshtml" />
     <Content Include="Views\Account\MyAccount.cshtml" />
     <Content Include="Views\Account\History.cshtml" />
+    <Content Include="Views\Shopping\History.cshtml" />
+    <Content Include="Views\Shop\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

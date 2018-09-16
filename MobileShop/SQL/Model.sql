@@ -147,6 +147,7 @@ CREATE TABLE Shopping (
 	Price float,
 	ShopId int,
 	ShoppingStatus varchar(255),
+	PurchasingDate Datetime,
 
 	FOREIGN KEY (CustomerId) REFERENCES Customer(Id),
 	FOREIGN KEY (MobileId) REFERENCES Mobile(Id),

@@ -20,6 +20,7 @@ namespace Repository
         public Nullable<double> Price { get; set; }
         public Nullable<int> ShopId { get; set; }
         public string ShoppingStatus { get; set; }
+        public Nullable<System.DateTime> PurchasingDate { get; set; }
     
         public virtual Customer Customer { get; set; }
         public virtual Mobile Mobile { get; set; }

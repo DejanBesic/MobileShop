@@ -23,11 +23,47 @@ namespace MobileShop.Controllers
         private readonly ImageService imageService = new ImageService();
 
         public ActionResult Index()
-        {
-            IEnumerable<ShopMobilesM> shopMobiles = shopMobilesService.FindAll();
+        { 
+            string search = CheckParameter("Search");
+            string max = CheckParameter("Max");
+            string min = CheckParameter("Min");
+            var externs = CheckAndConvertParameter("Externs");
+            var interns = CheckAndConvertParameter("Interns");
+            var shops = CheckAndConvertParameter("Shops");
+            var touches = CheckAndConvertParameter("Touches");
+            var os = CheckAndConvertParameter("OS");
+            var ram = CheckAndConvertParameter("Ram");
+            var battery = CheckAndConvertParameter("Battery");
+            var fronts = CheckAndConvertParameter("Fronts");
+            var backs = CheckAndConvertParameter("Backs");
+            var FMRadio = CheckParameter("FMRadio");
+            var HDVoice = CheckParameter("HDVoice");
+            var Port35mm = CheckParameter("Port35mm");
+            double.TryParse(max, out double maxDouble);
+            double.TryParse(min, out double minDouble);
+
+
+            IEnumerable<ShopMobilesM> shopMobiles = shopMobilesService.FindAll().Where(x =>
+                x.MobilesLeft > 0 &
+                search != null ? mobileService.FindById(x.MobileId).Name.ToLower().Contains(search.ToLower()) : true &&
+                maxDouble != 0 ? x.Price <= maxDouble : true &&
+                minDouble != 0 ? x.Price >= minDouble : true &&
+                externs != null ? externs.Contains(mobileService.FindById(x.MobileId).ExternMemoryId.ToString()) : true &&
+                interns != null ? interns.Contains(mobileService.FindById(x.MobileId).InternMemoryId.ToString()) : true &&
+                shops != null ? shops.Contains(x.ShopId.ToString()) : true &&
+                touches != null ? touches.Contains("Yes") && mobileService.FindById(x.MobileId).Touch || touches.Contains("No") && !mobileService.FindById(x.MobileId).Touch : true &&
+                os != null ? os.Contains(mobileService.FindById(x.MobileId).OsId.ToString()) : true &&
+                ram != null ? ram.Contains(mobileService.FindById(x.MobileId).RamId.ToString()) : true &&
+                battery != null ? battery.Contains(mobileService.FindById(x.MobileId).BatteryId.ToString()) : true &&
+                fronts != null ? fronts.Contains(mobileService.FindById(x.MobileId).FrontCameraId.ToString()) : true &&
+                backs != null ? backs.Contains(mobileService.FindById(x.MobileId).BackCameraId.ToString()) : true &&
+                FMRadio != null ? FMRadio.Contains("True") && mobileService.FindById(x.MobileId).FMRadio : true &&
+                HDVoice != null ? HDVoice.Contains("True") && mobileService.FindById(x.MobileId).HDVoice : true &&
+                Port35mm != null ? Port35mm.Contains("True") && mobileService.FindById(x.MobileId).Port35mm : true
+            ).OrderBy(x => x.Price);
             List<HomeMobile> homeMobiles = new List<HomeMobile>();
 
-            foreach (ShopMobilesM sm in shopMobiles.Where(x => x.MobilesLeft > 0).OrderBy(x=> x.Price))
+            foreach (ShopMobilesM sm in shopMobiles)
             {
                 List<string> images = new List<string>();
                 foreach(ImagesM img in imageService.FindByMobile(sm.MobileId))
@@ -71,6 +107,16 @@ namespace MobileShop.Controllers
         {
 
             return View("Index");
+        }
+
+        private List<string> CheckAndConvertParameter(string parameter)
+        {
+            return string.IsNullOrWhiteSpace(Request.QueryString[parameter]) ? null : Request.QueryString[parameter].Split(',').ToList();
+        }
+
+        private string CheckParameter(string parameter)
+        {
+            return string.IsNullOrWhiteSpace(Request.QueryString[parameter]) ? null : Request.QueryString[parameter];
         }
     }
 }

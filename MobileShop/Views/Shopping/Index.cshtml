@@ -1,2 +1,42 @@
-﻿@model IEnumerable<Models.ShoppingM>
+﻿@model IEnumerable<MobileShop.Models.DTO.ShoppingDTO>
+@Scripts.Render("~/Content/Shopping/Cart.js")
 
+@{double sum = 0; }
+
+
+<div class="row" style="margin-left: 15px; margin-right: 15px;">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        @if (Model.Count() > 0)
+        {
+        <table class="table" id="cart">
+            <tr><th>Id</th><th>Mobile name</th><th>Shop name</th><th>Price</th><th></th></tr>
+            @foreach (var shopping in Model)
+            {
+              <tr id="@shopping.Id">
+                <td>@shopping.Id</td>
+                <td>@Html.ActionLink(shopping.MobileName, "One/" + shopping.MobileId, "Mobile", routeValues: null, htmlAttributes: new { style = "color: #FF7417; font-size: medium;" })</td>
+                <td>@shopping.ShopName</td>
+                <td>@shopping.Price</td>
+                <td><button class="btn-danger" onclick="Remove(@shopping.Id)">Remove</button></td>
+              </tr>
+                sum += shopping.Price;
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style=" font-weight: bold;">@sum</td>
+                <td></td>
+            </tr>
+        </table>
+        <div style="text-align: right;">
+            <button class="btn btn-success" onclick="Buy()">Buy</button>
+        </div>
+        }
+        else
+        {
+            <h1>Your cart is empty.</h1>
+        }
+    </div>
+</div>

@@ -22,6 +22,7 @@ namespace MobileShop.Controllers
         public ActionResult Login(LoginDTO login)
         {
             CustomerM customer = customerService.FindByEmail(login.Email);
+
             if (customer == null || !authService.Authenticate(login.Email, login.Password))
             {
                 return Json("Wrong email address or password.", JsonRequestBehavior.AllowGet);
@@ -81,7 +82,7 @@ namespace MobileShop.Controllers
                 LastName = register.LastName,
                 Address = register.Address,
                 Email = register.Email,
-                Password = register.Password,
+                Password = authService.HashPassword(register.Password),
                 Blocked = false,
                 Activated = false,
                 IsAdmin = false,

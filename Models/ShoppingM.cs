@@ -20,6 +20,8 @@ namespace Models
 
         public double Price { get; set; }
 
+        public DateTime Date { get; set; }
+
         public ShoppingM()
         {
 

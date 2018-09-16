@@ -223,7 +223,6 @@ namespace Repository
         {
             Mobile mobileDb = new Mobile()
             {
-                Id = mobile.Id,
                 MobileName = mobile.Name,
                 About = mobile.About,
                 BatteryId = mobile.BatteryId,

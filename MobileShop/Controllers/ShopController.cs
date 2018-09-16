@@ -1,4 +1,5 @@
 ﻿using MobileShop.JWT;
+using MobileShop.Models.DTO;
 using Models;
 using Services;
 using System;
@@ -14,6 +15,8 @@ namespace MobileShop.Controllers
         ShopService shopService = new ShopService();
         AuthService authService = new AuthService();
         CustomerService customerService = new CustomerService();
+        ShoppingService shoppingService = new ShoppingService();
+        MobileService mobileService = new MobileService();
 
         // GET: Shop
         public ActionResult Index()
@@ -46,7 +49,7 @@ namespace MobileShop.Controllers
                 HttpContext.Response.SetCookie(new HttpCookie("Role", "ADMIN"));
             }
 
-            return RedirectToAction("New");
+            return RedirectToAction("Index", "Home");
         }
 
         [JwtAuthorize(Role = "ADMIN")]
@@ -61,8 +64,6 @@ namespace MobileShop.Controllers
                 shop = shopService.FindById(customer.ShopAdminId);
             }
 
-            
-
             return View(shop);
         }
 
@@ -76,6 +77,29 @@ namespace MobileShop.Controllers
             }
 
             return RedirectToAction("Info");
+        }
+
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult History()
+        {
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+            ShopM shop = shopService.FindById(admin.ShopAdminId);
+            List<ShoppingDTO> shoppings = new List<ShoppingDTO>();
+            foreach (var shopping in shoppingService.FindAll().Where(x => x.ShopId == shop.Id)) {
+                shoppings.Add(new ShoppingDTO()
+                {
+                    Id = shopping.Id,
+                    Customer = admin.Email,
+                    CustomerId = admin.Id,
+                    MobileId = shopping.MobileId,
+                    MobileName = mobileService.FindById(shopping.MobileId).Name,
+                    Price =shopping.Price,
+                    Status = shopping.Status,
+                });
+            }
+
+
+            return View(shoppings);
         }
     }
 }

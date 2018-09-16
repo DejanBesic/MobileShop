@@ -1,4 +1,5 @@
 ﻿using MobileShop.JWT;
+using MobileShop.Models.DTO;
 using Models;
 using Services;
 using System;
@@ -17,14 +18,29 @@ namespace MobileShop.Controllers
         private readonly ShopService shopService = new ShopService();
         private readonly ShopMobilesService shopMobilesService = new ShopMobilesService();
         private readonly ShoppingService shoppingService = new ShoppingService();
-
+        private readonly CustomerService customerService = new CustomerService();
 
         [JwtAuthorize]
         public ActionResult Index()
         {
             CustomerM customer = authService.DecodeJWT(User.Identity.Name);
-            
-            return View(shoppingService.FindAll().Where(x => x.CustomerId == customer.Id && x.Status == "Active"));
+            List<ShoppingDTO> shoppings = new List<ShoppingDTO>();
+
+            foreach (var shopping in shoppingService.FindAll().Where(x => x.CustomerId == customer.Id && x.Status == "Active"))
+            {
+                shoppings.Add(new ShoppingDTO()
+                {
+                    MobileName = mobileService.FindById(shopping.MobileId).Name,
+                    ShopName = shopService.FindById(shopping.ShopId).ShopName,
+                    Id = shopping.Id,
+                    Price = shopping.Price,
+                    ShopId = shopping.ShopId,
+                    MobileId = shopping.MobileId,
+                    CustomerId = shopping.CustomerId,
+                });
+            }
+
+            return View(shoppings);
         }
 
         [HttpPut]
@@ -35,6 +51,7 @@ namespace MobileShop.Controllers
             foreach (var shopping in shoppingService.FindAll().Where(x => x.CustomerId == customer.Id && x.Status == "Active"))
             {
                 shopping.Status = "Pending";
+                shopping.Date = DateTime.Now;
                 shoppingService.Edit(shopping);
             }
 
@@ -62,7 +79,7 @@ namespace MobileShop.Controllers
             CustomerM customer = authService.DecodeJWT(User.Identity.Name);
             ShopMobilesM shopMobiles = shopMobilesService.FindByShopAndMobile(shopping.ShopId, shopping.MobileId);
 
-            if (shopping == null || shopping.Status != "Pending" || shopMobiles != null)
+            if (shopping == null || shopping.Status != "Pending" || shopMobiles == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -105,9 +122,24 @@ namespace MobileShop.Controllers
         [JwtAuthorize(Role = "ADMIN")]
         public ActionResult Pendings()
         {
-            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            CustomerM admin = authService.DecodeJWT(User.Identity.Name);
+            List<ShoppingDTO> shoppings = new List<ShoppingDTO>();
+            foreach(var shopping in shoppingService.FindAll().Where(x => x.ShopId == admin.ShopAdminId && x.Status == "Pending"))
+            {
+                shoppings.Add(new ShoppingDTO()
+                {
+                    MobileName = mobileService.FindById(shopping.MobileId).Name,
+                    ShopName = shopService.FindById(shopping.ShopId).ShopName,
+                    Id = shopping.Id,
+                    Price = shopping.Price,
+                    ShopId = shopping.ShopId,
+                    MobileId = shopping.MobileId,
+                    CustomerId = shopping.CustomerId,
+                    Customer = customerService.FindById(shopping.CustomerId).Email,
+                });
+            }
 
-            return View(shoppingService.FindAll().Where(x=> x.ShopId == customer.Id && x.Status == "Pending"));
+            return View(shoppings);
         }
 
         [HttpPost]
@@ -129,6 +161,28 @@ namespace MobileShop.Controllers
             shoppingService.Save(shopping);
 
             return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
+        [JwtAuthorize(Role = "ADMIN")]
+        public ActionResult History()
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            List<ShoppingDTO> shoppings = new List<ShoppingDTO>();
+            foreach (var shopping in shoppingService.FindAll().Where(x => x.CustomerId == customer.Id)) {
+                shoppings.Add(new ShoppingDTO()
+                {
+                    Id = shopping.Id,
+                    ShopId = shopping.Id,
+                    MobileId = shopping.MobileId,
+                    MobileName = mobileService.FindById(shopping.MobileId).Name,
+                    Price = shopping.Price,
+                    ShopName = shopService.FindById(shopping.ShopId).ShopName,
+                    Status = shopping.Status,
+                });
+            }
+
+
+            return View(shoppings);
         }
     }
 }

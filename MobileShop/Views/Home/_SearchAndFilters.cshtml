@@ -26,48 +26,10 @@
 
     var minValue = Model.MinPrice;
     var maxValue = Model.MaxPrice;
-
-    #region
-    var screenSize = new List<SelectListItem>();
-    screenSize.Add(new SelectListItem { Text = "2.5\"", Value = "1" });
-    screenSize.Add(new SelectListItem { Text = "3.1\"", Value = "2" });
-    screenSize.Add(new SelectListItem { Text = "3.2\"", Value = "3" });
-    screenSize.Add(new SelectListItem { Text = "3.5\"", Value = "4" });
-    screenSize.Add(new SelectListItem { Text = "3.7\"", Value = "5" });
-    screenSize.Add(new SelectListItem { Text = "3.8\"", Value = "6" });
-    screenSize.Add(new SelectListItem { Text = "4.0\"", Value = "7" });
-
-    screenSize.Add(new SelectListItem { Text = "4.2\"", Value = "8" });
-    screenSize.Add(new SelectListItem { Text = "4.3\"", Value = "9" });
-    screenSize.Add(new SelectListItem { Text = "4.5\"", Value = "10" });
-    screenSize.Add(new SelectListItem { Text = "4.6\"", Value = "12" });
-    screenSize.Add(new SelectListItem { Text = "4.7\"", Value = "12" });
-    screenSize.Add(new SelectListItem { Text = "4.8\"", Value = "13" });
-    screenSize.Add(new SelectListItem { Text = "5.0\"", Value = "7" });
-
-    screenSize.Add(new SelectListItem { Text = "5.1\"", Value = "1" });
-    screenSize.Add(new SelectListItem { Text = "5.2\"", Value = "2" });
-    screenSize.Add(new SelectListItem { Text = "5.3\"", Value = "3" });
-    screenSize.Add(new SelectListItem { Text = "5.4\"", Value = "4" });
-    screenSize.Add(new SelectListItem { Text = "5.5\"", Value = "5" });
-    screenSize.Add(new SelectListItem { Text = "5.7\"", Value = "6" });
-    screenSize.Add(new SelectListItem { Text = "5.8\"", Value = "7" });
-    screenSize.Add(new SelectListItem { Text = "6.0\"", Value = "7" });
-
-    screenSize.Add(new SelectListItem { Text = "6.2\"", Value = "1" });
-    screenSize.Add(new SelectListItem { Text = "5.9\"", Value = "2" });
-    screenSize.Add(new SelectListItem { Text = "7.0\"", Value = "3" });
-    screenSize.Add(new SelectListItem { Text = "7.7\"", Value = "4" });
-    screenSize.Add(new SelectListItem { Text = "7.9\"", Value = "5" });
-    screenSize.Add(new SelectListItem { Text = "8.0\"", Value = "6" });
-    screenSize.Add(new SelectListItem { Text = "8.9\"", Value = "7" });
-    screenSize.Add(new SelectListItem { Text = "9.0\"", Value = "7" });
-    #endregion
-
 }
 
 <div style="margin-top: 10px; max-width: 220px;">
-    @Html.TextBox("SearchBox", null, new { placeholder = "Search by name...", @class = "search-input" })
+    @Html.TextBox("SearchBox", null, new { placeholder = "Search by name...", @class = "search-input", id="search" })
 </div>
 <div style="margin-top: 10px; max-width: 220px;">
     <span>Price range:</span> <br>
@@ -95,7 +57,7 @@
                     <li>
                         <label class="check">
                             @memory.Text
-                            @Html.CheckBox(memory.Value, false)
+                            @Html.CheckBox(memory.Value, false, new { id=memory.Value, @class="extern" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -116,7 +78,7 @@
                     <li>
                         <label class="check">
                             @memory.Text
-                            @Html.CheckBox(memory.Value, false)
+                            @Html.CheckBox(memory.Value, false, new { id =memory.Value, @class = "intern" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -137,28 +99,7 @@
                     <li>
                         <label class="check">
                             @shop.ShopName
-                            @Html.CheckBox(shop.Id.ToString(), false)
-                            <span class="checkmark"></span>
-                        </label>
-                    </li>
-                }
-            </ul>
-        </div>
-    </div>
-</div>
-
-@* SCREEN SIZE *@
-<div class="row" style="margin: 15px 0px 15px 0px; max-width: 220px;">
-    <button class="btn" type="button" data-toggle="collapse" data-target="#screenSize" aria-expanded="false" aria-controls="screenSize" style="width: 100%; background-color: #333; color:#FF7417;">Screen size</button>
-    <div class="collapse multi-collapse" id="screenSize">
-        <div class="card card-body">
-            <ul>
-                @foreach (var size in screenSize)
-                {
-                    <li>
-                        <label class="check">
-                            @size.Text
-                            @Html.CheckBox(size.Text.ToString(), false)
+                            @Html.CheckBox(shop.Id.ToString(), false, new { id = shop.Id, @class = "shop" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -177,14 +118,14 @@
                 <li>
                     <label class="check">
                         Yes
-                        @Html.CheckBox("Yes", false)
+                        @Html.CheckBox("Yes", false, new { id= "yes", @class="touch"})
                         <span class="checkmark"></span>
                     </label>
                 </li>
                 <li>
                     <label class="check">
                         No
-                        @Html.CheckBox("No", false)
+                        @Html.CheckBox("No", false, new { id = "no", @class = "touch" })
                         <span class="checkmark"></span>
                     </label>
                 </li>
@@ -204,7 +145,7 @@
                     <li>
                         <label class="check">
                             @item.OS
-                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id, @class = "os" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -225,7 +166,7 @@
                     <li>
                         <label class="check">
                             @String.Concat(item.Memory)
-                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id, @class = "ram" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -246,7 +187,7 @@
                     <li>
                         <label class="check">
                             @item.Capacity
-                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id, @class = "battery" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -267,7 +208,7 @@
                     <li>
                         <label class="check">
                             @String.Concat(item.MP)
-                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id, @class = "front" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -289,7 +230,7 @@
                     <li>
                         <label class="check">
                             @String.Concat(item.MP)
-                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id })
+                            @Html.CheckBox(item.Id.ToString(), false, new { id = item.Id, @class = "back" })
                             <span class="checkmark"></span>
                         </label>
                     </li>
@@ -308,21 +249,21 @@
                 <li>
                     <label class="check">
                         FMRadio
-                        @Html.CheckBox("FMRadio", false)
+                        @Html.CheckBox("FMRadio", false, new { id = "fmradio" })
                         <span class="checkmark"></span>
                     </label>
                 </li>
                 <li>
                     <label class="check">
                         HD Voice
-                        @Html.CheckBox("HDVoice", false)
+                        @Html.CheckBox("HDVoice", false, new { id = "hdvoice" })
                         <span class="checkmark"></span>
                     </label>
                 </li>
                 <li>
                     <label class="check">
                         Port 35 mm
-                        @Html.CheckBox("Port35mm", false)
+                        @Html.CheckBox("Port35mm", false, new { id = "port35mm" })
                         <span class="checkmark"></span>
                     </label>
                 </li>
@@ -332,5 +273,5 @@
 </div>
 
 <div style="text-align:center; max-width: 220px;">
-    <button class="btn cust-btn " type="button" id="btn-registration" style="font-size: 16px; letter-spacing: 1px; width: 100px;">Search</button>
+    <button class="btn cust-btn" onclick="Search()" type="button" id="btn-registration" style="font-size: 16px; letter-spacing: 1px; width: 100px;">Search</button>
 </div>
