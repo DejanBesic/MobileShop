@@ -1,4 +1,6 @@
-﻿@using MobileShop.Models.DTO
+﻿@using PagedList;
+@using PagedList.Mvc;
+@using MobileShop.Models.DTO
 @model HomeDTO
 
 <div class="row" style="margin-right: 15px; margin-left: 10px;">
@@ -11,4 +13,7 @@
           @Html.Partial("_Card", m)      
         }
     </div>
+</div>
+<div class="row" style="margin-right: 15px; margin-left: 10px; text-align: center;">
+    @Html.PagedListPager(Model.Mobiles, page => Url.Action("Index", new { page }))
 </div>

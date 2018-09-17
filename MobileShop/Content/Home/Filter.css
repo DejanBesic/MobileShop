@@ -1,4 +1,18 @@
-﻿.check {
+﻿.pagination > li > a, .pagination > li > span {
+    color: #FF7417;
+    background-color: #333;
+    border-color: #333;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #333;
+    cursor: default;
+    background-color: #FF7417;
+    border-color: #FF7417;
+}
+
+.check {
     display: block;
     position: relative;
     padding-left: 25px;
