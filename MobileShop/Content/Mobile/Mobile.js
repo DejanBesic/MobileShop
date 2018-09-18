@@ -12,8 +12,12 @@
         success: () => {
             alert("Successfully added mobile to cart.")
         },
-        error: () => {
-            alert("Failed to add mobile to cart. Try refreshing page.");
+        error: (error) => {
+            if (error.status === 401) {
+                window.location.href = "/Auth/Login";
+            } else {
+                alert("Failed to add mobile to cart. Try refreshing page.");
+            }
         }
     });
 }

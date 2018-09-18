@@ -163,7 +163,7 @@ namespace MobileShop.Controllers
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
-        [JwtAuthorize(Role = "ADMIN")]
+        [JwtAuthorize]
         public ActionResult History()
         {
             CustomerM customer = authService.DecodeJWT(User.Identity.Name);

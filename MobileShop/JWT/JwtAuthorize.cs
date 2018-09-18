@@ -19,7 +19,6 @@ namespace MobileShop.JWT
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             var token = HttpContext.Current.User.Identity.Name;
-
             try
             {
                 IJsonSerializer serializer = new JsonNetSerializer();

@@ -3,17 +3,77 @@
 @using MobileShop.Models.DTO
 @model HomeDTO
 
+@{ 
+    var sort = "";
+    if (ViewBag.Sort == null || ViewBag.Sort != "1")
+    {
+        sort = "1";
+    } else
+    {
+        sort = "0";
+    }
+}
+
+
 <div class="row" style="margin-right: 15px; margin-left: 10px;">
     <div class="col-sm-2">
         @Html.Partial("_SearchAndFilters", Model.Drops)
     </div>
     <div class="col-sm-10">
+        <div class="row" style="margin-top: 10px; margin-left: 15px;">
+            @Html.ActionLink( sort == "1" ? "Descending" : "Ascending",
+                             "Index",
+                             "Home",
+                             routeValues: new
+                                        {
+                                            page = ViewBag.Page ?? "",
+                                            max = ViewBag.Max ?? "",
+                                            min = ViewBag.Min ?? "",
+                                            search = ViewBag.Search ?? "",
+                                            externs = ViewBag.Externs ?? "",
+                                            interns = ViewBag.Interns ?? "",
+                                            shops = ViewBag.Shops ?? "",
+                                            ram = ViewBag.Ram ?? "",
+                                            fronts = ViewBag.Fronts ?? "",
+                                            backs = ViewBag.Backs ?? "",
+                                            battery = ViewBag.Battery ?? "",
+                                            touches = ViewBag.Touches ?? "",
+                                            os = ViewBag.OS ?? "",
+                                            fmradio = ViewBag.FMRadio ?? "",
+                                            hdvoice = ViewBag.HDVoice ?? "",
+                                            port35mm = ViewBag.Port35mm ?? "",
+                                            sort = sort,
+                                        },
+                              htmlAttributes: new { @class="sort-button" })
+        </div>
         @foreach (var m in Model.Mobiles)
         {
           @Html.Partial("_Card", m)      
         }
     </div>
+
 </div>
 <div class="row" style="margin-right: 15px; margin-left: 10px; text-align: center;">
-    @Html.PagedListPager(Model.Mobiles, page => Url.Action("Index", new { page }))
+    @Html.PagedListPager(
+                        Model.Mobiles,
+                        page => Url.Action("Index",
+                            new { page,
+                                max = ViewBag.Max ?? "",
+                                min = ViewBag.Min ?? "",
+                                search = ViewBag.Search ?? "",
+                                externs = ViewBag.Externs ?? "",
+                                interns = ViewBag.Interns ?? "",
+                                shops = ViewBag.Shops ?? "",
+                                ram = ViewBag.Ram ?? "",
+                                fronts = ViewBag.Fronts ?? "",
+                                backs = ViewBag.Backs ?? "",
+                                battery = ViewBag.Battery ?? "",
+                                touches = ViewBag.Touches ?? "",
+                                os = ViewBag.OS ?? "",
+                                fmradio = ViewBag.FMRadio ?? "",
+                                hdvoice = ViewBag.HDVoice ?? "",
+                                port35mm = ViewBag.Port35mm ?? "",
+                                sort = ViewBag.sort ?? 1,
+                            }),
+                        new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
 </div>

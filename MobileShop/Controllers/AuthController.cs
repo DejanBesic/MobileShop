@@ -25,7 +25,8 @@ namespace MobileShop.Controllers
 
             if (customer == null || !authService.Authenticate(login.Email, login.Password))
             {
-                return Json("Wrong email address or password.", JsonRequestBehavior.AllowGet);
+                ModelState.AddModelError("LoginError", "Wrong username or password.");
+                return View("Login");
             }
 
             var token = authService.GenerateJWT(customer);

@@ -24,7 +24,8 @@ namespace MobileShop.Controllers
         private readonly ImageService imageService = new ImageService();
 
         public ActionResult Index(int? page)
-        { 
+        {
+            string sort = CheckParameter("sort");
             string search = CheckParameter("Search");
             string max = CheckParameter("Max");
             string min = CheckParameter("Min");
@@ -43,6 +44,22 @@ namespace MobileShop.Controllers
             double.TryParse(max, out double maxDouble);
             double.TryParse(min, out double minDouble);
 
+            ViewBag.Search = Request.QueryString["search"];
+            ViewBag.Max = Request.QueryString["max"];
+            ViewBag.Min = Request.QueryString["min"];
+            ViewBag.Externs = Request.QueryString["externs"];
+            ViewBag.Interns = Request.QueryString["interns"];
+            ViewBag.Shops = Request.QueryString["shops"];
+            ViewBag.Touches = Request.QueryString["touches"];
+            ViewBag.OS = Request.QueryString["os"];
+            ViewBag.Ram = Request.QueryString["ram"];
+            ViewBag.Battery = Request.QueryString["battery"];
+            ViewBag.Fronts = Request.QueryString["fronts"];
+            ViewBag.Backs = Request.QueryString["backs"];
+            ViewBag.FMRadio = Request.QueryString["fmradio"];
+            ViewBag.HDVoice = Request.QueryString["hdvoice"];
+            ViewBag.Port35mm = Request.QueryString["port35mm"];
+            ViewBag.Sort = Request.QueryString["sort"];
 
             IEnumerable<ShopMobilesM> shopMobiles = shopMobilesService.FindAll().Where(x =>
                 x.MobilesLeft > 0 &&
@@ -61,7 +78,16 @@ namespace MobileShop.Controllers
                 (FMRadio != null ? FMRadio.Contains("True") && mobileService.FindById(x.MobileId).FMRadio : true) &&
                 (HDVoice != null ? HDVoice.Contains("True") && mobileService.FindById(x.MobileId).HDVoice : true) &&
                 (Port35mm != null ? Port35mm.Contains("True") && mobileService.FindById(x.MobileId).Port35mm : true)
-            ).OrderBy(x => x.Price);
+            );
+
+            if (sort == null || sort == "1")
+            {
+                shopMobiles = shopMobiles.OrderBy(x => x.Price);
+            }
+            else
+            {
+                shopMobiles = shopMobiles.OrderByDescending(x => x.Price);
+            }
             List<HomeMobile> homeMobiles = new List<HomeMobile>();
 
             foreach (ShopMobilesM sm in shopMobiles)
@@ -84,6 +110,8 @@ namespace MobileShop.Controllers
                 });
             }
 
+            var minMax = shopMobilesService.FindAll().OrderBy(x => x.Price).ToList();
+
             DropDowns dropDowns = new DropDowns()
             {
                 Batteries = batteryService.FindAll(),
@@ -92,8 +120,8 @@ namespace MobileShop.Controllers
                 Shops = shopService.FindAll(),
                 OperativeSystems = operativeSystemService.FindAll(),
                 Rams = ramService.FindAll(),
-                MaxPrice = homeMobiles.Count > 0 ? homeMobiles[homeMobiles.Count - 1].Price : 0,
-                MinPrice = homeMobiles.Count > 0 ? homeMobiles[0].Price : 0,
+                MaxPrice = minMax.Count > 0 ? minMax[minMax.Count - 1].Price : 0,
+                MinPrice = minMax.Count > 0 ? minMax[0].Price : 0,
             };
             HomeDTO homeDTO = new HomeDTO()
             {

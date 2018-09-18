@@ -23,6 +23,7 @@
         <div>
             <span class="fontawesome-lock form-span"></span>
             @Html.PasswordFor(m => m.Password, new { @class = "form-input", id = "Password", placeholder = "Password" })
+            @Html.ValidationMessage("LoginError", new { style = "color: red;" })
         </div>
         <div>
             <input type="submit" value="Log in" class="submit-button" />

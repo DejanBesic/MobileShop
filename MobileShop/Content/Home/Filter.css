@@ -12,6 +12,17 @@
     border-color: #FF7417;
 }
 
+.sort-button {
+    display: block;
+    width: 115px;
+    height: 25px;
+    background: #333;
+    text-align: center;
+    font-size: medium;
+    color: #FF7417;
+    border-radius: 5px;
+}
+
 .check {
     display: block;
     position: relative;
