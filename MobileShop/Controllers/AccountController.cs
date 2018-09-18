@@ -1,4 +1,5 @@
 ﻿using MobileShop.JWT;
+using MobileShop.Models.DTO;
 using Models;
 using Services;
 using System;
@@ -21,6 +22,49 @@ namespace MobileShop.Controllers
 
             return View(customerService.FindAll().Where(x => x.ShopAdminId == -1 && x.IsAdmin == false && x.IsRootAdmin == false && x.Id != user.Id));
         }
+
+        [JwtAuthorize]
+        public ActionResult MyAccount()
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+
+            return View(new ChangeAccountInfo() {
+                    Address = customer.Address,
+                    Email = customer.Email,
+                    FirstName = customer.FirstName,
+                    Id = customer.Id,
+                    LastName = customer.LastName,
+            });
+        }
+
+        [HttpPost]
+        [JwtAuthorize]
+        public ActionResult Edit(ChangeAccountInfo accountInfo)
+        {
+            CustomerM customer = authService.DecodeJWT(User.Identity.Name);
+            if (authService.HashPassword(accountInfo.OldPassword) != customer.Password )
+            {
+                ModelState.AddModelError("Password", "Your password is incorrect.");
+                return View("MyAccount", accountInfo);
+            }
+
+            if (accountInfo.Password != accountInfo.ConfirmPassword && (string.IsNullOrWhiteSpace(accountInfo.ConfirmPassword) || string.IsNullOrEmpty(accountInfo.ConfirmPassword))
+                                                                    && (string.IsNullOrWhiteSpace(accountInfo.Password) || string.IsNullOrEmpty(accountInfo.Password)))
+            {
+                ModelState.AddModelError("Password", "New password and confirm password does not match.");
+                return View("MyAccount", accountInfo);
+            }
+
+            customer.LastName = accountInfo.LastName;
+            customer.FirstName = accountInfo.FirstName;
+            customer.Email = accountInfo.Email;
+            customer.Address = accountInfo.Address;
+            customer.Password = authService.HashPassword(accountInfo.Password);
+            customerService.Edit(customer);
+
+            return View("Index", "Home");
+        }
+
 
         [HttpPut]
         [JwtAuthorize(Role = "ADMIN")]

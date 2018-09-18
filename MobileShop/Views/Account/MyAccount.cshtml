@@ -1,17 +1,50 @@
-﻿
-@{
-    Layout = null;
+﻿@model MobileShop.Models.DTO.ChangeAccountInfo
+
+@Styles.Render("~/Content/Register/Register.css")
+
+@{ if (!Request.IsAuthenticated)
+    {
+        Response.Redirect("/Home");
+    }
 }
 
-<!DOCTYPE html>
+<div class="col-sm-4"></div>
+<div class="login col-sm-4" style="text-align: center;  padding-left: 70px; padding-right: 70px; ">
+    <div style="margin: 50px"></div>
+    <h2 style="color: beige;">Registration</h2>
+    @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { @class = "login-form" }))
+    {
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>MyAccount</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+        <div>
+            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-input", id = "FirstName", placeholder = "First Name" })
+        </div>
+
+        <div>
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-input", id = "LastName", placeholder = "Last Name" })
+        </div>
+
+        <div>
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-input", id = "Address", placeholder = "Address" })
+        </div>
+
+        <div>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-input", id = "Email", placeholder = "Email" })
+        </div>
+
+        <div>
+            @Html.PasswordFor(m => m.OldPassword, new { @class = "form-input", id = "OldPassword", placeholder = "Old password" })
+        </div>
+
+        <div>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-input", id = "Password", placeholder = "New password" })
+        </div>
+
+        <div>
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-input", id = "ConfirmPassword", placeholder = "Confirm password" })
+        </div>
+            @Html.ValidationMessage("Password", new { style = "color: red;" })
+        <div>
+            <input type="submit" value="Save" class="submit-button" />
+        </div>
+    }
+</div>

@@ -384,6 +384,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataAccess.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\DTO\ChangeAccountInfo.cs" />
     <Compile Include="Models\DTO\DropDowns.cs" />
     <Compile Include="Models\DTO\HomeDTO.cs" />
     <Compile Include="Models\DTO\HomeMobile.cs" />
